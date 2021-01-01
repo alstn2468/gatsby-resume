@@ -1,0 +1,10 @@
+{
+  "name": "Gatsby_Resume",
+  "version": "1.0.0",
+  "description": "Static website resume with GatsbyJS, TypeScript",
+  "main": "index.js",
+  "repository": "https://github.com/alstn2468/Gatsby_Resume",
+  "author": "alstn2468 <alstn2468_@naver.com>",
+  "license": "MIT",
+  "private": false
+}

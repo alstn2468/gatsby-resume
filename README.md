@@ -1,2 +1,10 @@
-# Gatsby_Resume
-📄 Static website resume with GatsbyJS, TypeScript ⚛️ 
+## Gatsby로 만드는 정적 웹사이트 이력서
+
+### To Do
+
+- [ ] GatsbyJs + TypeScript 세팅
+- [ ] CI/CD 파이프라인 구성
+- [ ] yml을 이용한 국문+영문 데이터 소싱
+- [ ] 페이지 레이아웃 디자인
+- [ ] 컴포넌트 개발
+- [ ] 페이지 개발
