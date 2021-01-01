@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "strict": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "noEmit": true,
+    "composite": true,
+    "incremental": true,
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["*"]
+    }
+  },
+  "include": [
+    "./src/**/*",
+    "./typings/*",
+    "./gatsby-config.ts"
+  ]
+}

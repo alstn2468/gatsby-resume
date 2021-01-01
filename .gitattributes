@@ -1,0 +1,5 @@
+/src/__generated__/* linguist-generated=true
+*.subset.otf         linguist-generated=true linguist-vendored=true
+*.subset.woff        linguist-generated=true linguist-vendored=true
+*.subset.woff2       linguist-generated=true linguist-vendored=true
+*LICENSE.txt         linguist-vendored=true

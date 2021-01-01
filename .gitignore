@@ -46,8 +46,6 @@ build/Release
 node_modules/
 jspm_packages/
 
-# TypeScript v1 declaration files
-typings/
 
 # TypeScript cache
 *.tsbuildinfo
@@ -89,8 +87,9 @@ typings/
 .nuxt
 dist
 
-# Gatsby files
-.cache/
+
+# Custom setting
+# Gatsby file.cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
@@ -127,3 +126,12 @@ thumb
 sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/react,node
+
+# Start of Custom setting
+public/
+!.env.example
+
+src/__generated__/gatsby-types.ts
+src/__generated__/gatsby-schema.json
+src/__generated__/gatsby-schema.graphql
+src/__generated__/gatsby-plugin-documents.graphqlpublic/
