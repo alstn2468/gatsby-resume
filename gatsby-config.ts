@@ -30,10 +30,13 @@ export const siteMetadata: GatsbyConfig["siteMetadata"] = {
   description: "Static website resume with GatsbyJS, TypeScript",
 };
 
+export const pathPrefix: GatsbyConfig["pathPrefix"] = "/Gatsby_Resume";
+
 export const plugins: PluginConfig[] = [
   "gatsby-transformer-sharp",
   "gatsby-plugin-sharp",
   "gatsby-plugin-emotion",
+  "gatsby-plugin-pnpm",
   "gatsby-plugin-svgr",
   "gatsby-plugin-react-helmet-async",
   {

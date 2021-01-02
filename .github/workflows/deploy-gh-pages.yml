@@ -1,0 +1,56 @@
+name: Deploy Gatsby Resume
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: "14"
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v1.2.1
+        with:
+          version: "5.10.2"
+
+      - uses: actions/cache@v2
+        id: pnpm-cache
+        with:
+          path: |
+            node_modules
+            Gatsby_Resume/node_modules
+            ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Install dependencies
+        if: steps.pnpm-cache.outputs.cache-hit != 'true'
+        run: pnpm install --frozen-lockfile --strict-peer-dependencies
+
+      - name: Build website
+        env:
+          PUBLIC_URL: "https://alstn2468.github.io/Gatsby_Resume/"
+        run: |
+          pnpm build
+
+      - name: Type-checking with TypeScript
+        run: |
+          pnpm check-types
+
+      - name: Deploy to gh-pages
+        uses: enriikke/gatsby-gh-pages-action@v2
+        env:
+          PUBLIC_URL: "https://alstn2468.github.io/Gatsby_Resume/"
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          deploy-branch: gh-pages
+          gatsby-args: --prefix-paths
