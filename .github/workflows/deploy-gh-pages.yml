@@ -3,6 +3,13 @@ name: Deploy Gatsby Resume
 on:
   push:
     branches: [main]
+    paths:
+      - ".github/**"
+      - "src/**"
+      - "**.ts"
+      - "**.tsx"
+      - "**.js"
+      - "**.jsx"
 
 jobs:
   build-and-deploy:
