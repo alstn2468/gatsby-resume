@@ -30,9 +30,9 @@ const Fab: React.FC<FabProps> = ({
   const handleChangeLanguageButton = React.useCallback(() => {
     switch (language) {
       case 'en':
-        return navigate(withPrefix('/ko/'));
+        return navigate('/ko/');
       case 'ko':
-        return navigate(withPrefix('/en/'));
+        return navigate('/en/');
       default:
         throw new Error('Unknown langauge passed at Fab component.');
     }

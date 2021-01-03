@@ -1,6 +1,6 @@
 import type { PageProps } from 'gatsby';
 import * as React from 'react';
-import { graphql, navigate, withPrefix } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 
 import { parseLink, linkToString } from '~/src/utils';
 
@@ -18,7 +18,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
     })
 
     const current = new URL(window.location.href);
-    current.pathname = withPrefix(`/${targetLanguage}/`);
+    current.pathname = `/${targetLanguage}/`;
 
     const replaceTo = parseLink(current.href, window.location.origin);
     void navigate(linkToString(replaceTo), { replace: true });
