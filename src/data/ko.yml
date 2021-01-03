@@ -1,0 +1,232 @@
+introduce:
+  - typename: 'Introduce'
+  - title: '자기소개'
+  - name: '김민수'
+  - email: 'alstn2468_@naver.com'
+  - phone: '010-2845-7067'
+  - github: 'alstn2468'
+  - facebook: 'alstn2468'
+  - instagram: 'minsu._.0102'
+  - linkedIn: 'minsu-kim-developer'
+  - youtube: ''
+  - description: ''
+
+skill:
+  - title: '기술'
+  - typename: 'Skill'
+  - criteria:
+    - '기초 수준'
+    - '취미 개발 수준'
+    - '프로덕션 개발 수준'
+  - category: {
+    frontend: {
+      category: '프론트엔드',
+      data: [
+        { name: 'HTML/CSS', level: 3 },
+        { name: 'JavaScript', level: 3 },
+        { name: 'TypeScript', level: 3 },
+        { name: 'React.js', level: 3 },
+        { name: 'Gatsby.js', level: 2 },
+        { name: 'ReScript', level: 1, },
+      ],
+    },
+    backend: {
+      category: '백엔드',
+      data: [
+        { name: 'Python', level: 3 },
+        { name: 'Django', level: 2 },
+        { name: 'Node.js', level: 2 },
+        { name: 'GraphQL', level: 2 },
+        { name: 'MySQL', level: 1 },
+        { name: 'MongoDB', level: 1 },
+      ],
+    },
+    devops: {
+      category: '데브옵스',
+      data: [
+        { name: 'AWS', level: 2 },
+        { name: 'CI/CD', level: 2 },
+        { name: 'Heroku', level: 2 },
+        { name: 'Terraform', level: 2 },
+      ],
+    },
+    etc: {
+      category: '그외 기타',
+      data: [
+        { name: 'Git', level: 3 },
+        { name: 'Communication', level: 3},
+        { name: 'Jira', level: 2 },
+        { name: 'Figma', level: 1 },
+        { name: 'Sketch', level: 1 },
+      ],
+    },
+  }
+
+experience:
+  - title: '경력'
+  - typename: 'Experience'
+  - data: [
+    {
+      name: '데이터스트림즈',
+      startDate: '2020.01',
+      endDate: '2020.09',
+      position: '프론트엔드 개발자',
+      description: [
+        '데이터 통합, 분석, 거버넌스 솔루션 회사',
+        '데이터를 통합 솔루션 MasterStream 개발',
+      ],
+      skill: [
+        'JavaScript',
+        'React.js',
+        'Jenkins',
+        'Git',
+        'Sketch',
+        'Jira',
+      ],
+    },
+    {
+      name: '데브시스터즈',
+      startDate: '2020.09',
+      position: '소프트웨어 엔지니어',
+      description: [
+        '글로벌 러닝 액션 게임 쿠키런을 개발한 게임 회사',
+        '사내 웹 서비스 및 게임관련 웹 서비스 개발',
+      ],
+      skill: [
+        'TypeScript',
+        'React.js',
+        'Gatsby.js',
+        'GraphQL',
+        'AWS',
+        'Git',
+      ],
+    },
+  ]
+
+project:
+  - title: '프로젝트'
+  - typename: 'Project'
+  - data: [
+    {
+      name: '한국투자증권 프로젝트',
+      company: '데이터스트림즈',
+      startDate: '2020.05',
+      endDate: '2020.09',
+      description: [
+        {
+          title: '한국투자증권 BI 포탈 개발',
+          detail: [
+            '한국투자증권 사내 포탈 서비스 개발',
+          ]
+        },
+        {
+          title: '데이터 대시보드 및 커스터마이징 기능 개발',
+          detail: [
+            '통합된 데이터베이스의 데이터를 보여주는 UI 개발',
+            '대시보드 레이아웃 및 데이터 폼 커스터마이징 기능 개발',
+          ],
+        }
+      ],
+    },
+    {
+      name: '쿠키런 킹덤 프로젝트',
+      company: '데브시스터즈',
+      startDate: '2020.09',
+      description: [
+        {
+          title: '쿠키런 킹덤 사전예약 및 게임 소개 페이지 개발',
+          detail: [
+            'Gatsby.js를 이용한 정적 웹사이트 개발',
+            'Lokalise를 이용한 4개 국가 지역화 진행',
+            'sharp를 이용한 이미지 최적화 진행',
+            '모노레포를 이용한 공통 패키지 재사용',
+          ],
+        },
+      ],
+    },
+  ]
+
+opensource:
+  - title: '오픈소스'
+  - typename: 'Opensource'
+  - data: [
+    {
+      title: 'Recoil',
+      description: [
+        'React.js의 전역 상태관리 패키지 Recoil 문서번역',
+        '한국어 번역 Maintainer',
+      ],
+      link: 'https://github.com/facebookexperimental/Recoil'
+    },
+  ]
+
+presentation:
+  - title: '발표'
+  - typename: 'Presentation'
+  - data: [
+    # {
+    #   title: '',
+    #   description: [
+    #     '',
+    #   ],
+    #   link: '',
+    # }
+  ]
+
+paper:
+  - title: '논문'
+  - typename: 'Paper'
+  - data: [
+    # {
+    #   title: '',
+    #   description: [
+    #     '',
+    #   ],
+    #   link: '',
+    # }
+  ]
+
+education:
+  - title: '학력'
+  - typename: 'Education'
+  - data: [
+    {
+      title: '순천향대학교',
+      major: '컴퓨터소프트웨어공학 학사',
+      startDate: '2017.03',
+      endDate: '2021.02',
+    },
+  ]
+
+etc:
+  - title: '그외 이력'
+  - typename: 'Etc'
+  - data: [
+    {
+      title: '멋쟁이 사자처럼 7기 운영진',
+      startDate: '2019.01',
+      endDate: '2019.12',
+      description: [
+        '교내 학생들을 대상으로 웹 프로그래밍 강의 진행',
+        '충청권 대학 해커톤 1회 개최',
+        '멋쟁이 사자처럼 7기 해커톤 참여',
+      ],
+    },
+    {
+      title: 'SW 마에스트로 10기 연수생',
+      startDate: '2019.04',
+      endDate: '2019.12',
+      description: [
+        '사회인 야구 인공지능 심판 어플리케이션 개발',
+      ]
+    },
+    {
+      title: '2019 WINTER NAVER CAMPUS HACKDAY',
+      startDate: '2019.11',
+      endDate: '2019.11',
+      description: [
+        '네이버에서 진행하는 해커톤인 핵데이 참여',
+        '1일 1커밋 스터디 플랫폼 개발',
+      ]
+    }
+  ]
