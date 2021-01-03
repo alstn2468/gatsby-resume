@@ -27,18 +27,19 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
   actions.createTypes(gql`
     type Target implements Node @dontInfer {
       language: String!
-      introduce: Introduce
-      skill: Skill
-      experience: Experience
-      project: Project
-      opensource: Opensource
-      presentation: Presentation
-      paper: Paper
-      education: Education
-      etc: Etc
+      introduce: Introduce!
+      skill: Skill!
+      experience: Experience!
+      project: Project!
+      opensource: Opensource!
+      presentation: Presentation!
+      paper: Paper!
+      education: Education!
+      etc: Etc!
     }
 
     type Introduce implements Node {
+      language: String!
       title: String!
       name: String!
       email: String
@@ -62,6 +63,7 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
     }
 
     type Skill implements Node {
+      language: String!
       title: String!
       criteria: [String!]!
       category: [SkillCategory!]!
@@ -86,6 +88,7 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
     }
 
     type Experience implements Node {
+      language: String!
       title: String!
       data: [ExperienceData!]!
     }
@@ -104,6 +107,7 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
     }
 
     type Project implements Node {
+      language: String!
       title: String!
       data: [ProjectData!]!
     }
@@ -115,16 +119,19 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
     }
 
     type Opensource implements Node {
+      language: String!
       title: String!
       data: [LinkData!]!
     }
 
     type Presentation implements Node {
+      language: String!
       title: String!
       data: [LinkData!]!
     }
 
     type Paper implements Node {
+      language: String!
       title: String!
       data: [LinkData!]!
     }
@@ -137,6 +144,7 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
     }
 
     type Education implements Node {
+      language: String!
       title: String!
       data: [EducationData!]!
     }
@@ -149,6 +157,7 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
     }
 
     type Etc implements Node {
+      language: String!
       title: String!
       data: [EtcData!]!
     }
@@ -161,16 +170,20 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
   createContentDigest,
 }) => {
   const targets = ["ko", "en"];
+  type YamlItem = {
+    typename: string;
+    title: string;
+  };
   type YamlDocs = {
-    introduce: Record<string, unknown>;
-    skill: Record<string, unknown>;
-    experience: Record<string, unknown>;
-    project: Record<string, unknown>;
-    opensource: Record<string, unknown>;
-    presentation: Record<string, unknown>;
-    paper: Record<string, unknown>;
-    education: Record<string, unknown>;
-    etc: Record<string, unknown>;
+    introduce: YamlItem;
+    skill: YamlItem;
+    experience: YamlItem;
+    project: YamlItem;
+    opensource: YamlItem;
+    presentation: YamlItem;
+    paper: YamlItem;
+    education: YamlItem;
+    etc: YamlItem;
   };
 
   for (const target of targets) {
@@ -192,6 +205,7 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
     actions.createNode({
       ...introduce,
       id: createNodeId(`Introduce: ${target}`),
+      language: target,
       internal: {
         type: introduce.typename,
         contentDigest: createContentDigest(introduce),
@@ -201,6 +215,7 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
     actions.createNode({
       ...skill,
       id: createNodeId(`Skill: ${target}`),
+      language: target,
       internal: {
         type: skill.typename,
         contentDigest: createContentDigest(skill),
@@ -210,6 +225,7 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
     actions.createNode({
       ...experience,
       id: createNodeId(`Experience: ${target}`),
+      language: target,
       internal: {
         type: experience.typename,
         contentDigest: createContentDigest(experience),
@@ -219,6 +235,7 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
     actions.createNode({
       ...project,
       id: createNodeId(`Project: ${target}`),
+      language: target,
       internal: {
         type: project.typename,
         contentDigest: createContentDigest(project),
@@ -228,6 +245,7 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
     actions.createNode({
       ...opensource,
       id: createNodeId(`Opensource: ${target}`),
+      language: target,
       internal: {
         type: opensource.typename,
         contentDigest: createContentDigest(opensource),
@@ -237,6 +255,7 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
     actions.createNode({
       ...presentation,
       id: createNodeId(`Presentation: ${target}`),
+      language: target,
       internal: {
         type: presentation.typename,
         contentDigest: createContentDigest(presentation),
@@ -246,6 +265,7 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
     actions.createNode({
       ...paper,
       id: createNodeId(`Paper: ${target}`),
+      language: target,
       internal: {
         type: paper.typename,
         contentDigest: createContentDigest(paper),
@@ -255,6 +275,7 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
     actions.createNode({
       ...education,
       id: createNodeId(`Education: ${target}`),
+      language: target,
       internal: {
         type: education.typename,
         contentDigest: createContentDigest(education),
@@ -264,6 +285,7 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
     actions.createNode({
       ...etc,
       id: createNodeId(`etc: ${target}`),
+      language: target,
       internal: {
         type: etc.typename,
         contentDigest: createContentDigest(etc),
@@ -271,12 +293,21 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
     });
 
     actions.createNode({
+      language: target,
+      introduce,
+      skill,
+      experience,
+      project,
+      opensource,
+      presentation,
+      paper,
+      education,
+      etc,
       id: createNodeId(`Target: ${target}`),
       internal: {
         type: "target",
         contentDigest: createContentDigest(target),
       },
-      language: target,
     });
   }
 };
