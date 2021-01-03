@@ -4,12 +4,14 @@ on:
   push:
     branches: [main]
     paths:
-      - ".github/**"
-      - "src/**"
-      - "**.ts"
-      - "**.tsx"
-      - "**.js"
-      - "**.jsx"
+      - '.github/**'
+      - 'src/**'
+      - '**.ts'
+      - '**.tsx'
+      - '**.js'
+      - '**.jsx'
+      - '**.json'
+      - '**.yml'
 
 jobs:
   build-and-deploy:
@@ -21,12 +23,12 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2-beta
         with:
-          node-version: "14"
+          node-version: '14'
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v1.2.1
         with:
-          version: "5.10.2"
+          version: '5.10.2'
 
       - uses: actions/cache@v2
         id: pnpm-cache
@@ -45,8 +47,9 @@ jobs:
 
       - name: Build website
         env:
-          PUBLIC_URL: "https://alstn2468.github.io/Gatsby_Resume/"
+          PUBLIC_URL: 'https://alstn2468.github.io/Gatsby_Resume/'
         run: |
+          dir
           pnpm build
 
       - name: Type-checking with TypeScript
@@ -54,9 +57,9 @@ jobs:
           pnpm check-types
 
       - name: Deploy to gh-pages
-        uses: enriikke/gatsby-gh-pages-action@v2
+        uses: enriikke/gatsby-gh-pages-action@v2.1.1
         env:
-          PUBLIC_URL: "https://alstn2468.github.io/Gatsby_Resume/"
+          PUBLIC_URL: 'https://alstn2468.github.io/Gatsby_Resume/'
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages

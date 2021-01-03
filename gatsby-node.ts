@@ -1,6 +1,6 @@
-import type { GatsbyNode } from "gatsby";
-import fs from "fs";
-import yaml from "js-yaml";
+import type { GatsbyNode } from 'gatsby';
+import fs from 'fs';
+import yaml from 'js-yaml';
 
 type $FIXME = any;
 
@@ -10,23 +10,30 @@ type GatsbyNodeAPI<T extends keyof GatsbyNode> = GatsbyNode[T] extends infer U
     : never
   : never;
 
-export const onCreateBabelConfig: GatsbyNodeAPI<"onCreateBabelConfig"> = ({
+export const onCreateBabelConfig: GatsbyNodeAPI<'onCreateBabelConfig'> = ({
   actions,
 }) => {
   actions.setBabelPlugin({
-    name: "babel-plugin-polished",
+    name: 'babel-plugin-polished',
     options: {},
   });
 };
 
 const gql = String.raw;
 
-export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization"> = ({
+export const createSchemaCustomization: GatsbyNodeAPI<'createSchemaCustomization'> = ({
   actions,
 }) => {
   actions.createTypes(gql`
+    type Message implements Node {
+      language: String!
+      Fab_changeLanguageButton_text: String!
+      Fab_exportPdfButton_text: String!
+    }
+
     type Target implements Node @dontInfer {
       language: String!
+      translations: Message! @link(by: "language", from: "language")
       introduce: Introduce! @link(by: "language", from: "language")
       skill: Skill! @link(by: "language", from: "language")
       experience: Experience! @link(by: "language", from: "language")
@@ -164,12 +171,12 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
   `);
 };
 
-export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
+export const sourceNodes: GatsbyNodeAPI<'sourceNodes'> = ({
   actions,
   createNodeId,
   createContentDigest,
 }) => {
-  const targets = ["ko", "en"];
+  const targets = ['ko', 'en'];
   type YamlItem = {
     typename: string;
     title: string;
@@ -184,11 +191,12 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
     paper: YamlItem;
     education: YamlItem;
     etc: YamlItem;
+    translations: Record<string, string>;
   };
 
   for (const target of targets) {
     const yamlFile = yaml.safeLoad(
-      fs.readFileSync(`./src/data/${target}.yml`, "utf-8"),
+      fs.readFileSync(`./src/data/${target}.yml`, 'utf-8'),
     );
     const {
       introduce,
@@ -200,6 +208,7 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
       paper,
       education,
       etc,
+      translations,
     } = yamlFile as YamlDocs;
 
     actions.createNode({
@@ -293,17 +302,27 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
     });
 
     actions.createNode({
+      messages: translations,
+      language: target,
+      id: createNodeId(`Message: ${target}`),
+      internal: {
+        type: 'Message',
+        contentDigest: createContentDigest(translations),
+      },
+    });
+
+    actions.createNode({
       language: target,
       id: createNodeId(`Target: ${target}`),
       internal: {
-        type: "Target",
+        type: 'Target',
         contentDigest: createContentDigest(target),
       },
     });
   }
 };
 
-export const createPages: GatsbyNodeAPI<"createPages"> = async ({
+export const createPages: GatsbyNodeAPI<'createPages'> = async ({
   graphql,
   actions,
 }) => {
@@ -320,7 +339,7 @@ export const createPages: GatsbyNodeAPI<"createPages"> = async ({
 
   for (const target of data.allTarget.nodes) {
     actions.createPage({
-      component: require.resolve("./src/templates/{Target.language}/index.tsx"),
+      component: require.resolve('./src/templates/{Target.language}/index.tsx'),
       path: `/${target.language}/`,
       context: {
         targetId: target.id,

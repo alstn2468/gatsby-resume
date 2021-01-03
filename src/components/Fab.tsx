@@ -4,6 +4,7 @@ import { navigate } from 'gatsby';
 import { Fab as BaseFab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
 
+import { useTranslation } from '~/src/components/l10nContext';
 import { ReactComponent as TranslationIconSvg } from '~/src/components/fab/translation.svg';
 import { ReactComponent as ExportIconSvg } from '~/src/components/fab/export.svg';
 
@@ -39,6 +40,7 @@ const Fab: React.FC<FabProps> = ({
   const handleExportButton = React.useCallback(() => {
     alert('Export to PDF file.')
   }, []);
+  const t = useTranslation();
   return (
     <BaseFab
       event='click'
@@ -51,7 +53,7 @@ const Fab: React.FC<FabProps> = ({
         style={{
           backgroundColor: '#0197f6',
         }}
-        text='Change Language'
+        text={t('Fab_changeLanguageButton_text')}
         onClick={handleChangeLanguageButton}
       >
         <TranslationIcon />
@@ -60,7 +62,7 @@ const Fab: React.FC<FabProps> = ({
         style={{
           backgroundColor: '#0197f6',
         }}
-        text='Export to PDF'
+        text={t('Fab_exportPdfButton_text')}
         onClick={handleExportButton}
       >
         <ExportIcon />

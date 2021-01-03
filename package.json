@@ -13,6 +13,7 @@
     "clean": "gatsby clean",
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "serve": "gatsby serve",
     "check-types": "tsc --noEmit --skipLibCheck"
   },
   "dependencies": {

@@ -219,3 +219,7 @@ etc:
           ],
       },
     ]
+
+translations:
+  Fab_changeLanguageButton_text: 'Change Language'
+  Fab_exportPdfButton_text: 'Export to PDF'
