@@ -40,7 +40,7 @@ const Fab: React.FC<FabProps> = ({ language }) => {
   const t = useTranslation();
   return (
     <BaseFab
-      event="hover"
+      event="click"
       icon={<span>+</span>}
       mainButtonStyles={{
         backgroundColor: '#192bc2',
