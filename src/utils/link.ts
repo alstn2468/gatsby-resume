@@ -1,21 +1,21 @@
 type Internal = {
-  type: "internal";
+  type: 'internal';
   url: URL;
 };
 
 type External = {
-  type: "external";
+  type: 'external';
   url: URL;
 };
 
 export type LinkType = Internal | External;
 
 export function isInternalLink(link: LinkType): link is Internal {
-  return link.type === "internal";
+  return link.type === 'internal';
 }
 
 export function isExternalLink(link: LinkType): link is External {
-  return link.type === "external";
+  return link.type === 'external';
 }
 
 export function linkToString(link: LinkType): string {
@@ -37,11 +37,11 @@ export function linkIsEqual(link1: LinkType, link2: LinkType): boolean {
 }
 
 export function parseLink(urlString: string, baseOrigin: string): LinkType {
-  const startsWithPath = urlString.startsWith("/");
+  const startsWithPath = urlString.startsWith('/');
 
   let url: URL | null = null;
   try {
-    url = new URL(`${startsWithPath ? baseOrigin : ""}${urlString}`);
+    url = new URL(`${startsWithPath ? baseOrigin : ''}${urlString}`);
   } catch {}
 
   if (!url) {
@@ -50,7 +50,7 @@ export function parseLink(urlString: string, baseOrigin: string): LinkType {
 
   const origin = url.origin ?? baseOrigin;
   const sameOrigin = origin === baseOrigin;
-  return { type: sameOrigin ? "internal" : "external", url };
+  return { type: sameOrigin ? 'internal' : 'external', url };
 }
 
 export function mapLinkType<ResultForInternal, ResultForExternal>(
@@ -58,7 +58,7 @@ export function mapLinkType<ResultForInternal, ResultForExternal>(
   mapper: {
     internal: (link: Internal) => ResultForInternal;
     external: (link: External) => ResultForExternal;
-  }
+  },
 ): ResultForInternal | ResultForExternal {
   if (isInternalLink(link)) {
     return mapper.internal(link);

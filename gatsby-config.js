@@ -1,9 +1,12 @@
 require('dotenv').config();
 require('@babel/register')({
   presets: [
-    ['babel-preset-gatsby-package', {
-      nodeVersion: 'current',
-    }],
+    [
+      'babel-preset-gatsby-package',
+      {
+        nodeVersion: 'current',
+      },
+    ],
   ],
   extensions: ['.js', '.jsx', '.ts', '.tsx'],
 });

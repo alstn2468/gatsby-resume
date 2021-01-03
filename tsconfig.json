@@ -17,9 +17,5 @@
       "~/*": ["*"]
     }
   },
-  "include": [
-    "./src/**/*",
-    "./typings/*",
-    "./gatsby-config.ts"
-  ]
+  "include": ["./src/**/*", "./typings/*", "./gatsby-config.ts"]
 }

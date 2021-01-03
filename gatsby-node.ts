@@ -188,7 +188,7 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
 
   for (const target of targets) {
     const yamlFile = yaml.safeLoad(
-      fs.readFileSync(`./src/data/${target}.yml`, "utf-8")
+      fs.readFileSync(`./src/data/${target}.yml`, "utf-8"),
     );
     const {
       introduce,

@@ -1,27 +1,27 @@
 introduce:
-  title: "INTRODUCE"
-  typename: "Introduce"
-  name: "Minsu Kim"
-  email: "alstn2468_@naver.com"
-  phone: "010-2845-7067"
-  github: "alstn2468"
-  facebook: "alstn2468"
-  instagram: "minsu._.0102"
-  linkedIn: "minsu-kim-developer"
-  youtube: ""
-  description: ""
+  title: 'INTRODUCE'
+  typename: 'Introduce'
+  name: 'Minsu Kim'
+  email: 'alstn2468_@naver.com'
+  phone: '010-2845-7067'
+  github: 'alstn2468'
+  facebook: 'alstn2468'
+  instagram: 'minsu._.0102'
+  linkedIn: 'minsu-kim-developer'
+  youtube: ''
+  description: ''
 
 skill:
-  title: "SKILL"
-  typename: "Skill"
+  title: 'SKILL'
+  typename: 'Skill'
   criteria:
-    - "Foundation level"
-    - "Hobby development level"
-    - "Production development level"
+    - 'Foundation level'
+    - 'Hobby development level'
+    - 'Production development level'
   category:
     [
       {
-        category: "Front-end",
+        category: 'Front-end',
         data:
           [
             { name: HTML/CSS, level: 3 },
@@ -33,7 +33,7 @@ skill:
           ],
       },
       {
-        category: "Back-end",
+        category: 'Back-end',
         data:
           [
             { name: Python, level: 3 },
@@ -45,7 +45,7 @@ skill:
           ],
       },
       {
-        category: "Devops",
+        category: 'Devops',
         data:
           [
             { name: AWS, level: 2 },
@@ -55,7 +55,7 @@ skill:
           ],
       },
       {
-        category: "Etc",
+        category: 'Etc',
         data:
           [
             { name: Git, level: 3 },
@@ -68,78 +68,78 @@ skill:
     ]
 
 experience:
-  title: "EXPERIENCE"
-  typename: "Experience"
+  title: 'EXPERIENCE'
+  typename: 'Experience'
   data:
     [
       {
-        title: "DataStreams",
-        startDate: "2020.01",
-        endDate: "2020.09",
-        position: "Front-end Developer",
+        title: 'DataStreams',
+        startDate: '2020.01',
+        endDate: '2020.09',
+        position: 'Front-end Developer',
         description:
           [
-            "Data integration, analytics, governance solution company",
-            "Develop data integration solution MasterStream",
+            'Data integration, analytics, governance solution company',
+            'Develop data integration solution MasterStream',
           ],
-        skill: ["JavaScript", "React.js", "Jenkins", "Git", "Sketch", "Jira"],
+        skill: ['JavaScript', 'React.js', 'Jenkins', 'Git', 'Sketch', 'Jira'],
       },
       {
-        title: "Devsisters",
-        startDate: "2020.09",
-        position: "Software Engineer",
+        title: 'Devsisters',
+        startDate: '2020.09',
+        position: 'Software Engineer',
         description:
           [
-            "Game company that developed global running game Cookie Run",
-            "Develop in-house web services and game-related web services",
+            'Game company that developed global running game Cookie Run',
+            'Develop in-house web services and game-related web services',
           ],
-        skill: ["TypeScript", "React.js", "Gatsby.js", "GraphQL", "AWS", "Git"],
+        skill: ['TypeScript', 'React.js', 'Gatsby.js', 'GraphQL', 'AWS', 'Git'],
       },
     ]
 
 project:
-  title: "PROJECT"
-  typename: "Project"
+  title: 'PROJECT'
+  typename: 'Project'
   data:
     [
       {
-        title: "Korea Investment & Securities Project",
-        company: "DataStreams",
-        startDate: "2020.05",
-        endDate: "2020.09",
+        title: 'Korea Investment & Securities Project',
+        company: 'DataStreams',
+        startDate: '2020.05',
+        endDate: '2020.09',
         description:
           [
             {
-              title: "Korea Investment & Securities BI Portal Development",
+              title: 'Korea Investment & Securities BI Portal Development',
               detail:
                 [
-                  "Korea Investment & Securities in-house portal service development",
+                  'Korea Investment & Securities in-house portal service development',
                 ],
             },
             {
-              title: "Data dashboard and customizing feature development",
+              title: 'Data dashboard and customizing feature development',
               detail:
                 [
-                  "UI development to show the data of the integrated database",
-                  "Dashboard layout and data form customization feature development",
+                  'UI development to show the data of the integrated database',
+                  'Dashboard layout and data form customization feature development',
                 ],
             },
           ],
       },
       {
-        title: "Cookierun:Kingdom Project",
-        company: "Devsisters",
-        startDate: "2020.09",
+        title: 'Cookierun:Kingdom Project',
+        company: 'Devsisters',
+        startDate: '2020.09',
         description:
           [
             {
-              title: "Development pre-registration and game introduction site",
+              title: 'Development pre-registration and game introduction site',
               detail:
                 [
-                  "Development of Static Website Using Gatsby.js",
-                  "Localization of 4 countries using Lokalise API",
-                  "Image optimization using sharp",
-                  "Common package reuse using monorepo with pnpm",
+                  'Development of Static Website Using Gatsby.js',
+                  'Localization of 4 countries using Lokalise API',
+                  'Image optimization using sharp',
+                  'Common package reuse using monorepo with pnpm',
                 ],
             },
           ],
@@ -147,75 +147,75 @@ project:
     ]
 
 opensource:
-  title: "OPEN SOURCE"
-  typename: "Opensource"
+  title: 'OPEN SOURCE'
+  typename: 'Opensource'
   data:
     [
       {
-        title: "Recoil",
+        title: 'Recoil',
         description:
           [
-            "Recoil documentation translation of React.js global state management package",
-            "Korean translation Maintainer",
+            'Recoil documentation translation of React.js global state management package',
+            'Korean translation Maintainer',
           ],
-        link: "https://github.com/facebookexperimental/Recoil",
+        link: 'https://github.com/facebookexperimental/Recoil',
       },
     ]
 
 presentation:
-  title: "PRESENTATION"
-  typename: "Presentation"
+  title: 'PRESENTATION'
+  typename: 'Presentation'
   data: []
 
 paper:
-  title: "PAPER"
-  typename: "Paper"
+  title: 'PAPER'
+  typename: 'Paper'
   data: []
 
 education:
-  title: "EDUCATION"
-  typename: "Education"
+  title: 'EDUCATION'
+  typename: 'Education'
   data:
     [
       {
-        title: "Soonchunhyang University",
-        major: "Bachelor, Computer Software Engineering",
-        startDate: "2017.03",
-        endDate: "2021.02",
+        title: 'Soonchunhyang University',
+        major: 'Bachelor, Computer Software Engineering',
+        startDate: '2017.03',
+        endDate: '2021.02',
       },
     ]
 
 etc:
-  title: "ETC"
-  typename: "Etc"
+  title: 'ETC'
+  typename: 'Etc'
   data:
     [
       {
-        title: "LikeLion 7th Organizer",
-        startDate: "2019.01",
-        endDate: "2019.12",
+        title: 'LikeLion 7th Organizer',
+        startDate: '2019.01',
+        endDate: '2019.12',
         description:
           [
-            "Web Programming Lectures for School Students",
-            "LikeLion Chungcheong provincial university to Hold 1st Hackathon",
-            "Participate LikeLion 7th Hackathon",
+            'Web Programming Lectures for School Students',
+            'LikeLion Chungcheong provincial university to Hold 1st Hackathon',
+            'Participate LikeLion 7th Hackathon',
           ],
       },
       {
-        title: "SW Maestro 10th trainee",
-        startDate: "2019.04",
-        endDate: "2019.12",
+        title: 'SW Maestro 10th trainee',
+        startDate: '2019.04',
+        endDate: '2019.12',
         description:
-          ["Development of application for social baseball AI judgment"],
+          ['Development of application for social baseball AI judgment'],
       },
       {
-        title: "2019 WINTER NAVER CAMPUS HACKDAY",
-        startDate: "2019.11",
-        endDate: "2019.11",
+        title: '2019 WINTER NAVER CAMPUS HACKDAY',
+        startDate: '2019.11',
+        endDate: '2019.11',
         description:
           [
-            "Participate in hackathon hosted by Naver",
-            "Development of one day one commit study platform",
+            'Participate in hackathon hosted by Naver',
+            'Development of one day one commit study platform',
           ],
       },
     ]

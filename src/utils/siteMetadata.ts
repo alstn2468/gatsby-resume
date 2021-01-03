@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from 'gatsby';
 
 export function useSiteMetadata() {
   const data = useStaticQuery<GatsbyTypes.SiteMetadataQuery>(graphql`
@@ -13,7 +13,7 @@ export function useSiteMetadata() {
     }
   `);
   if (!data.site?.siteMetadata) {
-    throw new Error("siteMetadata should be exist");
+    throw new Error('siteMetadata should be exist');
   }
 
   return data.site.siteMetadata;
