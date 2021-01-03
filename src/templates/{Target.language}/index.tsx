@@ -2,6 +2,7 @@
 import type { PageProps } from 'gatsby';
 import * as React from 'react';
 import { graphql, Link } from 'gatsby';
+import { Fab } from '~/src/components';
 
 type LocalizedIndexPageProps = PageProps<
   GatsbyTypes.TemplateIndexPageQuery,
@@ -18,9 +19,7 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
   }
   return (
     <div>
-      {location.pathname.includes('/ko/')
-        ? <Link to="/en/">ENGLISH</Link>
-        : <Link to="/ko/">KOREAN</Link>}
+      {data.target?.language && <Fab language={data.target.language} />}
       {(Object.keys(data.target) as Array<keyof typeof data.target>).map((key) => {
         if (!data.target?.hasOwnProperty(key) || !data.target[key]) {
           throw new Error(`data.target can not has ${key} attribute.`);
