@@ -18,14 +18,9 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
   }
   return (
     <div>
-      {(() => {
-        switch (location.pathname) {
-          case '/ko/':
-            return <Link to="/en/">ENGLISH</Link>
-          case '/en/':
-            return <Link to="/ko">KOREAN</Link>
-        }
-      })()}
+      {location.pathname.includes('/ko/')
+        ? <Link to="/en/">ENGLISH</Link>
+        : <Link to="/ko/">KOREAN</Link>}
       {(Object.keys(data.target) as Array<keyof typeof data.target>).map((key) => {
         if (!data.target?.hasOwnProperty(key) || !data.target[key]) {
           throw new Error(`data.target can not has ${key} attribute.`);
@@ -44,11 +39,11 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
 export default TemplateIndexPage;
 
 export const query = graphql`
-  query TemplateIndexPage(
-    $targetId: String!,
+        query TemplateIndexPage(
+          $targetId: String!,
   ) {
-    target(id: { eq: $targetId }) {
-      language
+        target(id: { eq: $targetId }) {
+        language
       introduce {
         title
         name
@@ -65,9 +60,9 @@ export const query = graphql`
         title
         criteria
         category {
-          category
+        category
           data {
-            name
+        name
             level
           }
         }
@@ -75,7 +70,7 @@ export const query = graphql`
       experience {
         title
         data {
-          title
+        title
           startDate
           endDate
           position
@@ -86,12 +81,12 @@ export const query = graphql`
       project {
         title
         data {
-          title
+        title
           company
           startDate
           endDate
           description {
-            title
+        title
             detail
           }
         }
@@ -99,7 +94,7 @@ export const query = graphql`
       opensource {
         title
         data {
-          title
+        title
           description
           link
         }
@@ -107,7 +102,7 @@ export const query = graphql`
       presentation {
         title
         data {
-          title
+        title
           description
           link
         }
@@ -115,7 +110,7 @@ export const query = graphql`
       paper {
         title
         data {
-          title
+        title
           description
           link
         }
@@ -123,7 +118,7 @@ export const query = graphql`
       education {
         title
         data {
-          title
+        title
           startDate
           endDate
           major
@@ -132,7 +127,7 @@ export const query = graphql`
       etc {
         title
         data {
-          title
+        title
           startDate
           endDate
           description
