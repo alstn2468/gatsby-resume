@@ -1,4 +1,6 @@
 import type { GatsbyNode } from "gatsby";
+import fs from "fs";
+import yaml from "js-yaml";
 
 type $FIXME = any;
 
@@ -25,6 +27,130 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
   actions.createTypes(gql`
     type Target implements Node @dontInfer {
       language: String!
+      introduce: Introduce
+      skill: Skill
+      experience: Experience
+      project: Project
+      opensource: Opensource
+      presentation: Presentation
+      paper: Paper
+      education: Education
+      etc: Etc
+    }
+
+    type Introduce implements Node {
+      title: String!
+      name: String!
+      email: String
+      phone: String
+      github: String
+      facebook: String
+      instagram: String
+      linkedIn: String
+      youtube: String
+      description: String
+    }
+
+    type SkillCategoryData {
+      name: String!
+      level: Int!
+    }
+
+    type SkillCategory {
+      category: String!
+      data: [SkillCategoryData!]!
+    }
+
+    type Skill implements Node {
+      title: String!
+      criteria: [String!]!
+      category: [SkillCategory!]!
+    }
+
+    interface DateData {
+      startDate: Date!
+      endDate: Date
+    }
+
+    interface DescriptionData {
+      description: [String!]!
+    }
+
+    type ExperienceData implements DateData & DescriptionData {
+      title: String!
+      position: String
+      startDate: Date!
+      endDate: Date
+      description: [String!]!
+      skill: [String!]!
+    }
+
+    type Experience implements Node {
+      title: String!
+      data: [ExperienceData!]!
+    }
+
+    type ProjectDescriptionData {
+      title: String!
+      detail: [String!]!
+    }
+
+    type ProjectData implements DateData {
+      title: String!
+      company: String
+      startDate: Date!
+      endDate: Date
+      description: [ProjectDescriptionData!]!
+    }
+
+    type Project implements Node {
+      title: String!
+      data: [ProjectData!]!
+    }
+
+    type LinkData implements DescriptionData {
+      title: String!
+      link: String!
+      description: [String!]!
+    }
+
+    type Opensource implements Node {
+      title: String!
+      data: [LinkData!]!
+    }
+
+    type Presentation implements Node {
+      title: String!
+      data: [LinkData!]!
+    }
+
+    type Paper implements Node {
+      title: String!
+      data: [LinkData!]!
+    }
+
+    type EducationData implements DateData {
+      title: String!
+      major: String!
+      startDate: Date!
+      endDate: Date
+    }
+
+    type Education implements Node {
+      title: String!
+      data: [EducationData!]!
+    }
+
+    type EtcData implements DateData & DescriptionData {
+      title: String!
+      startDate: Date!
+      endDate: Date
+      description: [String!]!
+    }
+
+    type Etc implements Node {
+      title: String!
+      data: [EtcData!]!
     }
   `);
 };
@@ -35,7 +161,115 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
   createContentDigest,
 }) => {
   const targets = ["ko", "en"];
+  type YamlDocs = {
+    introduce: Record<string, unknown>;
+    skill: Record<string, unknown>;
+    experience: Record<string, unknown>;
+    project: Record<string, unknown>;
+    opensource: Record<string, unknown>;
+    presentation: Record<string, unknown>;
+    paper: Record<string, unknown>;
+    education: Record<string, unknown>;
+    etc: Record<string, unknown>;
+  };
+
   for (const target of targets) {
+    const yamlFile = yaml.safeLoad(
+      fs.readFileSync(`./src/data/${target}.yml`, "utf-8")
+    );
+    const {
+      introduce,
+      skill,
+      experience,
+      project,
+      opensource,
+      presentation,
+      paper,
+      education,
+      etc,
+    } = yamlFile as YamlDocs;
+
+    actions.createNode({
+      ...introduce,
+      id: createNodeId(`Introduce: ${target}`),
+      internal: {
+        type: introduce.typename,
+        contentDigest: createContentDigest(introduce),
+      },
+    });
+
+    actions.createNode({
+      ...skill,
+      id: createNodeId(`Skill: ${target}`),
+      internal: {
+        type: skill.typename,
+        contentDigest: createContentDigest(skill),
+      },
+    });
+
+    actions.createNode({
+      ...experience,
+      id: createNodeId(`Experience: ${target}`),
+      internal: {
+        type: experience.typename,
+        contentDigest: createContentDigest(experience),
+      },
+    });
+
+    actions.createNode({
+      ...project,
+      id: createNodeId(`Project: ${target}`),
+      internal: {
+        type: project.typename,
+        contentDigest: createContentDigest(project),
+      },
+    });
+
+    actions.createNode({
+      ...opensource,
+      id: createNodeId(`Opensource: ${target}`),
+      internal: {
+        type: opensource.typename,
+        contentDigest: createContentDigest(opensource),
+      },
+    });
+
+    actions.createNode({
+      ...presentation,
+      id: createNodeId(`Presentation: ${target}`),
+      internal: {
+        type: presentation.typename,
+        contentDigest: createContentDigest(presentation),
+      },
+    });
+
+    actions.createNode({
+      ...paper,
+      id: createNodeId(`Paper: ${target}`),
+      internal: {
+        type: paper.typename,
+        contentDigest: createContentDigest(paper),
+      },
+    });
+
+    actions.createNode({
+      ...education,
+      id: createNodeId(`Education: ${target}`),
+      internal: {
+        type: education.typename,
+        contentDigest: createContentDigest(education),
+      },
+    });
+
+    actions.createNode({
+      ...etc,
+      id: createNodeId(`etc: ${target}`),
+      internal: {
+        type: etc.typename,
+        contentDigest: createContentDigest(etc),
+      },
+    });
+
     actions.createNode({
       id: createNodeId(`Target: ${target}`),
       internal: {
