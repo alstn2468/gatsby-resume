@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { navigate } from 'gatsby';
+import { navigate, withPrefix } from 'gatsby';
 import { Fab as BaseFab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
 
@@ -30,9 +30,9 @@ const Fab: React.FC<FabProps> = ({
   const handleChangeLanguageButton = React.useCallback(() => {
     switch (language) {
       case 'en':
-        return navigate('/ko/');
+        return navigate(withPrefix('/ko/'));
       case 'ko':
-        return navigate('/en/');
+        return navigate(withPrefix('/en/'));
       default:
         throw new Error('Unknown langauge passed at Fab component.');
     }
@@ -43,7 +43,7 @@ const Fab: React.FC<FabProps> = ({
   const t = useTranslation();
   return (
     <BaseFab
-      event='click'
+      event='hover'
       icon={<span>+</span>}
       mainButtonStyles={{
         backgroundColor: '#192bc2',
