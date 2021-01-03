@@ -27,15 +27,15 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
   actions.createTypes(gql`
     type Target implements Node @dontInfer {
       language: String!
-      introduce: Introduce!
-      skill: Skill!
-      experience: Experience!
-      project: Project!
-      opensource: Opensource!
-      presentation: Presentation!
-      paper: Paper!
-      education: Education!
-      etc: Etc!
+      introduce: Introduce! @link(by: "language", from: "language")
+      skill: Skill! @link(by: "language", from: "language")
+      experience: Experience! @link(by: "language", from: "language")
+      project: Project! @link(by: "language", from: "language")
+      opensource: Opensource! @link(by: "language", from: "language")
+      presentation: Presentation! @link(by: "language", from: "language")
+      paper: Paper! @link(by: "language", from: "language")
+      education: Education! @link(by: "language", from: "language")
+      etc: Etc! @link(by: "language", from: "language")
     }
 
     type Introduce implements Node {
@@ -59,14 +59,14 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
 
     type SkillCategory {
       category: String!
-      data: [SkillCategoryData!]!
+      data: [SkillCategoryData]!
     }
 
     type Skill implements Node {
       language: String!
       title: String!
       criteria: [String!]!
-      category: [SkillCategory!]!
+      category: [SkillCategory]!
     }
 
     interface DateData {
@@ -75,7 +75,7 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
     }
 
     interface DescriptionData {
-      description: [String!]!
+      description: [String]!
     }
 
     type ExperienceData implements DateData & DescriptionData {
@@ -90,7 +90,7 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
     type Experience implements Node {
       language: String!
       title: String!
-      data: [ExperienceData!]!
+      data: [ExperienceData]!
     }
 
     type ProjectDescriptionData {
@@ -109,7 +109,7 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
     type Project implements Node {
       language: String!
       title: String!
-      data: [ProjectData!]!
+      data: [ProjectData]!
     }
 
     type LinkData implements DescriptionData {
@@ -121,19 +121,19 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
     type Opensource implements Node {
       language: String!
       title: String!
-      data: [LinkData!]!
+      data: [LinkData]!
     }
 
     type Presentation implements Node {
       language: String!
       title: String!
-      data: [LinkData!]!
+      data: [LinkData]!
     }
 
     type Paper implements Node {
       language: String!
       title: String!
-      data: [LinkData!]!
+      data: [LinkData]!
     }
 
     type EducationData implements DateData {
@@ -146,7 +146,7 @@ export const createSchemaCustomization: GatsbyNodeAPI<"createSchemaCustomization
     type Education implements Node {
       language: String!
       title: String!
-      data: [EducationData!]!
+      data: [EducationData]!
     }
 
     type EtcData implements DateData & DescriptionData {
@@ -294,18 +294,9 @@ export const sourceNodes: GatsbyNodeAPI<"sourceNodes"> = ({
 
     actions.createNode({
       language: target,
-      introduce,
-      skill,
-      experience,
-      project,
-      opensource,
-      presentation,
-      paper,
-      education,
-      etc,
       id: createNodeId(`Target: ${target}`),
       internal: {
-        type: "target",
+        type: "Target",
         contentDigest: createContentDigest(target),
       },
     });

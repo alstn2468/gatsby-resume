@@ -164,25 +164,11 @@ presentation:
   typename: "Presentation"
   data: []
 
-# {
-#   title: '',
-#   description: [
-#     '',
-#   ],
-#   link: '',
-# }
 paper:
   title: "논문"
   typename: "Paper"
   data: []
 
-# {
-#   title: '',
-#   description: [
-#     '',
-#   ],
-#   link: '',
-# }
 education:
   title: "학력"
   typename: "Education"

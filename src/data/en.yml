@@ -167,25 +167,11 @@ presentation:
   typename: "Presentation"
   data: []
 
-# {
-#   title: '',
-#   description: [
-#     '',
-#   ],
-#   link: '',
-# }
 paper:
   title: "PAPER"
   typename: "Paper"
   data: []
 
-# {
-#   title: '',
-#   description: [
-#     '',
-#   ],
-#   link: '',
-# }
 education:
   title: "EDUCATION"
   typename: "Education"
