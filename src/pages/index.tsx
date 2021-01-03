@@ -8,14 +8,14 @@ type IndexPageProps = PageProps<GatsbyTypes.IndexPageQuery>;
 
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   React.useEffect(() => {
-    const availableLanguages = data.allTarget.nodes.map((node) => node.language);
+    const availableLanguages = data.allTarget.nodes.map(node => node.language);
     const [navigatorLanguage] = window.navigator.language.split('-');
-    const targetLanguage = availableLanguages.find((lang) => {
+    const targetLanguage = availableLanguages.find(lang => {
       if (lang) {
-        return lang.startsWith(navigatorLanguage)
+        return lang.startsWith(navigatorLanguage);
       }
       return 'en';
-    })
+    });
 
     const current = new URL(window.location.href);
     current.pathname = `/${targetLanguage}/`;
@@ -38,4 +38,3 @@ export const query = graphql`
     }
   }
 `;
-

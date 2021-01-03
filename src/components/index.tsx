@@ -1,5 +1,3 @@
 import Fab from './Fab';
 
-export {
-  Fab,
-}
+export { Fab };

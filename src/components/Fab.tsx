@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { navigate, withPrefix } from 'gatsby';
+import { navigate } from 'gatsby';
 import { Fab as BaseFab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
 
@@ -8,9 +8,8 @@ import { useTranslation } from '~/src/components/l10nContext';
 import { ReactComponent as TranslationIconSvg } from '~/src/components/fab/translation.svg';
 import { ReactComponent as ExportIconSvg } from '~/src/components/fab/export.svg';
 
-
 type FabProps = {
-  language: string,
+  language: string;
 };
 
 const Icon = styled.svg({
@@ -24,9 +23,7 @@ const TranslationIcon = Icon.withComponent(TranslationIconSvg);
 
 const ExportIcon = Icon.withComponent(ExportIconSvg);
 
-const Fab: React.FC<FabProps> = ({
-  language,
-}) => {
+const Fab: React.FC<FabProps> = ({ language }) => {
   const handleChangeLanguageButton = React.useCallback(() => {
     switch (language) {
       case 'en':
@@ -38,12 +35,12 @@ const Fab: React.FC<FabProps> = ({
     }
   }, [language]);
   const handleExportButton = React.useCallback(() => {
-    alert('Export to PDF file.')
+    alert('Export to PDF file.');
   }, []);
   const t = useTranslation();
   return (
     <BaseFab
-      event='hover'
+      event="hover"
       icon={<span>+</span>}
       mainButtonStyles={{
         backgroundColor: '#192bc2',
@@ -67,7 +64,7 @@ const Fab: React.FC<FabProps> = ({
       >
         <ExportIcon />
       </Action>
-    </BaseFab >
+    </BaseFab>
   );
 };
 

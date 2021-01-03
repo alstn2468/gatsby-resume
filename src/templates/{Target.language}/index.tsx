@@ -1,13 +1,9 @@
-
 import type { PageProps } from 'gatsby';
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import { Global, css } from '@emotion/react';
 import { Helmet } from 'react-helmet-async';
-import {
-  getTranslationText,
-  l10nContext,
-} from '~/src/components/l10nContext'
+import { getTranslationText, l10nContext } from '~/src/components/l10nContext';
 import { Fab } from '~/src/components';
 
 type LocalizedIndexPageProps = PageProps<
@@ -15,15 +11,11 @@ type LocalizedIndexPageProps = PageProps<
   GatsbyTypes.SitePageContext
 >;
 
-const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
-  data,
-  location,
-  pageContext,
-}) => {
+const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({ data }) => {
   if (!data.target) {
     throw new Error('TemplateIndexPage에 data.target 없습니다.');
   }
-  const language = data.__translation_messeages?.language
+  const language = data.__translation_messeages?.language;
   if (!language) {
     throw new Error('TemplateIndexPage에 language 없습니다.');
   }
@@ -59,29 +51,29 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
           })}
         />
         {language && <Fab language={language} />}
-        {(Object.keys(data.target) as Array<keyof typeof data.target>).map((key) => {
-          if (!data.target?.hasOwnProperty(key) || !data.target[key]) {
-            throw new Error(`data.target can not has ${key} attribute.`);
-          }
-          return (
-            <section key={key}>
-              <h2>Key: {key}</h2>
-              <p>Item: {JSON.stringify(data.target[key])}</p>
-            </section>
-          )
-        })}
+        {(Object.keys(data.target) as Array<keyof typeof data.target>).map(
+          key => {
+            // eslint-disable-next-line no-prototype-builtins
+            if (!data.target?.hasOwnProperty(key) || !data.target[key]) {
+              throw new Error(`data.target can not has ${key} attribute.`);
+            }
+            return (
+              <section key={key}>
+                <h2>Key: {key}</h2>
+                <p>Item: {JSON.stringify(data.target[key])}</p>
+              </section>
+            );
+          },
+        )}
       </div>
     </l10nContext.Provider>
   );
-}
+};
 
 export default TemplateIndexPage;
 
 export const query = graphql`
-  query TemplateIndexPage(
-    $targetId: String!,
-    $language: String!,
-  ) {
+  query TemplateIndexPage($targetId: String!, $language: String!) {
     ...TranslationMessages
     target(id: { eq: $targetId }) {
       introduce {
@@ -100,9 +92,9 @@ export const query = graphql`
         title
         criteria
         category {
-        category
+          category
           data {
-        name
+            name
             level
           }
         }
@@ -110,7 +102,7 @@ export const query = graphql`
       experience {
         title
         data {
-        title
+          title
           startDate
           endDate
           position
@@ -121,12 +113,12 @@ export const query = graphql`
       project {
         title
         data {
-        title
+          title
           company
           startDate
           endDate
           description {
-        title
+            title
             detail
           }
         }
@@ -134,7 +126,7 @@ export const query = graphql`
       opensource {
         title
         data {
-        title
+          title
           description
           link
         }
@@ -142,7 +134,7 @@ export const query = graphql`
       presentation {
         title
         data {
-        title
+          title
           description
           link
         }
@@ -150,7 +142,7 @@ export const query = graphql`
       paper {
         title
         data {
-        title
+          title
           description
           link
         }
@@ -158,7 +150,7 @@ export const query = graphql`
       education {
         title
         data {
-        title
+          title
           startDate
           endDate
           major
@@ -167,7 +159,7 @@ export const query = graphql`
       etc {
         title
         data {
-        title
+          title
           startDate
           endDate
           description
