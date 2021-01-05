@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet-async';
 
 import Fab from '~/src/components/Fab';
 import Introduce from '~/src/components/Introduce';
+import Skill from '~/src/components/Skill';
 import { ThemeProvider, defaultTheme } from '~/src/components/themeContext';
 import { l10nContext, getTranslationText } from '~/src/components/l10nContext';
 
@@ -61,6 +62,8 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({ data }) => {
           switch (key) {
             case 'introduce':
               return <Introduce key={key + idx} data={target[key]} />;
+            case 'skill':
+              return <Skill key={key + idx} data={target[key]} />;
           }
         })}
       </l10nContext.Provider>
@@ -78,15 +81,7 @@ export const query = graphql`
         ...IntroduceDescription
       }
       skill {
-        title
-        criteria
-        category {
-          category
-          data {
-            name
-            level
-          }
-        }
+        ...SkillData
       }
       experience {
         title
