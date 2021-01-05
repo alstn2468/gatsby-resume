@@ -8,9 +8,13 @@ type SkillProps = {
 const Skill: React.FC<SkillProps> = ({
   data,
 }) => {
-  return (
+  const { title, category } = data;
+  if (!title) {
+    throw new Error('Skill: Not found title.');
+  }
+  return category.length > 0 ? (
     <div>
-      <h2>{data.title && data.title}</h2>
+      <h2>{title}</h2>
       {data.criteria && (
         <ul>
           {data.criteria.map((criteriaValue, criteriaIdx) => (
@@ -18,22 +22,22 @@ const Skill: React.FC<SkillProps> = ({
           ))}
         </ul>
       )}
-      {data.category && (
+      {category && (
         <ul>
-          {data.category.map((categoryValue, categoryIdx) => (
+          {category.map((categoryValue, categoryIdx) => (
             <li key={`skill-category-${categoryIdx}`}>
               <h3>{categoryValue?.category}</h3>
               {categoryValue?.data.map((skillData, skillDataIdx) => (
-                <span key={`skill-${categoryValue}-${skillDataIdx}`}>
+                <p key={`skill-${categoryValue}-${skillDataIdx}`}>
                   {skillData?.name} - {skillData?.level}
-                </span>
+                </p>
               ))}
             </li>
           ))}
         </ul>
       )}
     </div>
-  );
+  ) : null;
 };
 
 export default Skill;

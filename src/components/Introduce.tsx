@@ -7,12 +7,15 @@ type IntroduceProp = {
 
 const Introduce: React.FC<IntroduceProp> = ({ data }) => {
   const { title, description } = data;
-  return (
+  if (!title) {
+    throw new Error('Introduce: Not found title.');
+  }
+  return description ? (
     <div>
-      {title && title}
-      {description && description}
+      <h2>{title}</h2>
+      <pre>{description}</pre>
     </div>
-  );
+  ) : null;
 };
 
 export default Introduce;

@@ -9,6 +9,7 @@ import Introduce from '~/src/components/Introduce';
 import Skill from '~/src/components/Skill';
 import { ThemeProvider, defaultTheme } from '~/src/components/themeContext';
 import { l10nContext, getTranslationText } from '~/src/components/l10nContext';
+import Experience from '~/src/components/Experience';
 
 type LocalizedIndexPageProps = PageProps<
   GatsbyTypes.TemplateIndexPageQuery,
@@ -64,6 +65,8 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({ data }) => {
               return <Introduce key={key + idx} data={target[key]} />;
             case 'skill':
               return <Skill key={key + idx} data={target[key]} />;
+            case 'experience':
+              return <Experience key={key + idx} data={target[key]} />;
           }
         })}
       </l10nContext.Provider>
@@ -84,15 +87,7 @@ export const query = graphql`
         ...SkillData
       }
       experience {
-        title
-        data {
-          title
-          startDate
-          endDate
-          position
-          description
-          skill
-        }
+        ...ExperienceData
       }
       project {
         title
