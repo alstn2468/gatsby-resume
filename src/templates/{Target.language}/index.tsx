@@ -3,8 +3,11 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { Global, css } from '@emotion/react';
 import { Helmet } from 'react-helmet-async';
-import { getTranslationText, l10nContext } from '~/src/components/l10nContext';
-import { Fab } from '~/src/components';
+
+import Fab from '~/src/components/Fab';
+import Introduce from '~/src/components/Introduce';
+import { ThemeProvider, defaultTheme } from '~/src/components/themeContext';
+import { l10nContext, getTranslationText } from '~/src/components/l10nContext';
 
 type LocalizedIndexPageProps = PageProps<
   GatsbyTypes.TemplateIndexPageQuery,
@@ -12,19 +15,20 @@ type LocalizedIndexPageProps = PageProps<
 >;
 
 const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({ data }) => {
-  if (!data.target) {
-    throw new Error('TemplateIndexPage에 data.target 없습니다.');
+  const { target, __translation_messeages } = data;
+  if (!target) {
+    throw new Error('TemplateIndexPage에 target 없습니다.');
   }
-  const language = data.__translation_messeages?.language;
+  const language = __translation_messeages?.language;
   if (!language) {
     throw new Error('TemplateIndexPage에 language 없습니다.');
   }
   type L10nContext = React.ContextType<typeof l10nContext>;
   const l10n = React.useMemo<L10nContext>(() => {
-    if (!data?.__translation_messeages) {
+    if (!__translation_messeages) {
       return null;
     }
-    const { messages, language } = data.__translation_messeages;
+    const { messages, language } = __translation_messeages;
     if (!(language && messages)) {
       return null;
     }
@@ -33,11 +37,12 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({ data }) => {
       messages,
       t: key => getTranslationText({ language, messages }, key),
     };
-  }, [data]);
+  }, [__translation_messeages]);
   const currentLanguage = l10n?.language;
+  type TargetKeyType = Array<keyof typeof target>;
   return (
-    <l10nContext.Provider value={l10n}>
-      <div>
+    <ThemeProvider theme={defaultTheme}>
+      <l10nContext.Provider value={l10n}>
         {currentLanguage && (
           <Helmet>
             <html lang={currentLanguage} />
@@ -51,22 +56,15 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({ data }) => {
           })}
         />
         {language && <Fab language={language} />}
-        {(Object.keys(data.target) as Array<keyof typeof data.target>).map(
-          key => {
-            // eslint-disable-next-line no-prototype-builtins
-            if (!data.target?.hasOwnProperty(key) || !data.target[key]) {
-              throw new Error(`data.target can not has ${key} attribute.`);
-            }
-            return (
-              <section key={key}>
-                <h2>Key: {key}</h2>
-                <p>Item: {JSON.stringify(data.target[key])}</p>
-              </section>
-            );
-          },
-        )}
-      </div>
-    </l10nContext.Provider>
+        {(Object.keys(target) as TargetKeyType).map((key, idx) => {
+          // FIX ME: HoC 형태로 변경 필요
+          switch (key) {
+            case 'introduce':
+              return <Introduce key={key + idx} data={target[key]} />;
+          }
+        })}
+      </l10nContext.Provider>
+    </ThemeProvider>
   );
 };
 
@@ -77,16 +75,7 @@ export const query = graphql`
     ...TranslationMessages
     target(id: { eq: $targetId }) {
       introduce {
-        title
-        name
-        email
-        phone
-        github
-        facebook
-        instagram
-        linkedIn
-        youtube
-        description
+        ...IntroduceDescription
       }
       skill {
         title

@@ -1,16 +1,24 @@
 import * as React from 'react';
-import styled from '@emotion/styled';
 import { navigate } from 'gatsby';
 import { Fab as BaseFab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
 
+import { media as baseMedia } from '~/src/utils';
 import { useTranslation } from '~/src/components/l10nContext';
+import { styled, useMediaValue } from '~/src/components/themeContext';
 import { ReactComponent as TranslationIconSvg } from '~/src/components/fab/translation.svg';
 import { ReactComponent as ExportIconSvg } from '~/src/components/fab/export.svg';
 
 type FabProps = {
   language: string;
 };
+
+const StyledFab = styled(BaseFab)(props => ({
+  [props.theme.media['md']]: {
+    right: 0,
+    margin: 10,
+  },
+}));
 
 const Icon = styled.svg({
   fill: '#FFFFFF',
@@ -38,6 +46,12 @@ const Fab: React.FC<FabProps> = ({ language }) => {
     alert('Export to PDF file.');
   }, []);
   const t = useTranslation();
+  const media = useMediaValue(['sm', 'md', 'lg']);
+  const fabStyle: React.CSSProperties = React.useMemo(() => ({
+    right: ['sm', 'md'].includes(media) ? 10 : 25,
+    bottom: ['sm', 'md'].includes(media) ? 20 : 25,
+    margin: ['sm', 'md'].includes(media) ? 0 : 25,
+  }), [media]);
   return (
     <BaseFab
       event="click"
@@ -45,6 +59,7 @@ const Fab: React.FC<FabProps> = ({ language }) => {
       mainButtonStyles={{
         backgroundColor: '#192bc2',
       }}
+      style={fabStyle}
     >
       <Action
         style={{

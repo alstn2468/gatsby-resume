@@ -41,6 +41,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet-async": "^1.0.7",
+    "react-responsive": "^8.2.0",
     "react-tiny-fab": "^4.0.2"
   },
   "devDependencies": {
@@ -52,6 +53,7 @@
     "@types/node": "^14.0.27",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/react-responsive": "^8.0.2",
     "@types/webpack-env": "^1.15.2",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
@@ -61,8 +63,6 @@
     "babel-preset-gatsby-package": "^0.8.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.17.0",
-    "eslint-config-prettier": "^7.1.0",
-    "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.22.0",
     "file-loader": "^6.1.0",
     "gatsby-cli": "^2.15.1",
