@@ -5,11 +5,12 @@ import { Global, css } from '@emotion/react';
 import { Helmet } from 'react-helmet-async';
 
 import Fab from '~/src/components/Fab';
-import Introduce from '~/src/components/Introduce';
 import Skill from '~/src/components/Skill';
+import Project from '~/src/components/Project';
+import Introduce from '~/src/components/Introduce';
+import Experience from '~/src/components/Experience';
 import { ThemeProvider, defaultTheme } from '~/src/components/themeContext';
 import { l10nContext, getTranslationText } from '~/src/components/l10nContext';
-import Experience from '~/src/components/Experience';
 
 type LocalizedIndexPageProps = PageProps<
   GatsbyTypes.TemplateIndexPageQuery,
@@ -67,6 +68,8 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({ data }) => {
               return <Skill key={key + idx} data={target[key]} />;
             case 'experience':
               return <Experience key={key + idx} data={target[key]} />;
+            case 'project':
+              return <Project key={key + idx} data={target[key]} />;
           }
         })}
       </l10nContext.Provider>
@@ -90,17 +93,7 @@ export const query = graphql`
         ...ExperienceData
       }
       project {
-        title
-        data {
-          title
-          company
-          startDate
-          endDate
-          description {
-            title
-            detail
-          }
-        }
+        ...ProjectData
       }
       opensource {
         title

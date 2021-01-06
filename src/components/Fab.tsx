@@ -3,7 +3,6 @@ import { navigate } from 'gatsby';
 import { Fab as BaseFab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
 
-import { media as baseMedia } from '~/src/utils';
 import { useTranslation } from '~/src/components/l10nContext';
 import { styled, useMediaValue } from '~/src/components/themeContext';
 import { ReactComponent as TranslationIconSvg } from '~/src/components/fab/translation.svg';
@@ -12,13 +11,6 @@ import { ReactComponent as ExportIconSvg } from '~/src/components/fab/export.svg
 type FabProps = {
   language: string;
 };
-
-const StyledFab = styled(BaseFab)(props => ({
-  [props.theme.media['md']]: {
-    right: 0,
-    margin: 10,
-  },
-}));
 
 const Icon = styled.svg({
   fill: '#FFFFFF',
