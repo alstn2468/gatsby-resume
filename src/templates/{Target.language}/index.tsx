@@ -1,15 +1,13 @@
 import type { PageProps } from 'gatsby';
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { Global, css } from '@emotion/react';
-import { Helmet } from 'react-helmet-async';
 
+import Layout from '~/src/layout';
 import Fab from '~/src/components/Fab';
 import Skill from '~/src/components/Skill';
 import Project from '~/src/components/Project';
 import Introduce from '~/src/components/Introduce';
 import Experience from '~/src/components/Experience';
-import { ThemeProvider, defaultTheme } from '~/src/components/themeContext';
 import { l10nContext, getTranslationText } from '~/src/components/l10nContext';
 
 type LocalizedIndexPageProps = PageProps<
@@ -17,7 +15,9 @@ type LocalizedIndexPageProps = PageProps<
   GatsbyTypes.SitePageContext
 >;
 
-const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({ data }) => {
+const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
+  data,
+}) => {
   const { target, __translation_messeages } = data;
   if (!target) {
     throw new Error('TemplateIndexPage에 target 없습니다.');
@@ -41,39 +41,24 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({ data }) => {
       t: key => getTranslationText({ language, messages }, key),
     };
   }, [__translation_messeages]);
-  const currentLanguage = l10n?.language;
   type TargetKeyType = Array<keyof typeof target>;
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <l10nContext.Provider value={l10n}>
-        {currentLanguage && (
-          <Helmet>
-            <html lang={currentLanguage} />
-          </Helmet>
-        )}
-        <Global
-          styles={css({
-            body: {
-              margin: 0,
-            },
-          })}
-        />
-        {language && <Fab language={language} />}
-        {(Object.keys(target) as TargetKeyType).map((key, idx) => {
-          // FIX ME: HoC 형태로 변경 필요
-          switch (key) {
-            case 'introduce':
-              return <Introduce key={key + idx} data={target[key]} />;
-            case 'skill':
-              return <Skill key={key + idx} data={target[key]} />;
-            case 'experience':
-              return <Experience key={key + idx} data={target[key]} />;
-            case 'project':
-              return <Project key={key + idx} data={target[key]} />;
-          }
-        })}
-      </l10nContext.Provider>
-    </ThemeProvider>
+    <Layout l10n={l10n}>
+      {language && <Fab language={language} />}
+      {(Object.keys(target) as TargetKeyType).map((key, idx) => {
+        // FIX ME: HoC 형태로 변경 필요
+        switch (key) {
+          case 'introduce':
+            return <Introduce key={key + idx} data={target[key]} />;
+          case 'skill':
+            return <Skill key={key + idx} data={target[key]} />;
+          case 'experience':
+            return <Experience key={key + idx} data={target[key]} />;
+          case 'project':
+            return <Project key={key + idx} data={target[key]} />;
+        }
+      })}
+    </Layout>
   );
 };
 
