@@ -22,20 +22,18 @@ const Skill: React.FC<SkillProps> = ({
           ))}
         </ul>
       )}
-      {category && (
-        <ul>
-          {category.map((categoryValue, categoryIdx) => (
-            <li key={`skill-category-${categoryIdx}`}>
-              <h3>{categoryValue?.category}</h3>
-              {categoryValue?.data.map((skillData, skillDataIdx) => (
-                <p key={`skill-${categoryValue}-${skillDataIdx}`}>
-                  {skillData?.name} - {skillData?.level}
-                </p>
-              ))}
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul>
+        {category.map((categoryValue, categoryIdx) => (
+          <li key={`skill-category-${categoryIdx}`}>
+            <h3>{categoryValue?.category}</h3>
+            {categoryValue?.data.map((skillData, skillDataIdx) => (
+              <p key={`skill-${categoryValue}-${skillDataIdx}`}>
+                {skillData?.name} - {skillData?.level}
+              </p>
+            ))}
+          </li>
+        ))}
+      </ul>
     </div>
   ) : null;
 };

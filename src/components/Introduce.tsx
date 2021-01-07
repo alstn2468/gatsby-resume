@@ -2,7 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 
 type IntroduceProp = {
-  data: GatsbyTypes.IntroduceDescriptionFragment;
+  data: GatsbyTypes.IntroduceDataFragment;
 };
 
 const Introduce: React.FC<IntroduceProp> = ({ data }) => {
@@ -21,7 +21,7 @@ const Introduce: React.FC<IntroduceProp> = ({ data }) => {
 export default Introduce;
 
 export const query = graphql`
-  fragment IntroduceDescription on Introduce {
+  fragment IntroduceData on Introduce {
     title
     description
   }

@@ -4,10 +4,15 @@ import { graphql } from 'gatsby';
 
 import Layout from '~/src/layout';
 import Fab from '~/src/components/Fab';
+import Etc from '~/src/components/Etc';
+import Paper from '~/src/components/Paper';
 import Skill from '~/src/components/Skill';
 import Project from '~/src/components/Project';
+import Education from '~/src/components/Education';
 import Introduce from '~/src/components/Introduce';
 import Experience from '~/src/components/Experience';
+import OpenSource from '~/src/components/OpenSource';
+import Presentation from '~/src/components/Presentation';
 import { l10nContext, getTranslationText } from '~/src/components/l10nContext';
 
 type LocalizedIndexPageProps = PageProps<
@@ -46,7 +51,6 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
     <Layout l10n={l10n}>
       {language && <Fab language={language} />}
       {(Object.keys(target) as TargetKeyType).map((key, idx) => {
-        // FIX ME: HoC 형태로 변경 필요
         switch (key) {
           case 'introduce':
             return <Introduce key={key + idx} data={target[key]} />;
@@ -56,6 +60,16 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
             return <Experience key={key + idx} data={target[key]} />;
           case 'project':
             return <Project key={key + idx} data={target[key]} />;
+          case 'opensource':
+            return <OpenSource key={key + idx} data={target[key]} />;
+          case 'presentation':
+            return <Presentation key={key + idx} data={target[key]} />;
+          case 'paper':
+            return <Paper key={key + idx} data={target[key]} />;
+          case 'education':
+            return <Education key={key + idx} data={target[key]} />;
+          case 'etc':
+            return <Etc key={key + idx} data={target[key]} />
         }
       })}
     </Layout>
@@ -69,7 +83,7 @@ export const query = graphql`
     ...TranslationMessages
     target(id: { eq: $targetId }) {
       introduce {
-        ...IntroduceDescription
+        ...IntroduceData
       }
       skill {
         ...SkillData
@@ -81,46 +95,19 @@ export const query = graphql`
         ...ProjectData
       }
       opensource {
-        title
-        data {
-          title
-          description
-          link
-        }
+        ...OpenSourceData
       }
       presentation {
-        title
-        data {
-          title
-          description
-          link
-        }
+        ...PresentationData
       }
       paper {
-        title
-        data {
-          title
-          description
-          link
-        }
+        ...PaperData
       }
       education {
-        title
-        data {
-          title
-          startDate
-          endDate
-          major
-        }
+        ...EducationData
       }
       etc {
-        title
-        data {
-          title
-          startDate
-          endDate
-          description
-        }
+        ...EtcData
       }
     }
   }

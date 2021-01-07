@@ -15,29 +15,27 @@ const Project: React.FC<ProjectProps> = ({
   return projectData.length > 0 ? (
     <div>
       <h2>{title}</h2>
-      {projectData && (
-        <ul>
-          {projectData.map(((projectValue, idx) => (
-            <li key={`Project-${idx}`}>
-              <h3>{projectValue?.title}</h3>
-              <p>{projectValue?.company}</p>
-              <p>{projectValue?.startDate} ~ {projectValue?.endDate}</p>
-              {projectValue?.description.map((description, idx) => (
-                <div key={`Project-description-${idx}`}>
-                  <p>{description.title}</p>
-                  {description?.detail && (
-                    <ul>
-                      {description.detail.map((detailValue, idx) => (
-                        <li key={`project-description-detail-${idx}`}>{detailValue}</li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </li>
-          )))}
-        </ul>
-      )}
+      <ul>
+        {projectData.map(((projectValue, idx) => (
+          <li key={`Project-${idx}`}>
+            <h3>{projectValue?.title}</h3>
+            <p>{projectValue?.company}</p>
+            <p>{projectValue?.startDate} ~ {projectValue?.endDate}</p>
+            {projectValue?.description.map((description, idx) => (
+              <div key={`Project-description-${idx}`}>
+                <p>{description.title}</p>
+                {description?.detail.length > 0 && (
+                  <ul>
+                    {description.detail.map((detailValue, idx) => (
+                      <li key={`project-description-detail-${idx}`}>{detailValue}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </li>
+        )))}
+      </ul>
     </div>
   ) : null;
 };
