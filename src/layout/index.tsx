@@ -26,6 +26,7 @@ const Layout: React.FC<LayoutProps> = ({
           styles={css({
             '*': {
               fontFamily: 'inherit',
+              boxSizing: 'border-box',
             },
             'body': {
               margin: 0,
