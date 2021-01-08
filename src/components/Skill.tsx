@@ -104,7 +104,7 @@ const SkillDataCategoryTitleWrapper = styled.div((props) => ({
   padding: `0 ${rem(16)}`,
   fontSize: rem(18),
   [props.theme.media['md']]: {
-    fontSize: rem(24),
+    fontSize: rem(20),
     textAlign: 'right',
     flex: '0 0 25%',
     maxWidth: '25%',
