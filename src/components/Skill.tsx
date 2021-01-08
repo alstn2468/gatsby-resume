@@ -3,20 +3,13 @@ import { rem } from 'polished';
 import { graphql } from 'gatsby';
 import { FieldError } from '~/src/utils'
 import { styled } from '~/src/components/themeContext';
-import SectionTitle from '~/src/components/SectionTitle';
+import { SectionTitle, Container } from '~/src/components/common';
 import SkillDataItem from '~/src/components/skill/SkillDataItem';
 import { ReactComponent as TooltipIconSvg } from '~/src/components/skill/tooltip.svg';
 
 type SkillProps = {
   data: GatsbyTypes.SkillDataFragment;
 };
-
-const Container = styled.div((props) => ({
-  marginTop: rem(16),
-  [props.theme.media['md']]: {
-    marginTop: rem(32),
-  },
-}));
 
 const CriteriaToolTip = styled.div({
   position: 'relative',

@@ -1,20 +1,13 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import { rem } from 'polished';
-import SectionTitle from '~/src/components/SectionTitle';
 import { styled } from '~/src/components/themeContext';
+import { SectionTitle, Container } from '~/src/components/common';
 import { FieldError } from '~/src/utils';
 
 type IntroduceProp = {
   data: GatsbyTypes.IntroduceDataFragment;
 };
-
-const Container = styled.div((props) => ({
-  marginTop: rem(16),
-  [props.theme.media['md']]: {
-    marginTop: rem(32),
-  },
-}));
 
 const Introduce: React.FC<IntroduceProp> = ({ data }) => {
   const { title, description } = data;
