@@ -36,11 +36,10 @@ const CriteriaIcon = styled(TooltipIconSvg)({
   height: rem(24),
 });
 
-const CriteriaListContainer = styled.div((props) => ({
+const CriteriaListWrapper = styled.div((props) => ({
   opacity: 0,
   transition: 'opacity 0.2s ease-in-out',
   position: 'absolute',
-  width: rem(200),
   top: 0,
   transform: 'translateY(55%)',
   backgroundColor: '#000000',
@@ -53,9 +52,10 @@ const CriteriaListContainer = styled.div((props) => ({
 }));
 
 const CriteriaList = styled.ul({
+  display: 'inline-block',
   listStyle: 'none',
-  padding: rem(10),
-  paddingLeft: rem(20),
+  whiteSpace: 'nowrap',
+  padding: `${rem(10)} ${rem(20)}`,
   margin: 0,
 });
 
@@ -151,7 +151,7 @@ const Skill: React.FC<SkillProps> = ({
         {data.criteria && (
           <CriteriaToolTip>
             <CriteriaIcon />
-            <CriteriaListContainer>
+            <CriteriaListWrapper>
               <CriteriaListArrow />
               <CriteriaList>
                 {data.criteria.map((criteriaValue, criteriaIdx) => (
@@ -160,7 +160,7 @@ const Skill: React.FC<SkillProps> = ({
                   </CriteriaItem>
                 ))}
               </CriteriaList>
-            </CriteriaListContainer>
+            </CriteriaListWrapper>
           </CriteriaToolTip>
         )}
       </SectionTitle>
