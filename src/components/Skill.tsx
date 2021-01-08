@@ -94,7 +94,7 @@ const SkillDataCategoryItem = styled.li((props) => ({
   margin: 0,
   flexDirection: 'column',
   paddingBottom: rem(8),
-  ':not(:first-child)': {
+  ':not(:first-of-type)': {
     borderTop: '1px solid rgba(0, 0, 0, 0.1)',
     paddingTop: rem(16),
   },

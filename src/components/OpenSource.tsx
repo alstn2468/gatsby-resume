@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import { rem } from 'polished';
+import { styled } from '~/src/components/themeContext';
 import SectionTitle from '~/src/components/SectionTitle';
 import { FieldError } from '~/src/utils';
 
@@ -7,13 +9,20 @@ type OpenSourceProp = {
   data: GatsbyTypes.OpenSourceDataFragment;
 };
 
+const Container = styled.div((props) => ({
+  marginTop: rem(16),
+  [props.theme.media['md']]: {
+    marginTop: rem(32),
+  },
+}));
+
 const OpenSource: React.FC<OpenSourceProp> = ({ data }) => {
   const { title, data: openSourceData } = data;
   if (!title) {
     throw new FieldError({ componentName: 'OpenSource', field: 'title' });
   }
   return openSourceData.length > 0 ? (
-    <div>
+    <Container>
       <SectionTitle title={title} />
       <ul>
         {openSourceData.map((openSourceValue, valueIdx) => (
@@ -28,7 +37,7 @@ const OpenSource: React.FC<OpenSourceProp> = ({ data }) => {
           </li>
         ))}
       </ul>
-    </div>
+    </Container>
   ) : null;
 };
 

@@ -1,11 +1,20 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import { rem } from 'polished';
 import SectionTitle from '~/src/components/SectionTitle';
+import { styled } from '~/src/components/themeContext';
 import { FieldError } from '~/src/utils';
 
 type EducationProp = {
   data: GatsbyTypes.EducationDataFragment;
 };
+
+const Container = styled.div((props) => ({
+  marginTop: rem(16),
+  [props.theme.media['md']]: {
+    marginTop: rem(32),
+  },
+}));
 
 const Education: React.FC<EducationProp> = ({ data }) => {
   const { title, data: educationData } = data;
@@ -13,7 +22,7 @@ const Education: React.FC<EducationProp> = ({ data }) => {
     throw new FieldError({ componentName: 'Education', field: 'title' });
   }
   return educationData.length > 0 ? (
-    <div>
+    <Container>
       <SectionTitle title={title} />
       <ul>
         {educationData.map((educationValue, valueIdx) => (
@@ -24,7 +33,7 @@ const Education: React.FC<EducationProp> = ({ data }) => {
           </li>
         ))}
       </ul>
-    </div>
+    </Container>
   ) : null;
 };
 

@@ -1,12 +1,20 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import { rem } from 'polished';
 import SectionTitle from '~/src/components/SectionTitle';
+import { styled } from '~/src/components/themeContext';
 import { FieldError } from '~/src/utils';
-
 
 type IntroduceProp = {
   data: GatsbyTypes.IntroduceDataFragment;
 };
+
+const Container = styled.div((props) => ({
+  marginTop: rem(16),
+  [props.theme.media['md']]: {
+    marginTop: rem(32),
+  },
+}));
 
 const Introduce: React.FC<IntroduceProp> = ({ data }) => {
   const { title, description } = data;
@@ -14,10 +22,10 @@ const Introduce: React.FC<IntroduceProp> = ({ data }) => {
     throw new FieldError({ componentName: 'Introduce', field: 'title' });
   }
   return description ? (
-    <div>
+    <Container>
       <SectionTitle title={title} />
       <pre>{description}</pre>
-    </div>
+    </Container>
   ) : null;
 };
 

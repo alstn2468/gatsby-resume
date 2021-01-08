@@ -1,11 +1,20 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import { rem } from 'polished';
+import { styled } from '~/src/components/themeContext';
 import SectionTitle from '~/src/components/SectionTitle';
 import { FieldError } from '~/src/utils';
 
 type ExperienceProps = {
   data: GatsbyTypes.ExperienceDataFragment;
 };
+
+const Container = styled.div((props) => ({
+  marginTop: rem(16),
+  [props.theme.media['md']]: {
+    marginTop: rem(32),
+  },
+}));
 
 const Experience: React.FC<ExperienceProps> = ({
   data,
@@ -15,7 +24,7 @@ const Experience: React.FC<ExperienceProps> = ({
     throw new FieldError({ componentName: 'Experience', field: 'title' });
   }
   return experienceData.length > 0 ? (
-    <div>
+    <Container>
       <SectionTitle title={title} />
       {experienceData && (
         <ul>
@@ -37,7 +46,7 @@ const Experience: React.FC<ExperienceProps> = ({
           )))}
         </ul>
       )}
-    </div>
+    </Container>
   ) : null;
 };
 

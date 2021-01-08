@@ -1,11 +1,20 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import { rem } from 'polished';
+import { styled } from '~/src/components/themeContext';
 import SectionTitle from '~/src/components/SectionTitle';
 import { FieldError } from '~/src/utils';
 
 type ProjectProps = {
   data: GatsbyTypes.ProjectDataFragment;
 };
+
+const Container = styled.div((props) => ({
+  marginTop: rem(16),
+  [props.theme.media['md']]: {
+    marginTop: rem(32),
+  },
+}));
 
 const Project: React.FC<ProjectProps> = ({
   data,
@@ -15,7 +24,7 @@ const Project: React.FC<ProjectProps> = ({
     throw new FieldError({ componentName: 'Project', field: 'title' });
   }
   return projectData.length > 0 ? (
-    <div>
+    <Container>
       <SectionTitle title={title} />
       <ul>
         {projectData.map(((projectValue, idx) => (
@@ -38,7 +47,7 @@ const Project: React.FC<ProjectProps> = ({
           </li>
         )))}
       </ul>
-    </div>
+    </Container>
   ) : null;
 };
 
