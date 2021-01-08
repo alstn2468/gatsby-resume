@@ -36,11 +36,11 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
 }) => {
   const { target, __translation_messeages } = data;
   if (!target) {
-    throw new Error('TemplateIndexPage에 target 없습니다.');
+    throw new Error('No target on TemplateIndexPage.');
   }
   const language = __translation_messeages?.language;
   if (!language) {
-    throw new Error('TemplateIndexPage에 language 없습니다.');
+    throw new Error('No language on TemplateIndexPage.');
   }
   type L10nContext = React.ContextType<typeof l10nContext>;
   const l10n = React.useMemo<L10nContext>(() => {

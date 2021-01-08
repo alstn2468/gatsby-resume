@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import SectionTitle from '~/src/components/SectionTitle';
+import { FieldError } from '~/src/utils';
 
 type EtcProp = {
   data: GatsbyTypes.EtcDataFragment;
@@ -8,11 +10,11 @@ type EtcProp = {
 const Etc: React.FC<EtcProp> = ({ data }) => {
   const { title, data: etcData } = data;
   if (!title) {
-    throw new Error('Etc: Not found title.');
+    throw new FieldError({ componentName: 'Etc', field: 'title' });
   }
   return etcData.length > 0 ? (
     <div>
-      <h2>{title}</h2>
+      <SectionTitle title={title} />
       <ul>
         {etcData.map((etcValue, valueIdx) => (
           <li key={`etc-value-${valueIdx}`}>

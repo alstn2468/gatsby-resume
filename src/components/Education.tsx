@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import SectionTitle from '~/src/components/SectionTitle';
+import { FieldError } from '~/src/utils';
 
 type EducationProp = {
   data: GatsbyTypes.EducationDataFragment;
@@ -8,11 +10,11 @@ type EducationProp = {
 const Education: React.FC<EducationProp> = ({ data }) => {
   const { title, data: educationData } = data;
   if (!title) {
-    throw new Error('Education: Not found title.');
+    throw new FieldError({ componentName: 'Education', field: 'title' });
   }
   return educationData.length > 0 ? (
     <div>
-      <h2>{title}</h2>
+      <SectionTitle title={title} />
       <ul>
         {educationData.map((educationValue, valueIdx) => (
           <li key={`education-value-${valueIdx}`}>

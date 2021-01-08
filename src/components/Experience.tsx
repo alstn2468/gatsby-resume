@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import SectionTitle from '~/src/components/SectionTitle';
+import { FieldError } from '~/src/utils';
 
 type ExperienceProps = {
   data: GatsbyTypes.ExperienceDataFragment;
@@ -10,11 +12,11 @@ const Experience: React.FC<ExperienceProps> = ({
 }) => {
   const { data: experienceData, title } = data;
   if (!title) {
-    throw new Error('Experience: Not found title.')
+    throw new FieldError({ componentName: 'Experience', field: 'title' });
   }
   return experienceData.length > 0 ? (
     <div>
-      <h2>{title}</h2>
+      <SectionTitle title={title} />
       {experienceData && (
         <ul>
           {experienceData.map(((experienceValue, idx) => (

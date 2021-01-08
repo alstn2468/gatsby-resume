@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import SectionTitle from '~/src/components/SectionTitle';
+import { FieldError } from '~/src/utils';
 
 type ProjectProps = {
   data: GatsbyTypes.ProjectDataFragment;
@@ -10,11 +12,11 @@ const Project: React.FC<ProjectProps> = ({
 }) => {
   const { data: projectData, title } = data;
   if (!title) {
-    throw new Error('Project: Not found title.')
+    throw new FieldError({ componentName: 'Project', field: 'title' });
   }
   return projectData.length > 0 ? (
     <div>
-      <h2>{title}</h2>
+      <SectionTitle title={title} />
       <ul>
         {projectData.map(((projectValue, idx) => (
           <li key={`Project-${idx}`}>

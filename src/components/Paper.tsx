@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import SectionTitle from '~/src/components/SectionTitle';
+import { FieldError } from '~/src/utils';
 
 type PaperProp = {
   data: GatsbyTypes.PaperDataFragment;
@@ -8,11 +10,11 @@ type PaperProp = {
 const Paper: React.FC<PaperProp> = ({ data }) => {
   const { title, data: paperData } = data;
   if (!title) {
-    throw new Error('Paper: Not found title.');
+    throw new FieldError({ componentName: 'Paper', field: 'title' });
   }
   return paperData.length > 0 ? (
     <div>
-      <h2>{title}</h2>
+      <SectionTitle title={title} />
       <ul>
         {paperData.map((paperValue, valueIdx) => (
           <li key={`paper-value-${valueIdx}`}>

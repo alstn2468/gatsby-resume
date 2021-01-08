@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import SectionTitle from '~/src/components/SectionTitle';
+import { FieldError } from '~/src/utils';
 
 type PresentationProp = {
   data: GatsbyTypes.PresentationDataFragment;
@@ -8,11 +10,11 @@ type PresentationProp = {
 const Presentation: React.FC<PresentationProp> = ({ data }) => {
   const { title, data: presentationData } = data;
   if (!title) {
-    throw new Error('Presentation: Not found title.');
+    throw new FieldError({ componentName: 'Presentation', field: 'title' });
   }
   return presentationData.length > 0 ? (
     <div>
-      <h2>{title}</h2>
+      <SectionTitle title={title} />
       <ul>
         {presentationData.map((presentationValue, valueIdx) => (
           <li key={`presentation-value-${valueIdx}`}>

@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import SectionTitle from '~/src/components/SectionTitle';
+import { FieldError } from '~/src/utils';
 
 type OpenSourceProp = {
   data: GatsbyTypes.OpenSourceDataFragment;
@@ -8,11 +10,11 @@ type OpenSourceProp = {
 const OpenSource: React.FC<OpenSourceProp> = ({ data }) => {
   const { title, data: openSourceData } = data;
   if (!title) {
-    throw new Error('OpenSource: Not found title.');
+    throw new FieldError({ componentName: 'OpenSource', field: 'title' });
   }
   return openSourceData.length > 0 ? (
     <div>
-      <h2>{title}</h2>
+      <SectionTitle title={title} />
       <ul>
         {openSourceData.map((openSourceValue, valueIdx) => (
           <li key={`open-source-value-${valueIdx}`}>

@@ -1,5 +1,8 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import SectionTitle from '~/src/components/SectionTitle';
+import { FieldError } from '~/src/utils';
+
 
 type IntroduceProp = {
   data: GatsbyTypes.IntroduceDataFragment;
@@ -8,11 +11,11 @@ type IntroduceProp = {
 const Introduce: React.FC<IntroduceProp> = ({ data }) => {
   const { title, description } = data;
   if (!title) {
-    throw new Error('Introduce: Not found title.');
+    throw new FieldError({ componentName: 'Introduce', field: 'title' });
   }
   return description ? (
     <div>
-      <h2>{title}</h2>
+      <SectionTitle title={title} />
       <pre>{description}</pre>
     </div>
   ) : null;
