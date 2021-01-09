@@ -23,12 +23,15 @@ const ListItemWrapper = styled.div({
   width: '100%',
 });
 
-const ExperienceDate = styled.h4({
+const ExperienceDate = styled.h4((props) => ({
   margin: 0,
   marginBottom: rem(8),
-  fontSize: rem(24),
   lineHeight: 1.2,
-});
+  fontSize: rem(16),
+  [props.theme.media['md']]: {
+    fontSize: rem(18),
+  },
+}));
 
 const PositionText = styled.i({
   fontSize: rem(16),
