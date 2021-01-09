@@ -55,6 +55,7 @@ const Skill: React.FC<SkillProps> = ({
                       key={`skill-${categoryValue}-${skillDataIdx}`}
                       name={skillData.name}
                       level={skillData.level}
+                      maxSkillLevel={criteria.length}
                     />
                   )
                 })}

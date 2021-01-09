@@ -3,8 +3,9 @@ import { rem } from 'polished';
 import { styled } from '~/src/components/themeContext';
 
 type SkillDataItemProps = {
-  name: string;
-  level: number;
+  name: string,
+  level: number,
+  maxSkillLevel: number,
 };
 
 const Container = styled.li((props) => ({
@@ -42,15 +43,35 @@ const LevelText = styled.span({
   height: rem(24),
   borderRadius: rem(20),
   marginRight: rem(6),
+  '&.medium': {
+    background: '#808080',
+    color: '#FFFFFF',
+  },
+  '&.low': {
+    background: '#DCDCDC',
+    color: '#000000',
+  },
 });
 
 const SkillDataItem: React.FC<SkillDataItemProps> = ({
   name,
   level,
+  maxSkillLevel,
 }) => {
+  const levelClassName = React.useMemo(() => {
+    const mediumLevel = Math.ceil(maxSkillLevel / 2);
+    if (level > mediumLevel) {
+      return 'high';
+    } else if (level < mediumLevel) {
+      return 'low';
+    }
+    return 'medium';
+  }, [maxSkillLevel, level]);
   return (
     <Container>
-      <LevelText>{level}</LevelText>
+      <LevelText className={levelClassName}>
+        {level}
+      </LevelText>
       <NameText>{name}</NameText>
     </Container>
   );
