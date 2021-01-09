@@ -19,22 +19,31 @@ type SkillProps = {
 const Skill: React.FC<SkillProps> = ({
   data,
 }) => {
-  const { title, category } = data;
+  const { title, category, criteria } = data;
   if (!title) {
     throw new FieldError({ componentName: 'Skill', field: 'title' });
+  }
+  if (!criteria) {
+    throw new FieldError({ componentName: 'Skill', field: 'criteria' });
   }
   return category.length > 0 ? (
     <Container>
       <SectionTitle title={title}>
-        {data.criteria && <Criteria data={data.criteria} />}
+        <Criteria data={criteria} />
       </SectionTitle>
       <List>
-        {category.map((categoryValue, categoryIdx) => (
-          <ListItem key={`skill-category-${categoryIdx}`}>
-            <ListItemTitle>{categoryValue?.category}</ListItemTitle>
-            {categoryValue?.data && (
+        {category.map((categoryValue, categoryIdx) => {
+          if (!categoryValue?.category) {
+            throw new FieldError({ componentName: 'Skill', field: 'category' });
+          }
+          if (!categoryValue.data) {
+            throw new FieldError({ componentName: 'Skill', field: 'data' });
+          }
+          return (
+            <ListItem key={`skill-category-${categoryIdx}`}>
+              <ListItemTitle>{categoryValue.category}</ListItemTitle>
               <ListItemData>
-                {categoryValue?.data.map((skillData, skillDataIdx) => {
+                {categoryValue.data.map((skillData, skillDataIdx) => {
                   if (!skillData?.name) {
                     throw new FieldError({ componentName: 'SkillData', field: 'name' });
                   }
@@ -50,9 +59,9 @@ const Skill: React.FC<SkillProps> = ({
                   )
                 })}
               </ListItemData>
-            )}
-          </ListItem>
-        ))}
+            </ListItem>
+          );
+        })}
       </List>
     </Container>
   ) : null;
