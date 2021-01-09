@@ -34,10 +34,10 @@ const Skill: React.FC<SkillProps> = ({
       <List>
         {category.map((categoryValue, categoryIdx) => {
           if (!categoryValue?.category) {
-            throw new FieldError({ componentName: 'Skill', field: 'category' });
+            throw new FieldError({ componentName: 'Skill', field: 'categoryValue.category' });
           }
           if (!categoryValue.data) {
-            throw new FieldError({ componentName: 'Skill', field: 'data' });
+            throw new FieldError({ componentName: 'Skill', field: 'categoryValue.data' });
           }
           return (
             <ListItem key={`skill-category-${categoryIdx}`}>
@@ -45,10 +45,10 @@ const Skill: React.FC<SkillProps> = ({
               <ListItemData>
                 {categoryValue.data.map((skillData, skillDataIdx) => {
                   if (!skillData?.name) {
-                    throw new FieldError({ componentName: 'SkillData', field: 'name' });
+                    throw new FieldError({ componentName: 'Skill', field: 'skillData.name' });
                   }
                   if (!skillData?.level) {
-                    throw new FieldError({ componentName: 'SkillData', field: 'level' });
+                    throw new FieldError({ componentName: 'Skill', field: 'skillData.level' });
                   }
                   return (
                     <SkillDataItem
