@@ -4,6 +4,7 @@ import { styled } from '~/src/components/themeContext';
 
 type SectionTitleProps = {
   title: string,
+  className?: string,
 };
 
 const Container = styled.div({
@@ -25,10 +26,11 @@ const Title = styled.h2((props) => ({
 
 const SectionTitle: React.FC<SectionTitleProps> = ({
   title,
+  className,
   children,
 }) => {
   return (
-    <Container>
+    <Container className={className}>
       <Title>{title}</Title>
       {children}
     </Container>

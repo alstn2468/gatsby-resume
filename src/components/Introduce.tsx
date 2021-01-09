@@ -6,7 +6,7 @@ import { SectionTitle, Container } from '~/src/components/common';
 import { FieldError } from '~/src/utils';
 
 type IntroduceProp = {
-  data: GatsbyTypes.IntroduceDataFragment;
+  data: GatsbyTypes.IntroduceDataFragment,
 };
 
 const Introduce: React.FC<IntroduceProp> = ({ data }) => {

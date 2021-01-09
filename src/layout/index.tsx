@@ -6,7 +6,7 @@ import { l10nContext } from '~/src/components/l10nContext';
 import NotoSansKrFont from '~/src/components/NotoSansKrFont';
 
 type LayoutProps = {
-  l10n: React.ContextType<typeof l10nContext>;
+  l10n: React.ContextType<typeof l10nContext>,
 };
 
 const Layout: React.FC<LayoutProps> = ({

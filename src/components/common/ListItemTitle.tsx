@@ -2,6 +2,10 @@ import * as React from 'react';
 import { rem } from 'polished';
 import { styled } from '~/src/components/themeContext';
 
+type ListItemTitlerops = {
+  className?: string,
+};
+
 const Container = styled.div((props) => ({
   textAlign: 'left',
   color: '#3E424B',
@@ -20,6 +24,9 @@ const Title = styled.h3({
   lineHeight: 1,
 });
 
-const ListItemTitle: React.FC = ({ children }) => <Container><Title>{children}</Title></Container>;
-
+const ListItemTitle: React.FC<ListItemTitlerops> = ({ className, children }) => (
+  <Container className={className}>
+    <Title>{children}</Title>
+  </Container>
+);
 export default ListItemTitle;

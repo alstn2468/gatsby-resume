@@ -9,7 +9,7 @@ import { ReactComponent as TranslationIconSvg } from '~/src/components/fab/trans
 import { ReactComponent as ExportIconSvg } from '~/src/components/fab/export.svg';
 
 type FabProps = {
-  language: string;
+  language: string,
 };
 
 const Icon = styled.svg({

@@ -6,8 +6,8 @@ import type { PluginOptions as ModuleResolverOptions } from 'gatsby-plugin-modul
 type PluginRef<Resolve extends string, Options = unknown> = Omit<
   IPluginRefObject,
   keyof {
-    resolve: Resolve;
-    options: Options;
+    resolve: Resolve,
+    options: Options,
   }
 > & { resolve: Resolve; options: Options };
 

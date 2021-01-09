@@ -6,7 +6,7 @@ import { SectionTitle, Container } from '~/src/components/common';
 import { FieldError } from '~/src/utils';
 
 type ProjectProps = {
-  data: GatsbyTypes.ProjectDataFragment;
+  data: GatsbyTypes.ProjectDataFragment,
 };
 
 const Project: React.FC<ProjectProps> = ({

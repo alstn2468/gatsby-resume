@@ -13,7 +13,7 @@ import SkillDataItem from '~/src/components/skill/SkillDataItem';
 import Criteria from '~/src/components/skill/Criteria';
 
 type SkillProps = {
-  data: GatsbyTypes.SkillDataFragment;
+  data: GatsbyTypes.SkillDataFragment,
 };
 
 const Skill: React.FC<SkillProps> = ({

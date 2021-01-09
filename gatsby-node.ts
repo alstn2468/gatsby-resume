@@ -29,6 +29,7 @@ export const createSchemaCustomization: GatsbyNodeAPI<'createSchemaCustomization
       language: String!
       Fab_changeLanguageButton_text: String!
       Fab_exportPdfButton_text: String!
+      Experience_tagCategory_text: String!
     }
 
     type Target implements Node @dontInfer {

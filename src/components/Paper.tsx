@@ -6,7 +6,7 @@ import { SectionTitle, Container } from '~/src/components/common';
 import { FieldError } from '~/src/utils';
 
 type PaperProp = {
-  data: GatsbyTypes.PaperDataFragment;
+  data: GatsbyTypes.PaperDataFragment,
 };
 
 const Paper: React.FC<PaperProp> = ({ data }) => {

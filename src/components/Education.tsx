@@ -6,7 +6,7 @@ import { styled } from '~/src/components/themeContext';
 import { FieldError } from '~/src/utils';
 
 type EducationProp = {
-  data: GatsbyTypes.EducationDataFragment;
+  data: GatsbyTypes.EducationDataFragment,
 };
 
 const Education: React.FC<EducationProp> = ({ data }) => {

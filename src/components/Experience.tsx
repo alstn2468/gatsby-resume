@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import { css } from '@emotion/css';
 import { rem } from 'polished';
 import { styled } from '~/src/components/themeContext';
+import { useTranslation } from '~/src/components/l10nContext';
 import {
   SectionTitle,
   Container,
+  Tag,
   List,
   ListItem,
   ListItemTitle,
@@ -16,10 +19,42 @@ type ExperienceProps = {
   data: GatsbyTypes.ExperienceDataFragment;
 };
 
+const ListItemWrapper = styled.div({
+  width: '100%',
+});
+
+const ExperienceDate = styled.h4({
+  margin: 0,
+  marginBottom: rem(8),
+  fontSize: rem(24),
+  lineHeight: 1.2,
+});
+
+const PositionText = styled.i({
+  fontSize: rem(16),
+  color: '#3E424B',
+});
+
+const DescriptionList = styled.ul({
+  paddingTop: rem(16),
+  marginBottom: rem(16),
+  listStyle: 'disc',
+});
+
+const DescriptionItem = styled.li({});
+
+const TagCategoryText = styled.span({});
+
+const TagWrapper = styled.div({
+  width: '100%',
+  paddingTop: rem(4),
+});
+
 const Experience: React.FC<ExperienceProps> = ({
   data,
 }) => {
   const { data: experienceData, title } = data;
+  const t = useTranslation();
   if (!title) {
     throw new FieldError({ componentName: 'Experience', field: 'title' });
   }
@@ -41,18 +76,34 @@ const Experience: React.FC<ExperienceProps> = ({
             return (
               <ListItem key={`experience-${idx}`}>
                 <ListItemTitle>{experienceValue.title}</ListItemTitle>
-                <ListItemData>
-                  <p>{experienceValue.startDate} ~ {experienceValue?.endDate}</p>
-                  <p>{experienceValue.position}</p>
-                  {experienceValue?.description.map((description, idx) => (
-                    <p key={`experience-description-${idx}`}>{description}</p>
-                  ))}
-                  {experienceValue?.skill.map((skill, idx) => (
-                    <span key={`experiene-skill-${idx}`}>
-                      {skill}
-                      {idx !== experienceValue.skill.length - 1 ? ' / ' : ''}
-                    </span>
-                  ))}
+                <ListItemData className={css({ paddingLeft: rem(20) })}>
+                  <ListItemWrapper>
+                    <ExperienceDate>{experienceValue.startDate} ~ {experienceValue?.endDate}</ExperienceDate>
+                  </ListItemWrapper>
+                  <ListItemWrapper>
+                    <PositionText>{experienceValue.position}</PositionText>
+                  </ListItemWrapper>
+                  {experienceValue.description && (
+                    <ListItemWrapper>
+                      <DescriptionList>
+                        {experienceValue?.description.map((description, idx) => (
+                          <DescriptionItem key={`experience-description-${idx}`}>{description}</DescriptionItem>
+                        ))}
+                        {experienceValue.skill && (
+                          <DescriptionItem>
+                            <TagCategoryText>{t('Experience_tagCategory_text')}</TagCategoryText>
+                            <TagWrapper>
+                              {experienceValue?.skill.map((skill, idx) => (
+                                <Tag key={`experiene-skill-${idx}`} >
+                                  {skill}
+                                </Tag>
+                              ))}
+                            </TagWrapper>
+                          </DescriptionItem>
+                        )}
+                      </DescriptionList>
+                    </ListItemWrapper>
+                  )}
                 </ListItemData>
               </ListItem>
             );

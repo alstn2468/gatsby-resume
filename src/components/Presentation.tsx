@@ -6,7 +6,7 @@ import { SectionTitle, Container } from '~/src/components/common';
 import { FieldError } from '~/src/utils';
 
 type PresentationProp = {
-  data: GatsbyTypes.PresentationDataFragment;
+  data: GatsbyTypes.PresentationDataFragment,
 };
 
 const Presentation: React.FC<PresentationProp> = ({ data }) => {

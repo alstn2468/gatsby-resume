@@ -2,9 +2,9 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 
 type L10NContext = {
-  language: string;
-  messages: GatsbyTypes.TranslationDataFragment;
-  t: (key: keyof GatsbyTypes.TranslationDataFragment) => string;
+  language: string,
+  messages: GatsbyTypes.TranslationDataFragment,
+  t: (key: keyof GatsbyTypes.TranslationDataFragment) => string,
 };
 
 export const l10nContext = React.createContext<L10NContext | null>(null);
@@ -19,8 +19,8 @@ export const useL10N = () => {
 
 export function getTranslationText(
   l10n: {
-    language: string;
-    messages: GatsbyTypes.TranslationDataFragment;
+    language: string,
+    messages: GatsbyTypes.TranslationDataFragment,
   },
   key: keyof GatsbyTypes.TranslationDataFragment,
 ) {
@@ -46,6 +46,7 @@ export const fragments = graphql`
   fragment TranslationData on MessageMessages {
     Fab_exportPdfButton_text
     Fab_changeLanguageButton_text
+    Experience_tagCategory_text
   }
   fragment TranslationMessages on Query {
     __translation_messeages: message(language: { eq: $language }) {

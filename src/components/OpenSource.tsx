@@ -6,7 +6,7 @@ import { SectionTitle, Container } from '~/src/components/common';
 import { FieldError } from '~/src/utils';
 
 type OpenSourceProp = {
-  data: GatsbyTypes.OpenSourceDataFragment;
+  data: GatsbyTypes.OpenSourceDataFragment,
 };
 
 const OpenSource: React.FC<OpenSourceProp> = ({ data }) => {

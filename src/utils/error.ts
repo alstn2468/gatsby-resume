@@ -1,8 +1,7 @@
 type FieldErrorParams = {
-  componentName: string;
-  field: string;
+  componentName: string,
+  field: string,
 }
-
 
 export class FieldError extends Error {
   constructor(params: FieldErrorParams) {

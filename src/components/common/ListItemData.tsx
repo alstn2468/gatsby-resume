@@ -2,6 +2,10 @@ import * as React from 'react';
 import { rem } from 'polished';
 import { styled } from '~/src/components/themeContext';
 
+type ListItemProps = {
+  className?: string,
+};
+
 const Container = styled.ul((props) => ({
   display: 'flex',
   flexWrap: 'wrap',
@@ -17,6 +21,8 @@ const Container = styled.ul((props) => ({
   },
 }));
 
-const ListItemData: React.FC = ({ children }) => <Container>{children}</Container>;
+const ListItemData: React.FC<ListItemProps> = ({ className, children }) => (
+  <Container className={className}>{children}</Container>
+);
 
 export default ListItemData;

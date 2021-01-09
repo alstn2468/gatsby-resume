@@ -2,6 +2,10 @@ import * as React from 'react';
 import { rem } from 'polished';
 import { styled } from '~/src/components/themeContext';
 
+type ListProps = {
+  className?: string,
+};
+
 const ListContainer = styled.dl((props) => ({
   padding: 0,
   [props.theme.media['md']]: {
@@ -9,6 +13,8 @@ const ListContainer = styled.dl((props) => ({
   },
 }));
 
-const List: React.FC = ({ children }) => <ListContainer>{children}</ListContainer>;
+const List: React.FC<ListProps> = ({ className, children }) => (
+  <ListContainer className={className}>{children}</ListContainer>
+);
 
 export default List;

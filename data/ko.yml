@@ -219,3 +219,4 @@ etc:
 translations:
   Fab_changeLanguageButton_text: '언어 변경'
   Fab_exportPdfButton_text: 'PDF로 내보내기'
+  Experience_tagCategory_text: '기술 키워드'

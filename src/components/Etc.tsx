@@ -6,7 +6,7 @@ import { SectionTitle, Container } from '~/src/components/common';
 import { FieldError } from '~/src/utils';
 
 type EtcProp = {
-  data: GatsbyTypes.EtcDataFragment;
+  data: GatsbyTypes.EtcDataFragment,
 };
 
 const Etc: React.FC<EtcProp> = ({ data }) => {

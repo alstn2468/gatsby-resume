@@ -64,8 +64,8 @@ interface CreateStyled<Theme> {
 export type StyledTags<Theme> = {
   [Tag in keyof JSX.IntrinsicElements]: CreateStyledComponent<
     {
-      theme?: Theme;
-      as?: React.ElementType;
+      theme?: Theme,
+      as?: React.ElementType,
     },
     JSX.IntrinsicElements[Tag]
   >;
