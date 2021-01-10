@@ -11,7 +11,7 @@ import {
   List,
   ListItem,
   ListItemTitle,
-  ListItemData,
+  ListItemData as BaseListItemData,
   ListItemDataWrapper,
   ListItemDataTitle,
   ListItemDataSubTitle,
@@ -28,6 +28,8 @@ const DescriptionList = styled.ul({
   marginBottom: rem(16),
   listStyle: 'disc',
 });
+
+const ListItemData = BaseListItemData.withComponent('div');
 
 const DescriptionItem = styled.li({});
 
