@@ -8,6 +8,7 @@ import ListItemData from './ListItemData';
 import ListItemDataTitle from './ListItemDataTitle';
 import ListItemDataSubTitle from './ListItemDataSubTitle';
 import ListItemDataWrapper from './ListItemDataWrapper';
+import Link from './Link';
 
 export {
   SectionTitle,
@@ -20,4 +21,5 @@ export {
   ListItemDataTitle,
   ListItemDataSubTitle,
   ListItemDataWrapper,
+  Link,
 }
