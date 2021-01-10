@@ -4,6 +4,7 @@
 
 <div align="center" id="badge">
 
+![lighthouse accessibility](./lighthouse/lighthouse_accessibility.svg) ![lighthouse best practices](./lighthouse/lighthouse_best-practices.svg) ![lighthouse performance](./lighthouse/lighthouse_performance.svg) ![lighthouse pwa](./lighthouse/lighthouse_pwa.svg) ![lighthouse seo](./lighthouse/lighthouse_seo.svg)<br/>
 ![Deploy Gatsby Resume](https://github.com/alstn2468/gatsby_resume/workflows/Deploy%20Gatsby%20Resume/badge.svg) ![LICENSE](https://img.shields.io/github/license/alstn2468/Gatsby_Resume) ![Last Commit](https://img.shields.io/github/last-commit/alstn2468/Gatsby_Resume)<br/>
 ![React Version](https://img.shields.io/github/package-json/dependency-version/alstn2468/Gatsby_Resume/react) ![Gatsby Version](https://img.shields.io/github/package-json/dependency-version/alstn2468/Gatsby_Resume/gatsby) ![TypeScript Version](https://img.shields.io/github/package-json/dependency-version/alstn2468/Gatsby_Resume/dev/typescript) ![emotion Version](https://img.shields.io/github/package-json/dependency-version/alstn2468/Gatsby_Resume/emotion)
 </div>
