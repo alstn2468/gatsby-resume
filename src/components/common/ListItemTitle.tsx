@@ -23,6 +23,7 @@ const Title = styled.h3({
   margin: 0,
   lineHeight: 1,
   fontSize: 'inherit',
+  fontWeight: 700,
 });
 
 const ListItemTitle: React.FC<ListItemTitleProps> = ({ className, children }) => (

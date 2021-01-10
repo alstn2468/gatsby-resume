@@ -7,6 +7,7 @@ const ListItemDataTitle = styled.h4((props) => ({
   marginBottom: rem(8),
   lineHeight: 1.2,
   fontSize: rem(16),
+  fontWeight: 700,
   [props.theme.media['md']]: {
     fontSize: rem(18),
   },

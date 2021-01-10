@@ -13,7 +13,7 @@ const Container = styled.div({
 });
 
 const Title = styled.h2((props) => ({
-  fontWeight: 'bold',
+  fontWeight: 700,
   lineHeight: 1,
   color: '#0197f6',
   margin: 0,

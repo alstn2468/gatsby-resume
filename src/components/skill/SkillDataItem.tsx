@@ -37,7 +37,7 @@ const LevelText = styled.span({
   textAlign: 'center',
   background: '#0197f6',
   color: '#FFFFFF',
-  fontWeight: 'bold',
+  fontWeight: 700,
   width: rem(24),
   minWidth: rem(24),
   height: rem(24),

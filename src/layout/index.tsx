@@ -30,6 +30,7 @@ const Layout: React.FC<LayoutProps> = ({
             },
             'body': {
               margin: 0,
+              fontWeight: 400,
               textRendering: 'optimizeLegibility',
               wordBreak: 'break-word',
               fontFamily: '"Noto Sans KR__subset", "Noto Sans KR", sans-serif',
