@@ -34,6 +34,7 @@
     "gatsby-plugin-pnpm": "^1.2.5",
     "gatsby-plugin-react-helmet-async": "^1.1.0",
     "gatsby-plugin-sharp": "^2.11.2",
+    "gatsby-plugin-sitemap": "^2.10.0",
     "gatsby-plugin-svgr": "^2.0.2",
     "gatsby-plugin-typegen": "^2.2.1",
     "gatsby-source-filesystem": "^2.3.24",
