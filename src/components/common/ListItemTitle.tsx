@@ -10,9 +10,9 @@ const Container = styled.div((props) => ({
   textAlign: 'left',
   color: '#3E424B',
   padding: `0 ${rem(16)}`,
-  fontSize: rem(18),
+  fontSize: rem(20),
   [props.theme.media['md']]: {
-    fontSize: rem(20),
+    fontSize: rem(22),
     textAlign: 'right',
     flex: '0 0 25%',
     maxWidth: '25%',
