@@ -15,8 +15,8 @@ if (!process.env.PUBLIC_URL) {
   throw new Error('PUBLIC_URL 환경변수를 세팅해주세요.');
 }
 
-if (!process.env.PATH_PREFIX) {
-  throw new Error('PATH_PREFIX 환경변수를 세팅해주세요.');
+if (!process.env.GATSBY_PATH_PREFIX) {
+  throw new Error('GATSBY_PATH_PREFIX 환경변수를 세팅해주세요.');
 }
 
 const publicURL = new URL(process.env.PUBLIC_URL);
@@ -34,7 +34,7 @@ export const siteMetadata: GatsbyConfig['siteMetadata'] = {
   description: 'Static website resume with GatsbyJS, TypeScript',
 };
 
-export const pathPrefix: GatsbyConfig['pathPrefix'] = process.env.PATH_PREFIX;
+export const pathPrefix: GatsbyConfig['pathPrefix'] = process.env.GATSBY_PATH_PREFIX;
 
 export const plugins: PluginConfig[] = [
   'gatsby-transformer-sharp',

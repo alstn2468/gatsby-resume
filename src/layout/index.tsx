@@ -17,6 +17,7 @@ const Layout: React.FC<LayoutProps> = ({
 }) => {
   const siteMetadata = useSiteMetadata();
   const currentLanguage = l10n?.language;
+  const pathPrefix = process.env?.GATSBY_PATH_PREFIX ?? '';
   return (
     <ThemeProvider theme={defaultTheme}>
       <l10nContext.Provider value={l10n}>
@@ -28,15 +29,15 @@ const Layout: React.FC<LayoutProps> = ({
             <GatsbySeo
               title={'Gatsby Resume'}
               description={'Static website resume with GatsbyJS, TypeScript'}
-              canonical={siteMetadata.siteUrl + `/${currentLanguage}`}
+              canonical={siteMetadata.siteUrl + `${pathPrefix}/${currentLanguage}`}
               openGraph={{
                 type: 'website',
-                url: siteMetadata.siteUrl + `/${currentLanguage}`,
+                url: siteMetadata.siteUrl + `${pathPrefix}/${currentLanguage}`,
                 title: 'Gatsby Resume',
                 description: 'Static website resume with GatsbyJS, TypeScript',
                 images: [
                   {
-                    url: `${siteMetadata.siteUrl}/og.jpeg`,
+                    url: `${siteMetadata.siteUrl}/${pathPrefix}/og.jpeg`,
                     width: 1200,
                     height: 630,
                     alt: 'Gatsby Resume',

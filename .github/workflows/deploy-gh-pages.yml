@@ -48,7 +48,7 @@ jobs:
       - name: Build website
         env:
           PUBLIC_URL: 'https://alstn2468.github.io/Gatsby_Resume/'
-          PATH_PREFIX: '/Gatsby_Resume'
+          GATSBY_PATH_PREFIX: '/Gatsby_Resume'
         run: |
           dir
           pnpm build
@@ -61,7 +61,7 @@ jobs:
         uses: enriikke/gatsby-gh-pages-action@v2
         env:
           PUBLIC_URL: 'https://alstn2468.github.io/Gatsby_Resume/'
-          PATH_PREFIX: '/Gatsby_Resume'
+          GATSBY_PATH_PREFIX: '/Gatsby_Resume'
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages

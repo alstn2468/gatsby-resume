@@ -64,7 +64,7 @@ pnpm을 설치하는 다른 방법은 [pnpm 문서](https://pnpm.js.org/en/insta
 
 ```env
 PUBLIC_URL="https://<GITHUB_ID>.github.io/<REPOSITORY_NAME>/"
-PATH_PREFIX="/<REPOSITORY_NAME>"
+GATSBY_PATH_PREFIX="/<REPOSITORY_NAME>"
 GATSBY_STRICT_L10N="<Boolean>"
 ```
 
