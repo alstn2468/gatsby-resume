@@ -1,5 +1,7 @@
 # Static Website Resume with GatsbyJS
 
+![OG Image](./static/og.png)
+
 > 데이터 파일만 수정해 자신만의 정적 웹사이트 이력서를 만들어보세요.
 
 <div align="center" id="badge">
