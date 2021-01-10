@@ -23,6 +23,7 @@ type ExperienceProps = {
 };
 
 const DescriptionList = styled.ul({
+  paddingLeft: rem(22),
   paddingTop: rem(16),
   marginBottom: rem(16),
   listStyle: 'disc',

@@ -7,6 +7,7 @@ type LinkProps = {
 
 const LinkContainer = styled.a({
   color: '#007bff',
+  wordBreak: 'break-all',
   ':visited': {
     color: '#007bff',
   },
