@@ -14,8 +14,8 @@ const Container = styled.div({
   alignItems: 'center',
   marginLeft: rem(8),
   ':hover': {
-    '& > div': {
-      opacity: 0.8,
+    '& > *': {
+      opacity: 1,
     },
   },
 });
@@ -55,7 +55,6 @@ const ListArrow = styled.div((props) => ({
   marginTop: rem(-8),
   position: 'absolute',
   backgroundColor: '#000000',
-  opacity: 0.8,
   width: rem(16),
   height: rem(16),
   [props.theme.media['md']]: {
