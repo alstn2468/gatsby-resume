@@ -18,7 +18,7 @@ const Title = styled.h2((props) => ({
   color: '#0197f6',
   margin: 0,
   fontSize: rem(36),
-  padding: `0 ${rem(16)}`,
+  paddingLeft: rem(16),
   [props.theme.media['md']]: {
     padding: 0,
   },
