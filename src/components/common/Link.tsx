@@ -6,10 +6,11 @@ type LinkProps = {
 };
 
 const LinkContainer = styled.a({
-  color: '#007bff',
+  color: '#192bc2',
+  background: 'transparent',
   wordBreak: 'break-all',
   ':visited': {
-    color: '#007bff',
+    color: '#192bc2',
   },
 });
 
