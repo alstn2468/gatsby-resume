@@ -17,6 +17,7 @@ const Link: React.FC<LinkProps> = ({ link }) => {
   return (
     <LinkContainer
       href={link}
+      target="_blank"
       rel="noreferrer noopener"
     >
       {link}
