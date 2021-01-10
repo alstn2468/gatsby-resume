@@ -10,7 +10,9 @@ import {
   ListItem,
   ListItemTitle,
   ListItemData as BaseListItemData,
+  ListItemDataWrapper,
   ListItemDataTitle,
+  ListItemDataSubTitle,
 } from '~/src/components/common';
 import { FieldError } from '~/src/utils';
 
@@ -20,22 +22,16 @@ type ProjectProps = {
 
 const ListItemData = BaseListItemData.withComponent('div');
 
-const ListItemWrapper = styled.div({
-  width: '100%',
-});
-
-const CompanyText = styled.i({
+const CompanyText = styled(ListItemDataSubTitle)({
   display: 'block',
-  fontSize: rem(16),
   marginBottom: rem(16),
-  color: '#3E424B',
 });
 
 const DescriptionTitle = styled.p({
   margin: 0,
 });
 
-const DescriptionList = styled.ul({
+const DescriptionDetailList = styled.ul({
   marginTop: 0,
   paddingBottom: 0,
   paddingTop: rem(8),
@@ -43,7 +39,7 @@ const DescriptionList = styled.ul({
   listStyle: 'disc',
 });
 
-const DescriptionItem = styled.li({});
+const DescriptionDetailItem = styled.li({});
 
 const Project: React.FC<ProjectProps> = ({
   data,
@@ -72,35 +68,35 @@ const Project: React.FC<ProjectProps> = ({
                 {projectValue.startDate} ~ {projectValue?.endDate}
               </ListItemTitle>
               <ListItemData className={css({ paddingLeft: rem(20) })}>
-                <ListItemWrapper>
+                <ListItemDataWrapper>
                   <ListItemDataTitle>
                     {projectValue.title}
                   </ListItemDataTitle>
-                </ListItemWrapper>
-                <ListItemWrapper>
+                </ListItemDataWrapper>
+                <ListItemDataWrapper>
                   <CompanyText>
                     {projectValue.company}
                   </CompanyText>
-                </ListItemWrapper>
+                </ListItemDataWrapper>
                 {projectValue?.description.map((description, idx) => {
                   if (!description.title) {
                     throw new FieldError({ componentName: 'Project', field: 'description.title' });
                   }
                   return (
-                    <ListItemWrapper key={`project-description-${idx}`}>
+                    <ListItemDataWrapper key={`project-description-${idx}`}>
                       <DescriptionTitle>
                         {description.title}
                       </DescriptionTitle>
                       {description?.detail.length > 0 && (
-                        <DescriptionList>
+                        <DescriptionDetailList>
                           {description.detail.map((detailValue, idx) => (
-                            <DescriptionItem key={`project-description-detail-${idx}`}>
+                            <DescriptionDetailItem key={`project-description-detail-${idx}`}>
                               {detailValue}
-                            </DescriptionItem>
+                            </DescriptionDetailItem>
                           ))}
-                        </DescriptionList>
+                        </DescriptionDetailList>
                       )}
-                    </ListItemWrapper>
+                    </ListItemDataWrapper>
                   );
                 })}
               </ListItemData>

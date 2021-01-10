@@ -17,5 +17,4 @@ const ListItem = styled.li((props) => ({
   },
 }));
 
-
 export default ListItem;

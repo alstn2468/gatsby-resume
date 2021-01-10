@@ -12,22 +12,15 @@ import {
   ListItem,
   ListItemTitle,
   ListItemData,
+  ListItemDataWrapper,
   ListItemDataTitle,
+  ListItemDataSubTitle,
 } from '~/src/components/common';
 import { FieldError } from '~/src/utils';
 
 type ExperienceProps = {
   data: GatsbyTypes.ExperienceDataFragment;
 };
-
-const ListItemWrapper = styled.div({
-  width: '100%',
-});
-
-const PositionText = styled.i({
-  fontSize: rem(16),
-  color: '#3E424B',
-});
 
 const DescriptionList = styled.ul({
   paddingTop: rem(16),
@@ -71,16 +64,18 @@ const Experience: React.FC<ExperienceProps> = ({
               <ListItem key={`experience-${idx}`}>
                 <ListItemTitle>{experienceValue.title}</ListItemTitle>
                 <ListItemData className={css({ paddingLeft: rem(20) })}>
-                  <ListItemWrapper>
+                  <ListItemDataWrapper>
                     <ListItemDataTitle>
                       {experienceValue.startDate} ~ {experienceValue?.endDate}
                     </ListItemDataTitle>
-                  </ListItemWrapper>
-                  <ListItemWrapper>
-                    <PositionText>{experienceValue.position}</PositionText>
-                  </ListItemWrapper>
+                  </ListItemDataWrapper>
+                  <ListItemDataWrapper>
+                    <ListItemDataSubTitle>
+                      {experienceValue.position}
+                    </ListItemDataSubTitle>
+                  </ListItemDataWrapper>
                   {experienceValue.description && (
-                    <ListItemWrapper>
+                    <ListItemDataWrapper>
                       <DescriptionList>
                         {experienceValue?.description.map((description, idx) => (
                           <DescriptionItem key={`experience-description-${idx}`}>{description}</DescriptionItem>
@@ -98,7 +93,7 @@ const Experience: React.FC<ExperienceProps> = ({
                           </DescriptionItem>
                         )}
                       </DescriptionList>
-                    </ListItemWrapper>
+                    </ListItemDataWrapper>
                   )}
                 </ListItemData>
               </ListItem>
