@@ -39,7 +39,7 @@ const Layout: React.FC<LayoutProps> = ({
                 description: 'Static website resume with GatsbyJS, TypeScript',
                 images: [
                   {
-                    url: siteMetadata.siteUrl + withAssetPrefix('og.jpeg'),
+                    url: siteMetadata.siteUrl + withAssetPrefix('og.png'),
                     width: 1200,
                     height: 630,
                     alt: 'Gatsby Resume',
