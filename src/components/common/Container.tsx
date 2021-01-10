@@ -1,7 +1,7 @@
 import { rem } from 'polished';
 import { styled } from '~/src/components/themeContext';
 
-const Container = styled.div((props) => ({
+const Container = styled.section((props) => ({
   marginTop: rem(16),
   ':first-of-type': {
     marginTop: rem(24),

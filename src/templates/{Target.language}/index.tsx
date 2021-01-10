@@ -81,7 +81,7 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
             case 'education':
               return <Education key={key + idx} data={target[key]} />;
             case 'etc':
-              return <Etc key={key + idx} data={target[key]} />
+              return <Etc key={key + idx} data={target[key]} />;
           }
         })}
       </Container>
