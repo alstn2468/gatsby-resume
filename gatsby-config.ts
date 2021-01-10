@@ -43,6 +43,7 @@ export const plugins: PluginConfig[] = [
   'gatsby-plugin-pnpm',
   'gatsby-plugin-svgr',
   'gatsby-plugin-react-helmet-async',
+  'gatsby-plugin-offline',
   {
     resolve: 'gatsby-source-filesystem',
     options: {

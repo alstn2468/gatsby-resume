@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { withAssetPrefix } from 'gatsby';
 import { Global, css } from '@emotion/react';
 import { Helmet } from 'react-helmet-async';
 import { GatsbySeo } from 'gatsby-plugin-next-seo';
@@ -9,15 +10,16 @@ import NotoSansKrFont from '~/src/components/NotoSansKrFont';
 
 type LayoutProps = {
   l10n: React.ContextType<typeof l10nContext>,
+  pathname: string,
 };
 
 const Layout: React.FC<LayoutProps> = ({
   l10n,
+  pathname,
   children,
 }) => {
   const siteMetadata = useSiteMetadata();
   const currentLanguage = l10n?.language;
-  const pathPrefix = process.env?.GATSBY_PATH_PREFIX ?? '';
   return (
     <ThemeProvider theme={defaultTheme}>
       <l10nContext.Provider value={l10n}>
@@ -29,15 +31,15 @@ const Layout: React.FC<LayoutProps> = ({
             <GatsbySeo
               title={'Gatsby Resume'}
               description={'Static website resume with GatsbyJS, TypeScript'}
-              canonical={siteMetadata.siteUrl + `${pathPrefix}/${currentLanguage}`}
+              canonical={siteMetadata.siteUrl + pathname}
               openGraph={{
                 type: 'website',
-                url: siteMetadata.siteUrl + `${pathPrefix}/${currentLanguage}`,
+                url: siteMetadata.siteUrl + pathname,
                 title: 'Gatsby Resume',
                 description: 'Static website resume with GatsbyJS, TypeScript',
                 images: [
                   {
-                    url: `${siteMetadata.siteUrl}/${pathPrefix}/og.jpeg`,
+                    url: siteMetadata.siteUrl + withAssetPrefix('og.jpeg'),
                     width: 1200,
                     height: 630,
                     alt: 'Gatsby Resume',

@@ -33,6 +33,7 @@ const Container = styled.div((props) => ({
 
 const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
   data,
+  location,
 }) => {
   const { target, __translation_messeages } = data;
   if (!target) {
@@ -59,7 +60,7 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
   }, [__translation_messeages]);
   type TargetKeyType = Array<keyof typeof target>;
   return (
-    <Layout l10n={l10n}>
+    <Layout l10n={l10n} pathname={location.pathname}>
       <Container>
         {language && <Fab language={language} />}
         {(Object.keys(target) as TargetKeyType).map((key, idx) => {

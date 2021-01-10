@@ -30,6 +30,7 @@
     "gatsby-plugin-manifest": "^2.4.23",
     "gatsby-plugin-module-resolver": "^1.0.3",
     "gatsby-plugin-next-seo": "^1.6.1",
+    "gatsby-plugin-offline": "^3.8.0",
     "gatsby-plugin-pnpm": "^1.2.5",
     "gatsby-plugin-react-helmet-async": "^1.1.0",
     "gatsby-plugin-sharp": "^2.11.2",
