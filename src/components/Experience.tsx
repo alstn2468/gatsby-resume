@@ -12,6 +12,7 @@ import {
   ListItem,
   ListItemTitle,
   ListItemData,
+  ListItemDataTitle,
 } from '~/src/components/common';
 import { FieldError } from '~/src/utils';
 
@@ -22,16 +23,6 @@ type ExperienceProps = {
 const ListItemWrapper = styled.div({
   width: '100%',
 });
-
-const ExperienceDate = styled.h4((props) => ({
-  margin: 0,
-  marginBottom: rem(8),
-  lineHeight: 1.2,
-  fontSize: rem(16),
-  [props.theme.media['md']]: {
-    fontSize: rem(18),
-  },
-}));
 
 const PositionText = styled.i({
   fontSize: rem(16),
@@ -81,7 +72,9 @@ const Experience: React.FC<ExperienceProps> = ({
                 <ListItemTitle>{experienceValue.title}</ListItemTitle>
                 <ListItemData className={css({ paddingLeft: rem(20) })}>
                   <ListItemWrapper>
-                    <ExperienceDate>{experienceValue.startDate} ~ {experienceValue?.endDate}</ExperienceDate>
+                    <ListItemDataTitle>
+                      {experienceValue.startDate} ~ {experienceValue?.endDate}
+                    </ListItemDataTitle>
                   </ListItemWrapper>
                   <ListItemWrapper>
                     <PositionText>{experienceValue.position}</PositionText>

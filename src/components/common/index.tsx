@@ -5,6 +5,7 @@ import List from './List';
 import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
 import ListItemData from './ListItemData';
+import ListItemDataTitle from './ListItemDataTitle';
 
 export {
   SectionTitle,
@@ -14,4 +15,5 @@ export {
   ListItem,
   ListItemTitle,
   ListItemData,
+  ListItemDataTitle,
 }

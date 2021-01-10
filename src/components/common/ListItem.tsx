@@ -1,12 +1,7 @@
-import * as React from 'react';
 import { rem } from 'polished';
 import { styled } from '~/src/components/themeContext';
 
-type ListItemProps = {
-  className?: string,
-};
-
-const Item = styled.li((props) => ({
+const ListItem = styled.li((props) => ({
   display: 'flex',
   margin: 0,
   flexDirection: 'column',
@@ -22,8 +17,5 @@ const Item = styled.li((props) => ({
   },
 }));
 
-const ListItem: React.FC<ListItemProps> = ({ className, children }) => (
-  <Item className={className}>{children}</Item>
-);
 
 export default ListItem;

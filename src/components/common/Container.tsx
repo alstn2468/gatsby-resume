@@ -1,8 +1,7 @@
-import * as React from 'react';
 import { rem } from 'polished';
 import { styled } from '~/src/components/themeContext';
 
-const BaseContainer = styled.div((props) => ({
+const Container = styled.div((props) => ({
   marginTop: rem(16),
   ':first-of-type': {
     marginTop: rem(24),
@@ -14,7 +13,5 @@ const BaseContainer = styled.div((props) => ({
     },
   },
 }));
-
-const Container: React.FC = ({ children }) => <BaseContainer>{children}</BaseContainer>;
 
 export default Container;
