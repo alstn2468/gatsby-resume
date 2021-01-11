@@ -78,7 +78,7 @@ const Introduce: React.FC<IntroduceProp> = ({ data }) => {
   }
   const updatedDate = new Date(data.updatedAt).getTime();
   const nowDate = new Date().getTime();
-  const diffDate = Math.ceil((nowDate - updatedDate) / (24 * 3600 * 1000));
+  const diffDate = Math.floor((nowDate - updatedDate) / (24 * 3600 * 1000));
   return description ? (
     <Container>
       <IntroduceWrapper>
@@ -91,7 +91,7 @@ const Introduce: React.FC<IntroduceProp> = ({ data }) => {
             <TagTextLabel>Updated At</TagTextLabel>
             <Tag className={css({ padding: `${rem(2)} ${rem(4)}` })}>
               <TagText>{data.updatedAt.replace(/\//g, ' .')}</TagText>
-              <TagText>{`(D+${diffDate})`}</TagText>
+              <TagText>{diffDate === 0 ? '(Today)' : `(D+${diffDate})`}</TagText>
             </Tag>
           </UpdateInfoWrapper>
         </IntroduceData>
