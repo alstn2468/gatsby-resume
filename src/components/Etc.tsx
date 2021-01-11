@@ -1,13 +1,34 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import { css } from '@emotion/css';
 import { rem } from 'polished';
-import { styled } from '~/src/components/themeContext';
-import { SectionTitle, Container } from '~/src/components/common';
+import {
+  SectionTitle,
+  Container,
+  List,
+  ListItem,
+  ListItemTitle,
+  ListItemData as BaseListItemData,
+  ListItemDataTitle,
+  ListItemDataWrapper,
+} from '~/src/components/common';
 import { FieldError } from '~/src/utils';
+import { styled } from '~/src/components/themeContext';
 
 type EtcProp = {
   data: GatsbyTypes.EtcDataFragment,
 };
+
+const DescriptionList = styled.ul({
+  paddingLeft: rem(22),
+  paddingTop: rem(8),
+  marginBottom: rem(16),
+  listStyle: 'disc',
+});
+
+const ListItemData = BaseListItemData.withComponent('div');
+
+const DescriptionItem = styled.li({});
 
 const Etc: React.FC<EtcProp> = ({ data }) => {
   const { title, data: etcData } = data;
@@ -17,23 +38,38 @@ const Etc: React.FC<EtcProp> = ({ data }) => {
   return etcData.length > 0 ? (
     <Container>
       <SectionTitle title={title} />
-      <ul>
-        {etcData.map((etcValue, valueIdx) => (
-          <li key={`etc-value-${valueIdx}`}>
-            <h3>{etcValue?.title}</h3>
-            <p>{etcValue?.startDate} ~ {etcValue?.endDate}</p>
-            {etcValue?.description && (
-              <ul>
-                {etcValue.description.map((description, idx) => (
-                  <li key={`etc-value-description-${idx}`}>
-                    {description}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ul>
+      <List>
+        {etcData.map((etcValue, valueIdx) => {
+          if (!etcValue?.title) {
+            throw new FieldError({ componentName: 'Etc', field: 'etcValue.title' });
+          }
+          if (!etcValue?.startDate) {
+            throw new FieldError({ componentName: 'Etc', field: 'etcValue.startDate' });
+          }
+          if (!etcValue?.description) {
+            throw new FieldError({ componentName: 'Etc', field: 'etcValue.description' });
+          }
+          return (
+            <ListItem key={`etc-value-${valueIdx}`}>
+              <ListItemTitle>{etcValue.startDate} ~ {etcValue?.endDate}</ListItemTitle>
+              <ListItemData className={css({ paddingLeft: rem(40) })}>
+                <ListItemDataWrapper>
+                  <ListItemDataTitle>{etcValue.title}</ListItemDataTitle>
+                </ListItemDataWrapper>
+                <ListItemDataWrapper>
+                  <DescriptionList>
+                    {etcValue.description.map((description, idx) => (
+                      <DescriptionItem key={`etc-value-description-${idx}`}>
+                        {description}
+                      </DescriptionItem>
+                    ))}
+                  </DescriptionList>
+                </ListItemDataWrapper>
+              </ListItemData>
+            </ListItem>
+          );
+        })}
+      </List>
     </Container>
   ) : null;
 };

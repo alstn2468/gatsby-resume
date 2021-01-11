@@ -5,6 +5,7 @@ import { styled } from '~/src/components/themeContext';
 
 type TagProps = {
   color?: string,
+  className?: string,
 };
 
 const Container = styled.span({
@@ -23,11 +24,12 @@ const Container = styled.span({
 
 const Tag: React.FC<TagProps> = ({
   color,
+  className,
   children,
 }) => {
   return (
     <Container
-      className={cx(color && css({ backgroundColor: color }))}
+      className={`${className} ${cx(color && css({ backgroundColor: color }))}`}
     >
       {children}
     </Container>

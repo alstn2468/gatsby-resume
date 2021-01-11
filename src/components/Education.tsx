@@ -1,13 +1,29 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import { css } from '@emotion/css';
 import { rem } from 'polished';
-import { SectionTitle, Container } from '~/src/components/common';
-import { styled } from '~/src/components/themeContext';
+import {
+  SectionTitle,
+  Container,
+  List,
+  ListItem,
+  ListItemTitle,
+  ListItemData as BaseListItemData,
+  ListItemDataTitle,
+  ListItemDataSubTitle,
+} from '~/src/components/common';
 import { FieldError } from '~/src/utils';
+import { styled } from '~/src/components/themeContext';
 
 type EducationProp = {
   data: GatsbyTypes.EducationDataFragment,
 };
+
+const DescriptionItem = styled.div({
+  width: '100%',
+});
+
+const ListItemData = BaseListItemData.withComponent('div');
 
 const Education: React.FC<EducationProp> = ({ data }) => {
   const { title, data: educationData } = data;
@@ -17,15 +33,36 @@ const Education: React.FC<EducationProp> = ({ data }) => {
   return educationData.length > 0 ? (
     <Container>
       <SectionTitle title={title} />
-      <ul>
-        {educationData.map((educationValue, valueIdx) => (
-          <li key={`education-value-${valueIdx}`}>
-            <h3>{educationValue?.title}</h3>
-            <p>{educationValue?.startDate} ~ {educationValue?.endDate}</p>
-            <p>{educationValue?.major}</p>
-          </li>
-        ))}
-      </ul>
+      <List>
+        {educationData.map((educationValue, valueIdx) => {
+          if (!educationValue?.title) {
+            throw new FieldError({ componentName: 'Education', field: 'educationValue.title' });
+          }
+          if (!educationValue?.startDate) {
+            throw new FieldError({ componentName: 'Education', field: 'educationValue.startDate' });
+          }
+          if (!educationValue?.major) {
+            throw new FieldError({ componentName: 'Education', field: 'educationValue.major' });
+          }
+          return (
+            <ListItem key={`education-value-${valueIdx}`}>
+              <ListItemTitle>{educationValue.startDate} ~ {educationValue?.endDate}</ListItemTitle>
+              <ListItemData className={css({ paddingLeft: rem(20) })}>
+                <DescriptionItem>
+                  <ListItemDataTitle>
+                    {educationValue.title}
+                  </ListItemDataTitle>
+                </DescriptionItem>
+                <DescriptionItem>
+                  <ListItemDataSubTitle>
+                    {educationValue.major}
+                  </ListItemDataSubTitle>
+                </DescriptionItem>
+              </ListItemData>
+            </ListItem>
+          );
+        })}
+      </List>
     </Container>
   ) : null;
 };

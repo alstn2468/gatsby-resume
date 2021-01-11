@@ -57,6 +57,7 @@ export const createSchemaCustomization: GatsbyNodeAPI<'createSchemaCustomization
       instagram: String
       linkedIn: String
       youtube: String
+      updatedAt: Date
       description: String
     }
 
