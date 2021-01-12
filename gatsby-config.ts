@@ -6,8 +6,8 @@ import type { PluginOptions as ModuleResolverOptions } from 'gatsby-plugin-modul
 type PluginRef<Resolve extends string, Options = unknown> = Omit<
   IPluginRefObject,
   keyof {
-    resolve: Resolve,
-    options: Options,
+    resolve: Resolve;
+    options: Options;
   }
 > & { resolve: Resolve; options: Options };
 
@@ -34,7 +34,8 @@ export const siteMetadata: GatsbyConfig['siteMetadata'] = {
   description: 'Static website resume with GatsbyJS, TypeScript',
 };
 
-export const pathPrefix: GatsbyConfig['pathPrefix'] = process.env.GATSBY_PATH_PREFIX;
+export const pathPrefix: GatsbyConfig['pathPrefix'] =
+  process.env.GATSBY_PATH_PREFIX;
 
 export const plugins: PluginConfig[] = [
   'gatsby-transformer-sharp',
@@ -83,6 +84,25 @@ export const plugins: PluginConfig[] = [
       theme_color: '#000000',
       display: 'minimal-ui',
       icon: 'src/images/favicon.png',
+      icon_options: {
+        purpose: 'any maskable',
+      },
+      localize: [
+        {
+          start_url: '/ko/',
+          lang: 'ko',
+          name: 'Gatsby Resume',
+          short_name: 'Gatsby Resume',
+          description: 'Static website resume with GatsbyJS, TypeScript',
+        },
+        {
+          start_url: '/en/',
+          lang: 'en',
+          name: 'Gatsby Resume',
+          short_name: 'Gatsby Resume',
+          description: 'Static website resume with GatsbyJS, TypeScript',
+        },
+      ],
     },
   },
   'gatsby-plugin-offline',
