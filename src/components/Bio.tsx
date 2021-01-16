@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, withAssetPrefix } from 'gatsby';
 import { rem } from 'polished';
 import Img from 'gatsby-image';
 import {
@@ -57,13 +57,29 @@ const Bio: React.FC<BioProps> = ({
   `);
   const fluidImage = profileImage?.image?.childImageSharp?.fluid;
   if (!fluidImage) {
-    throw new FieldError({ componentName: 'Bio', field: 'fluidImage' });
+    throw new FieldError({
+      componentName: 'Bio',
+      field: 'fluidImage',
+    });
   }
-
+  const prefixImage = {
+    ...fluidImage,
+    src: withAssetPrefix(fluidImage.src),
+    srcWebp: fluidImage?.srcWebp && withAssetPrefix(fluidImage.srcWebp),
+    srcSet: fluidImage.srcSet
+      .split('\n')
+      .map(withAssetPrefix)
+      .join('\n'),
+    srcSetWebp: fluidImage?.srcSetWebp
+      && fluidImage.srcSetWebp
+        .split('\n')
+        .map(withAssetPrefix)
+        .join('\n'),
+  };
   return (
     <Container>
       <ImageWrapper>
-        <Img fluid={fluidImage} />
+        <Img fluid={prefixImage} />
       </ImageWrapper>
       <ListItemData>
         {data.name}

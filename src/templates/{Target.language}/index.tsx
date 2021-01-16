@@ -17,6 +17,7 @@ import OpenSource from '~/src/components/OpenSource';
 import Presentation from '~/src/components/Presentation';
 import { styled } from '~/src/components/themeContext';
 import { l10nContext, getTranslationText } from '~/src/components/l10nContext';
+import { FieldError } from '~/src/utils';
 
 type LocalizedIndexPageProps = PageProps<
   GatsbyTypes.TemplateIndexPageQuery,
@@ -38,11 +39,17 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
 }) => {
   const { target, __translation_messeages } = data;
   if (!target) {
-    throw new Error('No target on TemplateIndexPage.');
+    throw new FieldError({
+      componentName: 'TemplateIndexPage',
+      field: 'target',
+    });
   }
   const language = __translation_messeages?.language;
   if (!language) {
-    throw new Error('No language on TemplateIndexPage.');
+    throw new FieldError({
+      componentName: 'TemplateIndexPage',
+      field: 'language',
+    });
   }
   type L10nContext = React.ContextType<typeof l10nContext>;
   const l10n = React.useMemo<L10nContext>(() => {
