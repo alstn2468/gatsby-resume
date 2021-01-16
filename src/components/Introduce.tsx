@@ -62,7 +62,6 @@ const TagTextLabel = styled.small({
 });
 
 const TagText = styled.span({
-  display: 'inline-block',
   fontWeight: 700,
   lineHeight: 1,
   margin: `0 ${rem(4)}`,
