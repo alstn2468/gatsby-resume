@@ -5,6 +5,7 @@ import { graphql } from 'gatsby';
 
 import Layout from '~/src/layout';
 import Fab from '~/src/components/Fab';
+import Bio from '~/src/components/Bio';
 import Etc from '~/src/components/Etc';
 import Paper from '~/src/components/Paper';
 import Skill from '~/src/components/Skill';
@@ -63,6 +64,7 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
     <Layout l10n={l10n} pathname={location.pathname}>
       <Container>
         {language && <Fab language={language} />}
+        {data.target?.bio && <Bio data={data.target.bio} />}
         {(Object.keys(target) as TargetKeyType).map((key, idx) => {
           switch (key) {
             case 'introduce':
@@ -96,6 +98,9 @@ export const query = graphql`
   query TemplateIndexPage($targetId: String!, $language: String!) {
     ...TranslationMessages
     target(id: { eq: $targetId }) {
+      bio: introduce {
+        ...BioData
+      }
       introduce {
         ...IntroduceData
       }
