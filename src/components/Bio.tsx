@@ -1,13 +1,14 @@
 import * as React from 'react';
-import { graphql, useStaticQuery, withAssetPrefix } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import { rem } from 'polished';
 import Img from 'gatsby-image';
 import {
   Container as BaseContainer,
   ListItemData as BaseListItemData,
+  ListItemDataTitle,
 } from '~/src/components/common';
 import { styled } from '~/src/components/themeContext';
-import { FieldError } from '~/src/utils';
+import { FieldError, addAssetPrefix } from '~/src/utils';
 
 type BioProps = {
   data: GatsbyTypes.BioDataFragment,
@@ -31,13 +32,31 @@ const ImageWrapper = styled.div((props) => ({
   },
 }));
 
-const ListItemData = styled(BaseListItemData)((props) => ({
+const BioList = styled(BaseListItemData)((props) => ({
   marginTop: rem(8),
   padding: `0 ${rem(16)}`,
   paddingBottom: rem(16),
+  listStyle: 'none',
   [props.theme.media['md']]: {
     marginTop: 0,
     paddingBottom: 0,
+  },
+}));
+
+const BioItem = styled.li({
+  width: '100%',
+  fontSize: rem(14),
+  ':not(:last-of-type)': {
+    marginBottom: rem(8),
+  },
+});
+
+const NameText = styled(ListItemDataTitle)((props) => ({
+  fontSize: rem(24),
+  marginBottom: 0,
+  [props.theme.media['md']]: {
+    fontSize: rem(24),
+    marginBottom: 0,
   },
 }));
 
@@ -62,28 +81,36 @@ const Bio: React.FC<BioProps> = ({
       field: 'fluidImage',
     });
   }
+  if (!data.name) {
+    throw new FieldError({
+      componentName: 'Bio',
+      field: 'data.name',
+    });
+  }
   const prefixImage = {
     ...fluidImage,
-    src: withAssetPrefix(fluidImage.src),
-    srcWebp: fluidImage?.srcWebp && withAssetPrefix(fluidImage.srcWebp),
-    srcSet: fluidImage.srcSet
-      .split('\n')
-      .map(withAssetPrefix)
-      .join('\n'),
-    srcSetWebp: fluidImage?.srcSetWebp
-      && fluidImage.srcSetWebp
-        .split('\n')
-        .map(withAssetPrefix)
-        .join('\n'),
+    src: addAssetPrefix(fluidImage.src),
+    srcWebp: fluidImage?.srcWebp && addAssetPrefix(fluidImage.srcWebp),
+    srcSet: addAssetPrefix(fluidImage.srcSet),
+    srcSetWebp: fluidImage?.srcSetWebp && addAssetPrefix(fluidImage.srcSetWebp)
   };
   return (
     <Container>
       <ImageWrapper>
         <Img fluid={prefixImage} />
       </ImageWrapper>
-      <ListItemData>
-        {data.name}
-      </ListItemData>
+      <BioList>
+        <BioItem>
+          <NameText>{data.name}</NameText>
+        </BioItem>
+        {data.phone && <BioItem>{data.phone}</BioItem>}
+        {data.email && <BioItem>{data.email}</BioItem>}
+        {data.github && <BioItem>{data.github}</BioItem>}
+        {data.facebook && <BioItem>{data.facebook}</BioItem>}
+        {data.instagram && <BioItem>{data.instagram}</BioItem>}
+        {data.linkedIn && <BioItem>{data.linkedIn}</BioItem>}
+        {data.youtube && <BioItem>{data.youtube}</BioItem>}
+      </BioList>
     </Container>
   );
 }
