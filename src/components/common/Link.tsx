@@ -14,14 +14,14 @@ const LinkContainer = styled.a({
   },
 });
 
-const Link: React.FC<LinkProps> = ({ link }) => {
+const Link: React.FC<LinkProps> = ({ link, children }) => {
   return (
     <LinkContainer
       href={link}
       target="_blank"
       rel="noreferrer noopener"
     >
-      {link}
+      {children ? children : link}
     </LinkContainer>
   );
 };

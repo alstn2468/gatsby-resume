@@ -6,6 +6,7 @@ import {
   Container as BaseContainer,
   ListItemData as BaseListItemData,
   ListItemDataTitle,
+  Link,
 } from '~/src/components/common';
 import { styled } from '~/src/components/themeContext';
 import { FieldError, addAssetPrefix } from '~/src/utils';
@@ -105,11 +106,41 @@ const Bio: React.FC<BioProps> = ({
         </BioItem>
         {data.phone && <BioItem>{data.phone}</BioItem>}
         {data.email && <BioItem>{data.email}</BioItem>}
-        {data.github && <BioItem>{data.github}</BioItem>}
-        {data.facebook && <BioItem>{data.facebook}</BioItem>}
-        {data.instagram && <BioItem>{data.instagram}</BioItem>}
-        {data.linkedIn && <BioItem>{data.linkedIn}</BioItem>}
-        {data.youtube && <BioItem>{data.youtube}</BioItem>}
+        {data.github && (
+          <BioItem>
+            <Link link={`https://github.com/${data.github}`}>
+              Github
+            </Link>
+          </BioItem>
+        )}
+        {data.facebook && (
+          <BioItem>
+            <Link link={`https://facebook.com/${data.facebook}`}>
+              Facebook
+            </Link>
+          </BioItem>
+        )}
+        {data.instagram && (
+          <BioItem>
+            <Link link={`https://instagram.com/${data.instagram}`}>
+              Instagram
+            </Link>
+          </BioItem>
+        )}
+        {data.linkedIn && (
+          <BioItem>
+            <Link link={`https://www.linkedin.com/in/${data.linkedIn}`}>
+              LinkedIn
+            </Link>
+          </BioItem>
+        )}
+        {data.youtube && (
+          <BioItem>
+            <Link link={`https://www.youtube.com/channel/${data.youtube}`}>
+              Youtube
+            </Link>
+          </BioItem>
+        )}
       </BioList>
     </Container>
   );
