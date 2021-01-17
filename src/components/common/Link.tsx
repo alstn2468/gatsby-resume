@@ -9,6 +9,7 @@ const LinkContainer = styled.a({
   color: '#192bc2',
   background: 'transparent',
   wordBreak: 'break-all',
+  display: 'flex',
   ':visited': {
     color: '#192bc2',
   },

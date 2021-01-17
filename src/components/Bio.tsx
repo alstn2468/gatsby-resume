@@ -9,6 +9,7 @@ import {
   Link,
 } from '~/src/components/common';
 import { styled } from '~/src/components/themeContext';
+import SocialMedia from '~/src/components/bio/SocialMedia';
 import { FieldError, addAssetPrefix } from '~/src/utils';
 
 type BioProps = {
@@ -41,6 +42,7 @@ const BioList = styled(BaseListItemData)((props) => ({
   [props.theme.media['md']]: {
     marginTop: 0,
     paddingBottom: 0,
+    paddingLeft: rem(32),
   },
 }));
 
@@ -68,7 +70,7 @@ const Bio: React.FC<BioProps> = ({
     query ProfileImage {
       image: file(relativePath: { eq: "profile.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -98,7 +100,10 @@ const Bio: React.FC<BioProps> = ({
   return (
     <Container>
       <ImageWrapper>
-        <Img fluid={prefixImage} />
+        <Img
+          style={{ height: '100%' }}
+          fluid={prefixImage}
+        />
       </ImageWrapper>
       <BioList>
         <BioItem>
@@ -109,35 +114,35 @@ const Bio: React.FC<BioProps> = ({
         {data.github && (
           <BioItem>
             <Link link={`https://github.com/${data.github}`}>
-              Github
+              <SocialMedia type="Github" />
             </Link>
           </BioItem>
         )}
         {data.facebook && (
           <BioItem>
             <Link link={`https://facebook.com/${data.facebook}`}>
-              Facebook
+              <SocialMedia type="Facebook" />
             </Link>
           </BioItem>
         )}
         {data.instagram && (
           <BioItem>
             <Link link={`https://instagram.com/${data.instagram}`}>
-              Instagram
+              <SocialMedia type="Instagram" />
             </Link>
           </BioItem>
         )}
         {data.linkedIn && (
           <BioItem>
             <Link link={`https://www.linkedin.com/in/${data.linkedIn}`}>
-              LinkedIn
+              <SocialMedia type="LinkedIn" />
             </Link>
           </BioItem>
         )}
         {data.youtube && (
           <BioItem>
             <Link link={`https://www.youtube.com/channel/${data.youtube}`}>
-              Youtube
+              <SocialMedia type="Youtube" />
             </Link>
           </BioItem>
         )}
