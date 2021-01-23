@@ -1,7 +1,9 @@
 import * as React from 'react';
+import { rem } from 'polished';
 import { styled } from '~/src/components/themeContext';
 
 type LinkProps = {
+  icon?: React.ReactNode,
   link: string,
 };
 
@@ -15,13 +17,18 @@ const LinkContainer = styled.a({
   },
 });
 
-const Link: React.FC<LinkProps> = ({ link, children }) => {
+const Link: React.FC<LinkProps> = ({
+  icon,
+  link,
+  children
+}) => {
   return (
     <LinkContainer
       href={link}
       target="_blank"
       rel="noreferrer noopener"
     >
+      {icon && icon}
       {children ? children : link}
     </LinkContainer>
   );

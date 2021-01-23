@@ -47,6 +47,7 @@ const IntroduceText = styled.pre({
   lineHeight: 1.8,
   marginTop: 0,
   marginBottom: rem(16),
+  whiteSpace: 'pre-line',
 });
 
 const UpdateInfoWrapper = styled.div({

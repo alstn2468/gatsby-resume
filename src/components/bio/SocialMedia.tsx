@@ -28,18 +28,20 @@ const InstagramIcon = SocialMediaIcon.withComponent(InstagramIconSvg);
 const LinkedInIcon = SocialMediaIcon.withComponent(LinkedInIconSvg);
 const YoutubeIcon = SocialMediaIcon.withComponent(YoutubeIconSvg);
 
-const SocialMedia: React.FC<SocialMediaProps> = ({ type }) => {
+const SocialMedia: React.FC<SocialMediaProps> = ({
+  type,
+}) => {
   switch (type) {
     case 'Facebook':
-      return (<><FacebookIcon /><span>Facebook</span></>);
+      return <FacebookIcon />
     case 'Github':
-      return (<><GithubIcon /><span>Github</span></>);
+      return <GithubIcon />;
     case 'Instagram':
-      return (<><InstagramIcon /><span>Instagram</span></>);
+      return <InstagramIcon />;
     case 'LinkedIn':
-      return (<><LinkedInIcon /><span>LinkedIn</span></>);
+      return <LinkedInIcon />;
     case 'Youtube':
-      return (<><YoutubeIcon /><span>Youtube</span></>);
+      return <YoutubeIcon />;
   }
 }
 
