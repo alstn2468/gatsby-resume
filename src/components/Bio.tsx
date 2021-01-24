@@ -47,6 +47,7 @@ const BioList = styled(BaseListItemData)((props) => ({
 }));
 
 const BioItem = styled.li({
+  display: 'flex',
   width: '100%',
   fontSize: rem(14),
   ':not(:last-of-type)': {
@@ -113,50 +114,40 @@ const Bio: React.FC<BioProps> = ({
         {data.email && <BioItem>{data.email}</BioItem>}
         {data.github && (
           <BioItem>
-            <Link
-              link={`https://github.com/${data.github}`}
-              icon={<SocialMedia type="Github" />}
-            >
+            <SocialMedia type="Github" />
+            <Link link={`https://github.com/${data.github}`} >
               Github
             </Link>
           </BioItem>
         )}
         {data.facebook && (
           <BioItem>
-            <Link
-              link={`https://facebook.com/${data.facebook}`}
-              icon={<SocialMedia type="Facebook" />}
-            >
+            <SocialMedia type="Facebook" />
+            <Link link={`https://facebook.com/${data.facebook}`} >
               Facebook
             </Link>
           </BioItem>
         )}
         {data.instagram && (
           <BioItem>
-            <Link
-              link={`https://instagram.com/${data.instagram}`}
-              icon={<SocialMedia type="Instagram" />}
-            >
+            <SocialMedia type="Instagram" />
+            <Link link={`https://instagram.com/${data.instagram}`} >
               Instagram
             </Link>
           </BioItem>
         )}
         {data.linkedIn && (
           <BioItem>
-            <Link
-              link={`https://www.linkedin.com/in/${data.linkedIn}`}
-              icon={<SocialMedia type="LinkedIn" />}
-            >
+            <SocialMedia type="LinkedIn" />
+            <Link link={`https://www.linkedin.com/in/${data.linkedIn}`} >
               LinkedIn
             </Link>
           </BioItem>
         )}
         {data.youtube && (
           <BioItem>
-            <Link
-              link={`https://www.youtube.com/channel/${data.youtube}`}
-              icon={<SocialMedia type="Youtube" />}
-            >
+            <SocialMedia type="Youtube" />
+            <Link link={`https://www.youtube.com/channel/${data.youtube}`} >
               Youtube
             </Link>
           </BioItem>

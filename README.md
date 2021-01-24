@@ -9,6 +9,7 @@
 ![lighthouse accessibility](./lighthouse/lighthouse_accessibility.svg) ![lighthouse best practices](./lighthouse/lighthouse_best-practices.svg) ![lighthouse performance](./lighthouse/lighthouse_performance.svg) ![lighthouse pwa](./lighthouse/lighthouse_pwa.svg) ![lighthouse seo](./lighthouse/lighthouse_seo.svg)<br/>
 ![Deploy Gatsby Resume](https://github.com/alstn2468/gatsby_resume/workflows/Deploy%20Gatsby%20Resume/badge.svg) ![LICENSE](https://img.shields.io/github/license/alstn2468/Gatsby_Resume) ![Last Commit](https://img.shields.io/github/last-commit/alstn2468/Gatsby_Resume)<br/>
 ![React Version](https://img.shields.io/github/package-json/dependency-version/alstn2468/Gatsby_Resume/react) ![Gatsby Version](https://img.shields.io/github/package-json/dependency-version/alstn2468/Gatsby_Resume/gatsby) ![TypeScript Version](https://img.shields.io/github/package-json/dependency-version/alstn2468/Gatsby_Resume/dev/typescript) ![emotion Version](https://img.shields.io/github/package-json/dependency-version/alstn2468/Gatsby_Resume/emotion)
+
 </div>
 
 ## Demo
@@ -131,10 +132,10 @@ README 상단의 [뱃지](#badge)의 주소들을 변경해 뱃지도 관리해�
 - [x] CI/CD 파이프라인 구성 (배포는 gh-pages)
 - [x] 데이터 구조 설계
 - [x] yml을 이용한 국문+영문 데이터 소싱
-- [ ] 반응형 페이지 레이아웃 디자인
+- [x] 반응형 페이지 레이아웃 디자인
 - [ ] 색상 테마 기능
-- [ ] 컴포넌트 개발
-- [ ] 페이지 개발
+- [x] 컴포넌트 개발
+- [x] 페이지 개발
 - [ ] pdf export 기능
 - [ ] 문서 작성
 - [ ] 테스트 코드 작성
