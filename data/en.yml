@@ -9,7 +9,7 @@ introduce:
   instagram: 'minsu._.0102'
   linkedIn: 'minsu-kim-developer'
   youtube: ''
-  updatedAt: '2021/01/11'
+  updatedAt: '2021/01/30'
   description: |
     I'm a junior developer working at Devsisters.
     I think consistency is my biggest strength.
@@ -77,6 +77,17 @@ experience:
   data:
     [
       {
+        title: 'Devsisters',
+        startDate: '2020.09',
+        position: 'Software Engineer',
+        description:
+          [
+            'Game company that developed global running game Cookie Run',
+            'Develop in-house web services and game-related web services',
+          ],
+        skill: ['TypeScript', 'React.js', 'Gatsby.js', 'GraphQL', 'AWS', 'Git'],
+      },
+      {
         title: 'DataStreams',
         startDate: '2020.01',
         endDate: '2020.09',
@@ -88,17 +99,6 @@ experience:
           ],
         skill: ['JavaScript', 'React.js', 'Jenkins', 'Git', 'Sketch', 'Jira'],
       },
-      {
-        title: 'Devsisters',
-        startDate: '2020.09',
-        position: 'Software Engineer',
-        description:
-          [
-            'Game company that developed global running game Cookie Run',
-            'Develop in-house web services and game-related web services',
-          ],
-        skill: ['TypeScript', 'React.js', 'Gatsby.js', 'GraphQL', 'AWS', 'Git'],
-      },
     ]
 
 project:
@@ -106,6 +106,24 @@ project:
   typename: 'Project'
   data:
     [
+      {
+        title: 'Cookierun:Kingdom Project',
+        company: 'Devsisters',
+        startDate: '2020.09',
+        description:
+          [
+            {
+              title: 'Development pre-registration and game introduction site',
+              detail:
+                [
+                  'Development of Static Website Using Gatsby.js',
+                  'Localization of 4 countries using Lokalise API',
+                  'Image optimization using sharp',
+                  'Common package reuse using monorepo with pnpm',
+                ],
+            },
+          ],
+      },
       {
         title: 'Korea Investment & Securities Project',
         company: 'DataStreams',
@@ -126,24 +144,6 @@ project:
                 [
                   'UI development to show the data of the integrated database',
                   'Dashboard layout and data form customization feature development',
-                ],
-            },
-          ],
-      },
-      {
-        title: 'Cookierun:Kingdom Project',
-        company: 'Devsisters',
-        startDate: '2020.09',
-        description:
-          [
-            {
-              title: 'Development pre-registration and game introduction site',
-              detail:
-                [
-                  'Development of Static Website Using Gatsby.js',
-                  'Localization of 4 countries using Lokalise API',
-                  'Image optimization using sharp',
-                  'Common package reuse using monorepo with pnpm',
                 ],
             },
           ],
@@ -195,14 +195,13 @@ etc:
   data:
     [
       {
-        title: 'LikeLion 7th Organizer',
-        startDate: '2019.01',
-        endDate: '2019.12',
+        title: '2019 WINTER NAVER CAMPUS HACKDAY',
+        startDate: '2019.11',
+        endDate: '2019.11',
         description:
           [
-            'Web Programming Lectures for School Students',
-            'LikeLion Chungcheong provincial university to Hold 1st Hackathon',
-            'Participate LikeLion 7th Hackathon',
+            'Participate in hackathon hosted by Naver',
+            'Development of one day one commit study platform',
           ],
       },
       {
@@ -213,13 +212,14 @@ etc:
           ['Development of application for social baseball AI judgment'],
       },
       {
-        title: '2019 WINTER NAVER CAMPUS HACKDAY',
-        startDate: '2019.11',
-        endDate: '2019.11',
+        title: 'LikeLion 7th Organizer',
+        startDate: '2019.01',
+        endDate: '2019.12',
         description:
           [
-            'Participate in hackathon hosted by Naver',
-            'Development of one day one commit study platform',
+            'Web Programming Lectures for School Students',
+            'LikeLion Chungcheong provincial university to Hold 1st Hackathon',
+            'Participate LikeLion 7th Hackathon',
           ],
       },
     ]

@@ -51,7 +51,7 @@ const BioItem = styled.li({
   width: '100%',
   fontSize: rem(14),
   ':not(:last-of-type)': {
-    marginBottom: rem(8),
+    paddingBottom: rem(8),
   },
 });
 

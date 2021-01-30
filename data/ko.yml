@@ -9,7 +9,7 @@ introduce:
   instagram: 'minsu._.0102'
   linkedIn: 'minsu-kim-developer'
   youtube: ''
-  updatedAt: '2021/01/11'
+  updatedAt: '2021/01/30'
   description: |
     데브시스터즈에서 근무중인 주니어 개발자입니다.
     꾸준함이 제 가장 큰 장점이라 생각합니다.
@@ -77,6 +77,17 @@ experience:
   data:
     [
       {
+        title: '데브시스터즈',
+        startDate: '2020.09',
+        position: '소프트웨어 엔지니어',
+        description:
+          [
+            '글로벌 러닝 액션 게임 쿠키런을 개발한 게임 회사',
+            '사내 웹 서비스 및 게임관련 웹 서비스 개발',
+          ],
+        skill: ['TypeScript', 'React.js', 'Gatsby.js', 'GraphQL', 'AWS', 'Git'],
+      },
+      {
         title: '데이터스트림즈',
         startDate: '2020.01',
         endDate: '2020.09',
@@ -88,17 +99,6 @@ experience:
           ],
         skill: ['JavaScript', 'React.js', 'Jenkins', 'Git', 'Sketch', 'Jira'],
       },
-      {
-        title: '데브시스터즈',
-        startDate: '2020.09',
-        position: '소프트웨어 엔지니어',
-        description:
-          [
-            '글로벌 러닝 액션 게임 쿠키런을 개발한 게임 회사',
-            '사내 웹 서비스 및 게임관련 웹 서비스 개발',
-          ],
-        skill: ['TypeScript', 'React.js', 'Gatsby.js', 'GraphQL', 'AWS', 'Git'],
-      },
     ]
 
 project:
@@ -106,6 +106,24 @@ project:
   typename: 'Project'
   data:
     [
+      {
+        title: '쿠키런 킹덤 프로젝트',
+        company: '데브시스터즈',
+        startDate: '2020.09',
+        description:
+          [
+            {
+              title: '쿠키런 킹덤 사전예약 및 게임 소개 페이지 개발',
+              detail:
+                [
+                  'Gatsby.js를 이용한 정적 웹사이트 개발',
+                  'Lokalise를 이용한 4개 국가 지역화 진행',
+                  'sharp를 이용한 이미지 최적화 진행',
+                  '모노레포를 이용한 공통 패키지 재사용',
+                ],
+            },
+          ],
+      },
       {
         title: '한국투자증권 프로젝트',
         company: '데이터스트림즈',
@@ -123,24 +141,6 @@ project:
                 [
                   '통합된 데이터베이스의 데이터를 보여주는 UI 개발',
                   '대시보드 레이아웃 및 데이터 폼 커스터마이징 기능 개발',
-                ],
-            },
-          ],
-      },
-      {
-        title: '쿠키런 킹덤 프로젝트',
-        company: '데브시스터즈',
-        startDate: '2020.09',
-        description:
-          [
-            {
-              title: '쿠키런 킹덤 사전예약 및 게임 소개 페이지 개발',
-              detail:
-                [
-                  'Gatsby.js를 이용한 정적 웹사이트 개발',
-                  'Lokalise를 이용한 4개 국가 지역화 진행',
-                  'sharp를 이용한 이미지 최적화 진행',
-                  '모노레포를 이용한 공통 패키지 재사용',
                 ],
             },
           ],
@@ -192,14 +192,13 @@ etc:
   data:
     [
       {
-        title: '멋쟁이 사자처럼 7기 운영진',
-        startDate: '2019.01',
-        endDate: '2019.12',
+        title: '2019 WINTER NAVER CAMPUS HACKDAY',
+        startDate: '2019.11',
+        endDate: '2019.11',
         description:
           [
-            '교내 학생들을 대상으로 웹 프로그래밍 강의 진행',
-            '충청권 대학 해커톤 1회 개최',
-            '멋쟁이 사자처럼 7기 해커톤 참여',
+            '네이버에서 진행하는 해커톤 NAVER CAMPUS HACKDAY 참여',
+            '1일 1커밋 스터디 플랫폼 개발',
           ],
       },
       {
@@ -209,13 +208,14 @@ etc:
         description: ['사회인 야구 인공지능 심판 어플리케이션 개발'],
       },
       {
-        title: '2019 WINTER NAVER CAMPUS HACKDAY',
-        startDate: '2019.11',
-        endDate: '2019.11',
+        title: '멋쟁이 사자처럼 7기 운영진',
+        startDate: '2019.01',
+        endDate: '2019.12',
         description:
           [
-            '네이버에서 진행하는 해커톤 NAVER CAMPUS HACKDAY 참여',
-            '1일 1커밋 스터디 플랫폼 개발',
+            '교내 학생들을 대상으로 웹 프로그래밍 강의 진행',
+            '충청권 대학 해커톤 1회 개최',
+            '멋쟁이 사자처럼 7기 해커톤 참여',
           ],
       },
     ]
