@@ -107,11 +107,31 @@ git push -u origin main
 배포된 웹사이트는 `https://<username>.github.io/<repository name>`에서 확인할 수 있습니다.<br/>
 README 상단의 [뱃지](#badge)의 주소들을 변경해 뱃지도 관리해보세요.
 
-## 🚀 사용법
+## 🚀 데이터 설정 및 배포하기
 
-```bash
-// Todo
-```
+이 프로젝트의 데이터는 `package.json` 파일이 있는 경로의 `data` 폴더 내부에 존재합니다.
+
+기본적으로 한국어(`ko.yml`)과 영어(`en.yml`)를 지원하며 다른 언어를 추가할 수도 있습니다.
+
+`gatsby-node.ts` 파일의 `sourceNodes` 함수의 `targets` 배열에 언어 값을 추가하면 됩니다.
+
+언어 코드는 [ISO 630-1](https://www.w3schools.com/tags/ref_language_codes.asp)를 따르며 언어를 추가하는 경우 `Fab` 컴포넌트를 커스터마이징 해야할 수 있습니다.
+
+> TODO : 존재하는 모든 언어 페이지로 이동할 수 있도록 Fab 버튼 개선하기
+
+데이터에서 배열 형태로 되어있는 `experience`의 `data`와 같은 항목은 빈 배열일 경우 화면에 그려지지 않습니다.
+
+값이 비어있을 수 없는 데이터인 경우 실행 중 오류가 발생하니 참고해 설정해야 합니다.
+
+`translations` 목록의 하위 아이템들은 프로젝트에 사용되는 번역 대상 데이터입니다.
+
+해당 데이터를 다른 텍스트로 변경하시고 싶으실 경우 변경하셔도 무방합니다.
+
+따로 번역데이터를 추가해야할 경우 `components/l10nContext.ts` 파일의 `TranslationData`에 키를 추가해주어야 합니다.
+
+`translations` 목록으로 생성된 번역 텍스트는 `l10nContext.ts`에 있는 `useTranslation` 함수를 이용해 사용할 수 있습니다.
+
+모든 데이터 설정이 완료되면 [프로젝트 시작하기](#-프로젝트-시작하기) 과정을 통해 적용된 값을 확인해 Github Repository에 Push하면 됩니다.
 
 ## 🙏 기여
 
@@ -133,11 +153,10 @@ README 상단의 [뱃지](#badge)의 주소들을 변경해 뱃지도 관리해�
 - [x] 데이터 구조 설계
 - [x] yml을 이용한 국문+영문 데이터 소싱
 - [x] 반응형 페이지 레이아웃 디자인
-- [ ] 색상 테마 기능
 - [x] 컴포넌트 개발
 - [x] 페이지 개발
 - [ ] pdf export 기능
-- [ ] 문서 작성
+- [x] 문서 작성
 - [ ] 테스트 코드 작성
 
 <div align="center">
