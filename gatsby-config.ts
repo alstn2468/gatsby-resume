@@ -2,6 +2,7 @@ import type { GatsbyConfig, IPluginRefObject } from 'gatsby';
 import type { FileSystemOptions } from 'gatsby-source-filesystem';
 import type { PluginOptions as TypegenPlugionOptions } from 'gatsby-plugin-typegen/types';
 import type { PluginOptions as ModuleResolverOptions } from 'gatsby-plugin-module-resolver/types';
+import type { PluginOptions as BundleAnalyserOptions } from 'gatsby-plugin-webpack-bundle-analyser-v2/types';
 
 type PluginRef<Resolve extends string, Options = unknown> = Omit<
   IPluginRefObject,
@@ -26,7 +27,11 @@ type PluginConfig =
   | PluginRef<'gatsby-plugin-manifest'>
   | PluginRef<'gatsby-source-filesystem', FileSystemOptions>
   | PluginRef<'gatsby-plugin-typegen', TypegenPlugionOptions>
-  | PluginRef<'gatsby-plugin-module-resolver', ModuleResolverOptions>;
+  | PluginRef<'gatsby-plugin-module-resolver', ModuleResolverOptions>
+  | PluginRef<
+      'gatsby-plugin-webpack-bundle-analyser-v2',
+      BundleAnalyserOptions
+    >;
 
 export const siteMetadata: GatsbyConfig['siteMetadata'] = {
   siteUrl: publicURL.origin,
@@ -44,6 +49,12 @@ export const plugins: PluginConfig[] = [
   'gatsby-plugin-pnpm',
   'gatsby-plugin-svgr',
   'gatsby-plugin-react-helmet-async',
+  {
+    resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+    options: {
+      devMode: true,
+    },
+  },
   {
     resolve: 'gatsby-source-filesystem',
     options: {

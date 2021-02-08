@@ -55,6 +55,12 @@ const Footer: React.FC = () => {
   return (
     <Container>
       <div>
+        <sub>
+          <sup>Written by <Anchor href="https://github.com/alstn2468">@Minsu Kim</Anchor></sup>
+        </sub>
+        <small>✌</small>
+      </div>
+      <div>
         {languages.map((language) => (
           <Sub key={`footer-link-${language}`}>
             <Link
@@ -65,12 +71,6 @@ const Footer: React.FC = () => {
             </Link>
           </Sub>
         ))}
-      </div>
-      <div>
-        <sub>
-          <sup>Written by <Anchor href="https://github.com/alstn2468">@Minsu Kim</Anchor></sup>
-        </sub>
-        <small>✌</small>
       </div>
     </Container>
   )
