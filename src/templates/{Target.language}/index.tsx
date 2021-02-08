@@ -9,6 +9,7 @@ import Bio from '~/src/components/Bio';
 import Etc from '~/src/components/Etc';
 import Paper from '~/src/components/Paper';
 import Skill from '~/src/components/Skill';
+import Footer from '~/src/components/Footer';
 import Project from '~/src/components/Project';
 import Education from '~/src/components/Education';
 import Introduce from '~/src/components/Introduce';
@@ -70,7 +71,7 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
   return (
     <Layout l10n={l10n} pathname={location.pathname}>
       <Container>
-        {language && <Fab language={language} />}
+        {/* {language && <Fab language={language} />} */}
         {data.target?.bio && <Bio data={data.target.bio} />}
         {(Object.keys(target) as TargetKeyType).map((key, idx) => {
           switch (key) {
@@ -94,6 +95,7 @@ const TemplateIndexPage: React.FC<LocalizedIndexPageProps> = ({
               return <Etc key={key + idx} data={target[key]} />;
           }
         })}
+        <Footer />
       </Container>
     </Layout>
   );

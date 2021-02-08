@@ -5,7 +5,7 @@ dependencies:
   '@emotion/styled-base': 11.0.0
   babel-plugin-polished: 1.1.0
   emotion: 11.0.0
-  gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+  gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
   gatsby-background-image: 1.3.1_react-dom@17.0.1+react@17.0.1
   gatsby-image: 2.8.0
   gatsby-plugin-emotion: 5.1.0_0e0d6bda9555e6449690d384b0eebd99
@@ -54,7 +54,7 @@ devDependencies:
   lint-staged: 10.5.3
   typescript: 4.1.3
   url-loader: 4.1.1_file-loader@6.2.0
-lockfileVersion: 5.2
+lockfileVersion: 5.1
 packages:
   /@ardatan/aggregate-error/0.0.6:
     dependencies:
@@ -2122,7 +2122,7 @@ packages:
       error-stack-parser: 2.0.6
       string-width: 2.1.1
       strip-ansi: 3.0.1
-      webpack: 4.44.2
+      webpack: 4.44.2_webpack@4.44.2
     dev: false
     peerDependencies:
       webpack: ^2.0.0 || ^3.0.0 || ^4.0.0
@@ -2137,7 +2137,7 @@ packages:
       react-refresh: 0.8.3
       schema-utils: 2.7.1
       source-map: 0.7.3
-      webpack: 4.44.2
+      webpack: 4.44.2_webpack@4.44.2
       webpack-dev-server: 3.11.1_webpack@4.44.2
       webpack-hot-middleware: 2.25.0
     dev: false
@@ -3455,7 +3455,7 @@ packages:
       loader-utils: 1.4.0
       make-dir: 3.1.0
       schema-utils: 2.7.1
-      webpack: 4.44.2
+      webpack: 4.44.2_webpack@4.44.2
     dev: false
     engines:
       node: '>= 8.9'
@@ -3512,7 +3512,7 @@ packages:
       integrity: sha1-f2kCq46cIPwUy1PVlt2FiIDjV9M=
   /babel-plugin-remove-graphql-queries/2.13.0_gatsby@2.29.3:
     dependencies:
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
     dev: false
     engines:
       node: '>=10.13.0'
@@ -5032,7 +5032,7 @@ packages:
       postcss-modules-values: 1.3.0
       postcss-value-parser: 3.3.1
       source-list-map: 2.0.1
-      webpack: 4.44.2
+      webpack: 4.44.2_webpack@4.44.2
     dev: false
     engines:
       node: '>= 6.9.0 <7.0.0 || >= 8.9.0'
@@ -6056,7 +6056,7 @@ packages:
       object-assign: 4.1.1
       object-hash: 1.3.1
       rimraf: 2.7.1
-      webpack: 4.44.2
+      webpack: 4.44.2_webpack@4.44.2
     deprecated: This loader has been deprecated. Please use eslint-webpack-plugin
     dev: false
     peerDependencies:
@@ -6780,7 +6780,7 @@ packages:
     dependencies:
       loader-utils: 1.4.0
       schema-utils: 0.4.7
-      webpack: 4.44.2
+      webpack: 4.44.2_webpack@4.44.2
     dev: false
     engines:
       node: '>= 4.3 < 5.0.0 || >= 5.10'
@@ -7373,7 +7373,7 @@ packages:
       '@babel/runtime': 7.12.5
       '@emotion/babel-preset-css-prop': 11.0.0_@babel+core@7.12.10
       '@emotion/react': 11.1.4_3e9142bec00f6fba5069683b6b9caa06
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
     dev: false
     engines:
       node: '>=10.13.0'
@@ -7386,7 +7386,7 @@ packages:
   /gatsby-plugin-manifest/2.9.1_gatsby@2.29.3:
     dependencies:
       '@babel/runtime': 7.12.5
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
       gatsby-core-utils: 1.7.1
       gatsby-plugin-utils: 0.6.0_gatsby@2.29.3
       semver: 7.3.4
@@ -7400,7 +7400,7 @@ packages:
       integrity: sha512-SkZSAIjSp31VxstFg4y7xks9w8lxhcxjzKeChxnjeVYbAFWhgLEvo8fJ9aI3yXvFRKCX1+kj5QCaMbM9eq2pMA==
   /gatsby-plugin-module-resolver/1.0.3_gatsby@2.29.3:
     dependencies:
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
     dev: false
     peerDependencies:
       gatsby: '>=1'
@@ -7410,7 +7410,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.12.5
       '@types/react-helmet': 6.1.0
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
       react-helmet-async: 1.0.7_react-dom@17.0.1+react@17.0.1
       schema-dts: 0.6.0_typescript@4.1.3
       type-fest: 0.15.1
@@ -7425,7 +7425,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.12.5
       cheerio: 1.0.0-rc.5
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
       gatsby-core-utils: 1.8.0
       glob: 7.1.6
       idb-keyval: 3.2.0
@@ -7444,7 +7444,7 @@ packages:
       '@sindresorhus/slugify': 1.1.0
       chokidar: 3.4.3
       fs-exists-cached: 1.0.0
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
       gatsby-page-utils: 0.6.1
       gatsby-telemetry: 1.7.1
       globby: 11.0.1
@@ -7458,7 +7458,7 @@ packages:
       integrity: sha512-PyiimFUDMYHYbThkyYc2inKvDEcTR3zeDst/9Oq4IlyG7iL96esSWI/VLYTwHbcajYeUUQgTuUcVoT51mloF8A==
   /gatsby-plugin-pnpm/1.2.5_gatsby@2.29.3:
     dependencies:
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
       lodash.uniq: 4.5.0
     dev: false
     peerDependencies:
@@ -7467,7 +7467,7 @@ packages:
       integrity: sha512-zGJUVApj641WTPiE0L4ZEFbt0iK8pEVIP0dtG5hPTRaTrb0zeZRp8Id9COf5sciwO0zGfT1/CmF6OyhV8KZr+g==
   /gatsby-plugin-react-helmet-async/1.1.0_b838af2a6981985035be61dcce505415:
     dependencies:
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
       react: 17.0.1
       react-dom: 17.0.1_react@17.0.1
       react-helmet-async: 1.0.7_react-dom@17.0.1+react@17.0.1
@@ -7485,7 +7485,7 @@ packages:
       async: 3.2.0
       bluebird: 3.7.2
       fs-extra: 9.0.1
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
       gatsby-core-utils: 1.7.1
       gatsby-telemetry: 1.7.1
       got: 10.7.0
@@ -7512,7 +7512,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.12.5
       common-tags: 1.8.0
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
       minimatch: 3.0.4
       pify: 3.0.0
       sitemap: 1.13.0
@@ -7526,7 +7526,7 @@ packages:
   /gatsby-plugin-svgr/2.0.2_243140527da37eff115e05fa722733b5:
     dependencies:
       '@svgr/webpack': 5.5.0
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
     dev: false
     peerDependencies:
       '@svgr/webpack': '>=2.0.0'
@@ -7547,7 +7547,7 @@ packages:
       '@graphql-tools/utils': 6.2.4
       async: 3.2.0
       common-tags: 1.8.0
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
       react: 17.0.1
     dev: false
     peerDependencies:
@@ -7574,7 +7574,7 @@ packages:
       integrity: sha512-PoyvCt1E2y0TnGH3KIadPeiPB3691iXPYW5S8o0nKam3PcVo1UXcyTK5CRFUgVpsLsfzFcI+2HJ+TDrANDTWNw==
   /gatsby-plugin-utils/0.6.0_gatsby@2.29.3:
     dependencies:
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
       joi: 17.3.0
     dev: false
     engines:
@@ -7667,7 +7667,7 @@ packages:
       chokidar: 3.4.3
       file-type: 16.1.0
       fs-extra: 8.1.0
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
       gatsby-core-utils: 1.7.1
       got: 9.6.0
       md5-file: 5.0.0
@@ -7709,7 +7709,7 @@ packages:
       '@babel/runtime': 7.12.5
       bluebird: 3.7.2
       fs-extra: 9.0.1
-      gatsby: 2.29.3_5d7cd809fa1c09e159291a065ad2c183
+      gatsby: 2.29.3_7b30da3d739fe89f980193c894529664
       gatsby-plugin-sharp: 2.11.2_gatsby@2.29.3
       potrace: 2.1.8
       probe-image-size: 5.0.0
@@ -7723,7 +7723,7 @@ packages:
       gatsby-plugin-sharp: ^2.0.0-beta.3
     resolution:
       integrity: sha512-v8kKgySAZtO7ko+XKbSFLXM0JUPP5s08PI7S8krBPsrhclSY9plRGOqtef1dNG7LIxbGCggy58fGTaD3aad12g==
-  /gatsby/2.29.3_5d7cd809fa1c09e159291a065ad2c183:
+  /gatsby/2.29.3_7b30da3d739fe89f980193c894529664:
     dependencies:
       '@babel/code-frame': 7.12.11
       '@babel/core': 7.12.10
@@ -7871,7 +7871,7 @@ packages:
       util.promisify: 1.0.1
       uuid: 3.4.0
       v8-compile-cache: 1.1.2
-      webpack: 4.44.2
+      webpack: 4.44.2_webpack@4.44.2
       webpack-dev-middleware: 3.7.3_webpack@4.44.2
       webpack-dev-server: 3.11.1_webpack@4.44.2
       webpack-hot-middleware: 2.25.0
@@ -7886,6 +7886,7 @@ packages:
     hasBin: true
     peerDependencies:
       '@types/react': '*'
+      gatsby: '*'
       react: ^16.4.2
       react-dom: ^16.4.2
       typescript: '*'
@@ -10441,7 +10442,7 @@ packages:
       loader-utils: 1.4.0
       normalize-url: 1.9.1
       schema-utils: 1.0.0
-      webpack: 4.44.2
+      webpack: 4.44.2_webpack@4.44.2
       webpack-sources: 1.4.3
     dev: false
     engines:
@@ -10870,7 +10871,7 @@ packages:
     dependencies:
       loader-utils: 1.4.0
       schema-utils: 1.0.0
-      webpack: 4.44.2
+      webpack: 4.44.2_webpack@4.44.2
     dev: false
     engines:
       node: '>= 8.9.0'
@@ -11090,7 +11091,7 @@ packages:
     dependencies:
       cssnano: 4.1.10
       last-call-webpack-plugin: 3.0.0
-      webpack: 4.44.2
+      webpack: 4.44.2_webpack@4.44.2
     dev: false
     peerDependencies:
       webpack: ^4.0.0
@@ -14424,7 +14425,7 @@ packages:
       serialize-javascript: 4.0.0
       source-map: 0.6.1
       terser: 4.8.0
-      webpack: 4.44.2
+      webpack: 4.44.2_webpack@4.44.2
       webpack-sources: 1.4.3
       worker-farm: 1.7.0
     dev: false
@@ -14444,7 +14445,7 @@ packages:
       serialize-javascript: 4.0.0
       source-map: 0.6.1
       terser: 4.8.0
-      webpack: 4.44.2
+      webpack: 4.44.2_webpack@4.44.2
       webpack-sources: 1.4.3
     dev: false
     engines:
@@ -15008,7 +15009,7 @@ packages:
       loader-utils: 1.4.0
       mime: 2.4.7
       schema-utils: 1.0.0
-      webpack: 4.44.2
+      webpack: 4.44.2_webpack@4.44.2
     dev: false
     engines:
       node: '>= 6.9.0'
@@ -15221,7 +15222,7 @@ packages:
       mime: 2.4.7
       mkdirp: 0.5.5
       range-parser: 1.2.1
-      webpack: 4.44.2
+      webpack: 4.44.2_webpack@4.44.2
       webpack-log: 2.0.0
     dev: false
     engines:
@@ -15261,7 +15262,7 @@ packages:
       strip-ansi: 3.0.1
       supports-color: 6.1.0
       url: 0.11.0
-      webpack: 4.44.2
+      webpack: 4.44.2_webpack@4.44.2
       webpack-dev-middleware: 3.7.3_webpack@4.44.2
       webpack-log: 2.0.0
       ws: 6.2.1
@@ -15321,7 +15322,7 @@ packages:
     dev: false
     resolution:
       integrity: sha512-kDUmfm3BZrei0y+1NTHJInejzxfhtU8eDj2M7OKb2IWrPFAeO1SOH2KuQ68MSZu9IGEHcxbkKKR1v18FrUSOmA==
-  /webpack/4.44.2:
+  /webpack/4.44.2_webpack@4.44.2:
     dependencies:
       '@webassemblyjs/ast': 1.9.0
       '@webassemblyjs/helper-module-context': 1.9.0
@@ -15351,6 +15352,7 @@ packages:
       node: '>=6.11.5'
     hasBin: true
     peerDependencies:
+      webpack: '*'
       webpack-cli: '*'
       webpack-command: '*'
     peerDependenciesMeta:
