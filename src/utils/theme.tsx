@@ -21,7 +21,7 @@ interface CreateStyled<Theme> {
   <
     C extends React.ComponentType<React.ComponentProps<C>>,
     ForwardedProps extends keyof React.ComponentProps<C> = keyof React.ComponentProps<C>
-    >(
+  >(
     component: C,
     options: FilteringStyledOptions<React.ComponentProps<C>, ForwardedProps>,
   ): CreateStyledComponent<
@@ -44,7 +44,7 @@ interface CreateStyled<Theme> {
   <
     Tag extends keyof JSX.IntrinsicElements,
     ForwardedProps extends keyof JSX.IntrinsicElements[Tag] = keyof JSX.IntrinsicElements[Tag]
-    >(
+  >(
     tag: Tag,
     options: FilteringStyledOptions<JSX.IntrinsicElements[Tag], ForwardedProps>,
   ): CreateStyledComponent<
@@ -64,8 +64,8 @@ interface CreateStyled<Theme> {
 export type StyledTags<Theme> = {
   [Tag in keyof JSX.IntrinsicElements]: CreateStyledComponent<
     {
-      theme?: Theme,
-      as?: React.ElementType,
+      theme?: Theme;
+      as?: React.ElementType;
     },
     JSX.IntrinsicElements[Tag]
   >;

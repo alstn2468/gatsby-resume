@@ -1,8 +1,7 @@
 import type { GatsbyNode } from 'gatsby';
 import fs from 'fs';
+import path from 'path';
 import yaml from 'js-yaml';
-
-type $FIXME = any;
 
 type GatsbyNodeAPI<T extends keyof GatsbyNode> = GatsbyNode[T] extends infer U
   ? U extends (...args: infer Params) => any
@@ -25,16 +24,14 @@ export const createSchemaCustomization: GatsbyNodeAPI<'createSchemaCustomization
   actions,
 }) => {
   actions.createTypes(gql`
-    type Message implements Node {
+    type TranslationMessages implements Node {
+      id: ID!
       language: String!
-      Fab_changeLanguageButton_text: String!
-      Fab_exportPdfButton_text: String!
-      Experience_tagCategory_text: String!
     }
 
     type Target implements Node @dontInfer {
       language: String!
-      translations: Message! @link(by: "language", from: "language")
+      translations: TranslationMessages @link(by: "language", from: "language")
       introduce: Introduce! @link(by: "language", from: "language")
       skill: Skill! @link(by: "language", from: "language")
       experience: Experience! @link(by: "language", from: "language")
@@ -179,6 +176,7 @@ export const sourceNodes: GatsbyNodeAPI<'sourceNodes'> = ({
   createContentDigest,
 }) => {
   const targets = ['ko', 'en'];
+  let defaultMessages;
   type YamlItem = {
     typename: string;
     title: string;
@@ -304,16 +302,6 @@ export const sourceNodes: GatsbyNodeAPI<'sourceNodes'> = ({
     });
 
     actions.createNode({
-      messages: translations,
-      language: target,
-      id: createNodeId(`Message: ${target}`),
-      internal: {
-        type: 'Message',
-        contentDigest: createContentDigest(translations),
-      },
-    });
-
-    actions.createNode({
       language: target,
       id: createNodeId(`Target: ${target}`),
       internal: {
@@ -321,6 +309,49 @@ export const sourceNodes: GatsbyNodeAPI<'sourceNodes'> = ({
         contentDigest: createContentDigest(target),
       },
     });
+    const messageEntries = Object.entries(translations).map(value => {
+      const [translationKey, translationValue] = value;
+      return [translationKey, { text: translationValue }];
+    });
+    const messages = Object.fromEntries(messageEntries);
+    if (!defaultMessages) {
+      defaultMessages = messages;
+    }
+    actions.createNode({
+      messages,
+      language: target,
+      id: createNodeId(`TranslationMessages > ${target}`),
+      internal: {
+        type: 'TranslationMessages',
+        contentDigest: createContentDigest(translations),
+      },
+    });
+    const renderTextFragments = fields => {
+      return `fragment TranslationMessages_allMessages on TranslationMessagesMessages {
+      ${fields.map(field => `${field.replace(/-/g, '_')} { text }`).join('\n')}
+    }`;
+    };
+    if (defaultMessages) {
+      void fs.writeFileSync(
+        path.resolve('src/__generated__', 'defaultMessages.json'),
+        JSON.stringify(defaultMessages, null, 2),
+        'utf8',
+      );
+      const textFields = Object.entries(defaultMessages).map(([key]) => key);
+      void fs.writeFileSync(
+        path.resolve('src/__generated__', 'allTranslationsFragment.js'),
+        '/* eslint-disable */' +
+          '\n' +
+          "import { graphql } from 'gatsby';" +
+          '\n' +
+          'export const fragments = graphql`' +
+          '\n' +
+          `${textFields.length > 0 ? renderTextFragments(textFields) : ''}` +
+          '\n' +
+          '`;',
+        'utf8',
+      );
+    }
   }
 };
 
@@ -328,7 +359,15 @@ export const createPages: GatsbyNodeAPI<'createPages'> = async ({
   graphql,
   actions,
 }) => {
-  const { data, errors } = await graphql<$FIXME>(gql`
+  type CreatePagesQuery = {
+    allTarget: {
+      nodes: Array<{
+        id: string;
+        language: string;
+      }>;
+    };
+  };
+  const { data, errors } = await graphql<CreatePagesQuery>(gql`
     {
       allTarget {
         nodes {
@@ -338,6 +377,10 @@ export const createPages: GatsbyNodeAPI<'createPages'> = async ({
       }
     }
   `);
+
+  if (errors) {
+    throw errors;
+  }
 
   for (const target of data.allTarget.nodes) {
     actions.createPage({

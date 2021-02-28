@@ -16,8 +16,8 @@ import Introduce from '~/src/components/Introduce';
 import Experience from '~/src/components/Experience';
 import OpenSource from '~/src/components/OpenSource';
 import Presentation from '~/src/components/Presentation';
-import { styled } from '~/src/components/themeContext';
-import { l10nContext, getTranslationText } from '~/src/components/l10nContext';
+import { styled } from '~/src/utils/themeContext';
+import { l10nContext, getTranslationText } from '~/src/utils/l10nContext';
 import { FieldError } from '~/src/utils';
 
 type LocalizedIndexPageProps = PageProps<
@@ -25,7 +25,7 @@ type LocalizedIndexPageProps = PageProps<
   GatsbyTypes.SitePageContext
 >;
 
-const Container = styled.div((props) => ({
+const Container = styled.div(props => ({
   maxWidth: rem(540),
   margin: '0 auto',
   padding: `0 ${rem(16)}`,

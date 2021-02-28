@@ -13,10 +13,10 @@ import {
   ListItemDataWrapper,
 } from '~/src/components/common';
 import { FieldError } from '~/src/utils';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 
 type EtcProp = {
-  data: GatsbyTypes.EtcDataFragment,
+  data: GatsbyTypes.EtcDataFragment;
 };
 
 const DescriptionList = styled.ul({
@@ -41,17 +41,28 @@ const Etc: React.FC<EtcProp> = ({ data }) => {
       <List>
         {etcData.map((etcValue, valueIdx) => {
           if (!etcValue?.title) {
-            throw new FieldError({ componentName: 'Etc', field: 'etcValue.title' });
+            throw new FieldError({
+              componentName: 'Etc',
+              field: 'etcValue.title',
+            });
           }
           if (!etcValue?.startDate) {
-            throw new FieldError({ componentName: 'Etc', field: 'etcValue.startDate' });
+            throw new FieldError({
+              componentName: 'Etc',
+              field: 'etcValue.startDate',
+            });
           }
           if (!etcValue?.description) {
-            throw new FieldError({ componentName: 'Etc', field: 'etcValue.description' });
+            throw new FieldError({
+              componentName: 'Etc',
+              field: 'etcValue.description',
+            });
           }
           return (
             <ListItem key={`etc-value-${valueIdx}`}>
-              <ListItemTitle>{etcValue.startDate} ~ {etcValue?.endDate}</ListItemTitle>
+              <ListItemTitle>
+                {etcValue.startDate} ~ {etcValue?.endDate}
+              </ListItemTitle>
               <ListItemData className={css({ paddingLeft: rem(40) })}>
                 <ListItemDataWrapper>
                   <ListItemDataTitle>{etcValue.title}</ListItemDataTitle>

@@ -2,8 +2,8 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { css } from '@emotion/css';
 import { rem } from 'polished';
-import { styled } from '~/src/components/themeContext';
-import { useTranslation } from '~/src/components/l10nContext';
+import { styled } from '~/src/utils/themeContext';
+import { useTranslation } from '~/src/utils/l10nContext';
 import {
   SectionTitle,
   Container,
@@ -40,9 +40,7 @@ const TagWrapper = styled.div({
   paddingTop: rem(4),
 });
 
-const Experience: React.FC<ExperienceProps> = ({
-  data,
-}) => {
+const Experience: React.FC<ExperienceProps> = ({ data }) => {
   const { data: experienceData, title } = data;
   const t = useTranslation();
   if (!title) {
@@ -53,15 +51,24 @@ const Experience: React.FC<ExperienceProps> = ({
       <SectionTitle title={title} />
       {experienceData && (
         <List>
-          {experienceData.map(((experienceValue, idx) => {
+          {experienceData.map((experienceValue, idx) => {
             if (!experienceValue?.title) {
-              throw new FieldError({ componentName: 'Experience', field: 'experienceValue.title' });
+              throw new FieldError({
+                componentName: 'Experience',
+                field: 'experienceValue.title',
+              });
             }
             if (!experienceValue?.startDate) {
-              throw new FieldError({ componentName: 'Experience', field: 'experienceValue.startDate' });
+              throw new FieldError({
+                componentName: 'Experience',
+                field: 'experienceValue.startDate',
+              });
             }
             if (!experienceValue.position) {
-              throw new FieldError({ componentName: 'Experience', field: 'experienceValue.position' });
+              throw new FieldError({
+                componentName: 'Experience',
+                field: 'experienceValue.position',
+              });
             }
             return (
               <ListItem key={`experience-${idx}`}>
@@ -80,15 +87,23 @@ const Experience: React.FC<ExperienceProps> = ({
                   {experienceValue.description && (
                     <ListItemDataWrapper>
                       <DescriptionList>
-                        {experienceValue?.description.map((description, idx) => (
-                          <DescriptionItem key={`experience-description-${idx}`}>{description}</DescriptionItem>
-                        ))}
+                        {experienceValue?.description.map(
+                          (description, idx) => (
+                            <DescriptionItem
+                              key={`experience-description-${idx}`}
+                            >
+                              {description}
+                            </DescriptionItem>
+                          ),
+                        )}
                         {experienceValue.skill && (
                           <DescriptionItem>
-                            <TagCategoryText>{t('Experience_tagCategory_text')}</TagCategoryText>
+                            <TagCategoryText>
+                              {t('Experience_tagCategory_text')}
+                            </TagCategoryText>
                             <TagWrapper>
                               {experienceValue?.skill.map((skill, idx) => (
-                                <Tag key={`experiene-skill-${idx}`} >
+                                <Tag key={`experiene-skill-${idx}`}>
                                   {skill}
                                 </Tag>
                               ))}
@@ -101,7 +116,7 @@ const Experience: React.FC<ExperienceProps> = ({
                 </ListItemData>
               </ListItem>
             );
-          }))}
+          })}
         </List>
       )}
     </Container>

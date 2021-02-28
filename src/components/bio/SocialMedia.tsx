@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { rem } from 'polished';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 import { ReactComponent as FacebookIconSvg } from '~/src/components/bio/facebook.svg';
 import { ReactComponent as GithubIconSvg } from '~/src/components/bio/github.svg';
 import { ReactComponent as InstagramIconSvg } from '~/src/components/bio/instagram.svg';
@@ -8,14 +8,8 @@ import { ReactComponent as LinkedInIconSvg } from '~/src/components/bio/linkedin
 import { ReactComponent as YoutubeIconSvg } from '~/src/components/bio/youtube.svg';
 
 type SocialMediaProps = {
-  type: (
-    | 'Github'
-    | 'Facebook'
-    | 'Instagram'
-    | 'LinkedIn'
-    | 'Youtube'
-  ),
-}
+  type: 'Github' | 'Facebook' | 'Instagram' | 'LinkedIn' | 'Youtube';
+};
 
 const SocialMediaIcon = styled.svg({
   height: rem(20),
@@ -28,12 +22,10 @@ const InstagramIcon = SocialMediaIcon.withComponent(InstagramIconSvg);
 const LinkedInIcon = SocialMediaIcon.withComponent(LinkedInIconSvg);
 const YoutubeIcon = SocialMediaIcon.withComponent(YoutubeIconSvg);
 
-const SocialMedia: React.FC<SocialMediaProps> = ({
-  type,
-}) => {
+const SocialMedia: React.FC<SocialMediaProps> = ({ type }) => {
   switch (type) {
     case 'Facebook':
-      return <FacebookIcon />
+      return <FacebookIcon />;
     case 'Github':
       return <GithubIcon />;
     case 'Instagram':
@@ -43,6 +35,6 @@ const SocialMedia: React.FC<SocialMediaProps> = ({
     case 'Youtube':
       return <YoutubeIcon />;
   }
-}
+};
 
 export default SocialMedia;

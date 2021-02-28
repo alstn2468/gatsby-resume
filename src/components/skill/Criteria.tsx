@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { rem } from 'polished';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 import { ReactComponent as TooltipIconSvg } from '~/src/components/skill/tooltip.svg';
 
 type CriteriaProps = {
@@ -25,7 +25,7 @@ const Icon = styled(TooltipIconSvg)({
   height: rem(24),
 });
 
-const ListWrapper = styled.div((props) => ({
+const ListWrapper = styled.div(props => ({
   opacity: 0,
   transition: 'opacity 0.2s ease-in-out',
   position: 'absolute',
@@ -48,7 +48,7 @@ const CriteriaList = styled.ul({
   margin: 0,
 });
 
-const ListArrow = styled.div((props) => ({
+const ListArrow = styled.div(props => ({
   top: 0,
   left: '50%',
   transform: 'translateX(-50%) rotate(45deg)',
@@ -70,9 +70,7 @@ const Item = styled.li({
   fontSize: rem(14),
 });
 
-const Criteria: React.FC<CriteriaProps> = ({
-  data,
-}) => {
+const Criteria: React.FC<CriteriaProps> = ({ data }) => {
   return (
     <Container>
       <Icon />

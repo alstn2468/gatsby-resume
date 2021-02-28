@@ -1,11 +1,11 @@
 type Internal = {
-  type: 'internal',
-  url: URL,
+  type: 'internal';
+  url: URL;
 };
 
 type External = {
-  type: 'external',
-  url: URL,
+  type: 'external';
+  url: URL;
 };
 
 export type LinkType = Internal | External;
@@ -56,8 +56,8 @@ export function parseLink(urlString: string, baseOrigin: string): LinkType {
 export function mapLinkType<ResultForInternal, ResultForExternal>(
   link: LinkType,
   mapper: {
-    internal: (link: Internal) => ResultForInternal,
-    external: (link: External) => ResultForExternal,
+    internal: (link: Internal) => ResultForInternal;
+    external: (link: External) => ResultForExternal;
   },
 ): ResultForInternal | ResultForExternal {
   if (isInternalLink(link)) {

@@ -1,4 +1,4 @@
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 
 const ListItemDataWrapper = styled.div({
   width: '100%',

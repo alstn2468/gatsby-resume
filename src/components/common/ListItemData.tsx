@@ -1,7 +1,7 @@
 import { rem } from 'polished';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 
-const ListItemData = styled.ul((props) => ({
+const ListItemData = styled.ul(props => ({
   display: 'flex',
   flexWrap: 'wrap',
   margin: 0,

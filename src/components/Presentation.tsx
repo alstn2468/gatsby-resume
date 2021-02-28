@@ -12,10 +12,10 @@ import {
   Link,
 } from '~/src/components/common';
 import { FieldError } from '~/src/utils';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 
 type PresentationProp = {
-  data: GatsbyTypes.PresentationDataFragment,
+  data: GatsbyTypes.PresentationDataFragment;
 };
 
 const DescriptionItem = styled.li({
@@ -33,20 +33,30 @@ const Presentation: React.FC<PresentationProp> = ({ data }) => {
       <List>
         {presentationData.map((presentationValue, valueIdx) => {
           if (!presentationValue?.title) {
-            throw new FieldError({ componentName: 'Presentation', field: 'presentationValue.title' });
+            throw new FieldError({
+              componentName: 'Presentation',
+              field: 'presentationValue.title',
+            });
           }
           if (!presentationValue?.description) {
-            throw new FieldError({ componentName: 'Presentation', field: 'presentationValue.description' });
+            throw new FieldError({
+              componentName: 'Presentation',
+              field: 'presentationValue.description',
+            });
           }
           return (
             <ListItem key={`presentation-value-${valueIdx}`}>
               <ListItemTitle>{presentationValue.title}</ListItemTitle>
               <ListItemData className={css({ paddingLeft: rem(40) })}>
-                {presentationValue.description.map((descriptionValue, desciptionIdx) => (
-                  <DescriptionItem key={`presentation-value-description-${desciptionIdx}`}>
-                    {descriptionValue}
-                  </DescriptionItem>
-                ))}
+                {presentationValue.description.map(
+                  (descriptionValue, desciptionIdx) => (
+                    <DescriptionItem
+                      key={`presentation-value-description-${desciptionIdx}`}
+                    >
+                      {descriptionValue}
+                    </DescriptionItem>
+                  ),
+                )}
                 {presentationValue?.link && (
                   <DescriptionItem>
                     <Link link={presentationValue.link} />

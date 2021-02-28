@@ -13,10 +13,10 @@ import {
   ListItemDataSubTitle,
 } from '~/src/components/common';
 import { FieldError } from '~/src/utils';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 
 type EducationProp = {
-  data: GatsbyTypes.EducationDataFragment,
+  data: GatsbyTypes.EducationDataFragment;
 };
 
 const DescriptionItem = styled.div({
@@ -36,22 +36,31 @@ const Education: React.FC<EducationProp> = ({ data }) => {
       <List>
         {educationData.map((educationValue, valueIdx) => {
           if (!educationValue?.title) {
-            throw new FieldError({ componentName: 'Education', field: 'educationValue.title' });
+            throw new FieldError({
+              componentName: 'Education',
+              field: 'educationValue.title',
+            });
           }
           if (!educationValue?.startDate) {
-            throw new FieldError({ componentName: 'Education', field: 'educationValue.startDate' });
+            throw new FieldError({
+              componentName: 'Education',
+              field: 'educationValue.startDate',
+            });
           }
           if (!educationValue?.major) {
-            throw new FieldError({ componentName: 'Education', field: 'educationValue.major' });
+            throw new FieldError({
+              componentName: 'Education',
+              field: 'educationValue.major',
+            });
           }
           return (
             <ListItem key={`education-value-${valueIdx}`}>
-              <ListItemTitle>{educationValue.startDate} ~ {educationValue?.endDate}</ListItemTitle>
+              <ListItemTitle>
+                {educationValue.startDate} ~ {educationValue?.endDate}
+              </ListItemTitle>
               <ListItemData className={css({ paddingLeft: rem(20) })}>
                 <DescriptionItem>
-                  <ListItemDataTitle>
-                    {educationValue.title}
-                  </ListItemDataTitle>
+                  <ListItemDataTitle>{educationValue.title}</ListItemDataTitle>
                 </DescriptionItem>
                 <DescriptionItem>
                   <ListItemDataSubTitle>

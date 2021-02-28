@@ -1,6 +1,5 @@
-
 import { rem } from 'polished';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 
 const ListItemDataSubTitle = styled.p({
   margin: 0,

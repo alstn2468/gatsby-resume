@@ -22,4 +22,4 @@ export {
   ListItemDataSubTitle,
   ListItemDataWrapper,
   Link,
-}
+};

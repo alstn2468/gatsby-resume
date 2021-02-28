@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { cx, css } from '@emotion/css';
 import { rem } from 'polished';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 
 type TagProps = {
-  color?: string,
-  className?: string,
+  color?: string;
+  className?: string;
 };
 
 const Container = styled.span({
@@ -22,11 +22,7 @@ const Container = styled.span({
   },
 });
 
-const Tag: React.FC<TagProps> = ({
-  color,
-  className,
-  children,
-}) => {
+const Tag: React.FC<TagProps> = ({ color, className, children }) => {
   return (
     <Container
       className={`${className} ${cx(color && css({ backgroundColor: color }))}`}

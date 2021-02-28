@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { rem } from 'polished';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 
 type SkillDataItemProps = {
-  name: string,
-  level: number,
-  maxSkillLevel: number,
+  name: string;
+  level: number;
+  maxSkillLevel: number;
 };
 
-const Container = styled.li((props) => ({
+const Container = styled.li(props => ({
   display: 'flex',
   justifyContent: 'flex-start',
   alignItems: 'center',
@@ -69,9 +69,7 @@ const SkillDataItem: React.FC<SkillDataItemProps> = ({
   }, [maxSkillLevel, level]);
   return (
     <Container>
-      <LevelText className={levelClassName}>
-        {level}
-      </LevelText>
+      <LevelText className={levelClassName}>{level}</LevelText>
       <NameText>{name}</NameText>
     </Container>
   );

@@ -1,8 +1,7 @@
-
 import { rem } from 'polished';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 
-const ListItemDataTitle = styled.h4((props) => ({
+const ListItemDataTitle = styled.h4(props => ({
   margin: 0,
   marginBottom: rem(8),
   lineHeight: 1.2,

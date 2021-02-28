@@ -3,13 +3,13 @@ import { navigate } from 'gatsby';
 import { Fab as BaseFab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
 
-import { useTranslation } from '~/src/components/l10nContext';
-import { styled } from '~/src/components/themeContext';
+import { useTranslation } from '~/src/utils/l10nContext';
+import { styled } from '~/src/utils/themeContext';
 import { ReactComponent as TranslationIconSvg } from '~/src/components/fab/translation.svg';
 import { ReactComponent as ExportIconSvg } from '~/src/components/fab/export.svg';
 
 type FabProps = {
-  language: string,
+  language: string;
 };
 
 const Icon = styled.svg({

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { FieldError } from '~/src/utils'
+import { FieldError } from '~/src/utils';
 import {
   SectionTitle,
   Container,
@@ -13,12 +13,10 @@ import SkillDataItem from '~/src/components/skill/SkillDataItem';
 import Criteria from '~/src/components/skill/Criteria';
 
 type SkillProps = {
-  data: GatsbyTypes.SkillDataFragment,
+  data: GatsbyTypes.SkillDataFragment;
 };
 
-const Skill: React.FC<SkillProps> = ({
-  data,
-}) => {
+const Skill: React.FC<SkillProps> = ({ data }) => {
   const { title, category, criteria } = data;
   if (!title) {
     throw new FieldError({ componentName: 'Skill', field: 'title' });
@@ -34,10 +32,16 @@ const Skill: React.FC<SkillProps> = ({
       <List>
         {category.map((categoryValue, categoryIdx) => {
           if (!categoryValue?.category) {
-            throw new FieldError({ componentName: 'Skill', field: 'categoryValue.category' });
+            throw new FieldError({
+              componentName: 'Skill',
+              field: 'categoryValue.category',
+            });
           }
           if (!categoryValue.data) {
-            throw new FieldError({ componentName: 'Skill', field: 'categoryValue.data' });
+            throw new FieldError({
+              componentName: 'Skill',
+              field: 'categoryValue.data',
+            });
           }
           return (
             <ListItem key={`skill-category-${categoryIdx}`}>
@@ -45,10 +49,16 @@ const Skill: React.FC<SkillProps> = ({
               <ListItemData>
                 {categoryValue.data.map((skillData, skillDataIdx) => {
                   if (!skillData?.name) {
-                    throw new FieldError({ componentName: 'Skill', field: 'skillData.name' });
+                    throw new FieldError({
+                      componentName: 'Skill',
+                      field: 'skillData.name',
+                    });
                   }
                   if (!skillData?.level) {
-                    throw new FieldError({ componentName: 'Skill', field: 'skillData.level' });
+                    throw new FieldError({
+                      componentName: 'Skill',
+                      field: 'skillData.level',
+                    });
                   }
                   return (
                     <SkillDataItem
@@ -57,7 +67,7 @@ const Skill: React.FC<SkillProps> = ({
                       level={skillData.level}
                       maxSkillLevel={criteria.length}
                     />
-                  )
+                  );
                 })}
               </ListItemData>
             </ListItem>

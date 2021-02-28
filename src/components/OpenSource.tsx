@@ -12,10 +12,10 @@ import {
   Link,
 } from '~/src/components/common';
 import { FieldError } from '~/src/utils';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 
 type OpenSourceProp = {
-  data: GatsbyTypes.OpenSourceDataFragment,
+  data: GatsbyTypes.OpenSourceDataFragment;
 };
 
 const DescriptionItem = styled.li({
@@ -33,20 +33,30 @@ const OpenSource: React.FC<OpenSourceProp> = ({ data }) => {
       <List>
         {openSourceData.map((openSourceValue, valueIdx) => {
           if (!openSourceValue?.title) {
-            throw new FieldError({ componentName: 'OpenSource', field: 'openSourceValue.title' });
+            throw new FieldError({
+              componentName: 'OpenSource',
+              field: 'openSourceValue.title',
+            });
           }
           if (!openSourceValue?.description) {
-            throw new FieldError({ componentName: 'OpenSource', field: 'openSourceValue.description' });
+            throw new FieldError({
+              componentName: 'OpenSource',
+              field: 'openSourceValue.description',
+            });
           }
           return (
             <ListItem key={`open-source-value-${valueIdx}`}>
               <ListItemTitle>{openSourceValue.title}</ListItemTitle>
               <ListItemData className={css({ paddingLeft: rem(40) })}>
-                {openSourceValue.description.map((descriptionValue, desciptionIdx) => (
-                  <DescriptionItem key={`open-source-value-description-${desciptionIdx}`}>
-                    {descriptionValue}
-                  </DescriptionItem>
-                ))}
+                {openSourceValue.description.map(
+                  (descriptionValue, desciptionIdx) => (
+                    <DescriptionItem
+                      key={`open-source-value-description-${desciptionIdx}`}
+                    >
+                      {descriptionValue}
+                    </DescriptionItem>
+                  ),
+                )}
                 {openSourceValue?.link && (
                   <DescriptionItem>
                     <Link link={openSourceValue.link} />

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { css } from '@emotion/css';
 import { rem } from 'polished';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 import {
   SectionTitle as BaseSectionTitle,
   Container,
@@ -12,10 +12,10 @@ import {
 import { FieldError } from '~/src/utils';
 
 type IntroduceProp = {
-  data: GatsbyTypes.IntroduceDataFragment,
+  data: GatsbyTypes.IntroduceDataFragment;
 };
 
-const IntroduceWrapper = styled.div((props) => ({
+const IntroduceWrapper = styled.div(props => ({
   display: 'flex',
   margin: 0,
   flexDirection: 'column',
@@ -28,7 +28,7 @@ const IntroduceWrapper = styled.div((props) => ({
   },
 }));
 
-const SectionTitle = styled(BaseSectionTitle)((props) => ({
+const SectionTitle = styled(BaseSectionTitle)(props => ({
   textAlign: 'right',
   [props.theme.media['md']]: {
     textAlign: 'left',
@@ -74,7 +74,10 @@ const Introduce: React.FC<IntroduceProp> = ({ data }) => {
     throw new FieldError({ componentName: 'Introduce', field: 'title' });
   }
   if (!data.updatedAt) {
-    throw new FieldError({ componentName: 'Introduce', field: 'data.updatedAt' });
+    throw new FieldError({
+      componentName: 'Introduce',
+      field: 'data.updatedAt',
+    });
   }
   const updatedDate = new Date(data.updatedAt).getTime();
   const nowDate = new Date().getTime();
@@ -84,14 +87,14 @@ const Introduce: React.FC<IntroduceProp> = ({ data }) => {
       <IntroduceWrapper>
         <SectionTitle title={title} />
         <IntroduceData>
-          <IntroduceText>
-            {description}
-          </IntroduceText>
+          <IntroduceText>{description}</IntroduceText>
           <UpdateInfoWrapper>
             <TagTextLabel>Updated At</TagTextLabel>
             <Tag className={css({ padding: `${rem(2)} ${rem(4)}` })}>
               <TagText>{data.updatedAt.replace(/\//g, '. ')}</TagText>
-              <TagText>{diffDate === 0 ? '(Today)' : `(D+${diffDate})`}</TagText>
+              <TagText>
+                {diffDate === 0 ? '(Today)' : `(D+${diffDate})`}
+              </TagText>
             </Tag>
           </UpdateInfoWrapper>
         </IntroduceData>

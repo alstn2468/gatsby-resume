@@ -3,7 +3,7 @@ import { useMediaQuery as _useMediaQuery } from 'react-responsive';
 import { makeTheme, media } from '~/src/utils';
 
 export type Theme = {
-  media: typeof media,
+  media: typeof media;
 };
 
 export const defaultTheme: Theme = Object.freeze({

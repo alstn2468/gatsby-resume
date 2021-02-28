@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 
 type LinkProps = {
-  link: string,
+  link: string;
 };
 
 const LinkContainer = styled.a({
@@ -14,16 +14,9 @@ const LinkContainer = styled.a({
   },
 });
 
-const Link: React.FC<LinkProps> = ({
-  link,
-  children
-}) => {
+const Link: React.FC<LinkProps> = ({ link, children }) => {
   return (
-    <LinkContainer
-      href={link}
-      target="_blank"
-      rel="noreferrer noopener"
-    >
+    <LinkContainer href={link} target="_blank" rel="noreferrer noopener">
       {children ? children : link}
     </LinkContainer>
   );

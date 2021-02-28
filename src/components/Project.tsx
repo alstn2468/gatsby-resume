@@ -2,7 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { rem } from 'polished';
 import { css } from '@emotion/css';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 import {
   SectionTitle,
   Container,
@@ -17,7 +17,7 @@ import {
 import { FieldError } from '~/src/utils';
 
 type ProjectProps = {
-  data: GatsbyTypes.ProjectDataFragment,
+  data: GatsbyTypes.ProjectDataFragment;
 };
 
 const ListItemData = BaseListItemData.withComponent('div');
@@ -41,9 +41,7 @@ const DescriptionDetailList = styled.ul({
 
 const DescriptionDetailItem = styled.li({});
 
-const Project: React.FC<ProjectProps> = ({
-  data,
-}) => {
+const Project: React.FC<ProjectProps> = ({ data }) => {
   const { data: projectData, title } = data;
   if (!title) {
     throw new FieldError({ componentName: 'Project', field: 'title' });
@@ -52,15 +50,24 @@ const Project: React.FC<ProjectProps> = ({
     <Container>
       <SectionTitle title={title} />
       <List>
-        {projectData.map(((projectValue, idx) => {
+        {projectData.map((projectValue, idx) => {
           if (!projectValue?.title) {
-            throw new FieldError({ componentName: 'Project', field: 'projectValue.title' });
+            throw new FieldError({
+              componentName: 'Project',
+              field: 'projectValue.title',
+            });
           }
           if (!projectValue?.company) {
-            throw new FieldError({ componentName: 'Project', field: 'projectValue.company' });
+            throw new FieldError({
+              componentName: 'Project',
+              field: 'projectValue.company',
+            });
           }
           if (!projectValue?.startDate) {
-            throw new FieldError({ componentName: 'Project', field: 'projectValue.startDate' });
+            throw new FieldError({
+              componentName: 'Project',
+              field: 'projectValue.startDate',
+            });
           }
           return (
             <ListItem key={`Project-${idx}`}>
@@ -69,28 +76,27 @@ const Project: React.FC<ProjectProps> = ({
               </ListItemTitle>
               <ListItemData className={css({ paddingLeft: rem(20) })}>
                 <ListItemDataWrapper>
-                  <ListItemDataTitle>
-                    {projectValue.title}
-                  </ListItemDataTitle>
+                  <ListItemDataTitle>{projectValue.title}</ListItemDataTitle>
                 </ListItemDataWrapper>
                 <ListItemDataWrapper>
-                  <CompanyText>
-                    {projectValue.company}
-                  </CompanyText>
+                  <CompanyText>{projectValue.company}</CompanyText>
                 </ListItemDataWrapper>
                 {projectValue?.description.map((description, idx) => {
                   if (!description.title) {
-                    throw new FieldError({ componentName: 'Project', field: 'description.title' });
+                    throw new FieldError({
+                      componentName: 'Project',
+                      field: 'description.title',
+                    });
                   }
                   return (
                     <ListItemDataWrapper key={`project-description-${idx}`}>
-                      <DescriptionTitle>
-                        {description.title}
-                      </DescriptionTitle>
+                      <DescriptionTitle>{description.title}</DescriptionTitle>
                       {description?.detail.length > 0 && (
                         <DescriptionDetailList>
                           {description.detail.map((detailValue, idx) => (
-                            <DescriptionDetailItem key={`project-description-detail-${idx}`}>
+                            <DescriptionDetailItem
+                              key={`project-description-detail-${idx}`}
+                            >
                               {detailValue}
                             </DescriptionDetailItem>
                           ))}
@@ -102,7 +108,7 @@ const Project: React.FC<ProjectProps> = ({
               </ListItemData>
             </ListItem>
           );
-        }))}
+        })}
       </List>
     </Container>
   ) : null;

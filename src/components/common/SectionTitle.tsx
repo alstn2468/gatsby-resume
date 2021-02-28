@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { rem } from 'polished';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 
 type SectionTitleProps = {
-  title: string,
-  className?: string,
+  title: string;
+  className?: string;
 };
 
 const Container = styled.div({
@@ -12,7 +12,7 @@ const Container = styled.div({
   paddingBottom: rem(8),
 });
 
-const Title = styled.h2((props) => ({
+const Title = styled.h2(props => ({
   fontWeight: 700,
   lineHeight: 1,
   color: '#0197f6',

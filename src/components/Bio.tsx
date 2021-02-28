@@ -8,12 +8,12 @@ import {
   ListItemDataTitle,
   Link,
 } from '~/src/components/common';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 import SocialMedia from '~/src/components/bio/SocialMedia';
 import { FieldError, addAssetPrefix } from '~/src/utils';
 
 type BioProps = {
-  data: GatsbyTypes.BioDataFragment,
+  data: GatsbyTypes.BioDataFragment;
 };
 
 const Container = styled(BaseContainer)({
@@ -22,7 +22,7 @@ const Container = styled(BaseContainer)({
   paddingBottom: rem(16),
 });
 
-const ImageWrapper = styled.div((props) => ({
+const ImageWrapper = styled.div(props => ({
   margin: 0,
   flex: '0 0 80%',
   maxWidth: '80%',
@@ -34,7 +34,7 @@ const ImageWrapper = styled.div((props) => ({
   },
 }));
 
-const BioList = styled(BaseListItemData)((props) => ({
+const BioList = styled(BaseListItemData)(props => ({
   marginTop: rem(8),
   padding: `0 ${rem(16)}`,
   paddingBottom: rem(16),
@@ -55,7 +55,7 @@ const BioItem = styled.li({
   },
 });
 
-const NameText = styled(ListItemDataTitle)((props) => ({
+const NameText = styled(ListItemDataTitle)(props => ({
   fontSize: rem(24),
   marginBottom: 0,
   [props.theme.media['md']]: {
@@ -64,9 +64,7 @@ const NameText = styled(ListItemDataTitle)((props) => ({
   },
 }));
 
-const Bio: React.FC<BioProps> = ({
-  data,
-}) => {
+const Bio: React.FC<BioProps> = ({ data }) => {
   const profileImage = useStaticQuery<GatsbyTypes.ProfileImageQuery>(graphql`
     query ProfileImage {
       image: file(relativePath: { eq: "profile.png" }) {
@@ -96,15 +94,12 @@ const Bio: React.FC<BioProps> = ({
     src: addAssetPrefix(fluidImage.src),
     srcWebp: fluidImage?.srcWebp && addAssetPrefix(fluidImage.srcWebp),
     srcSet: addAssetPrefix(fluidImage.srcSet),
-    srcSetWebp: fluidImage?.srcSetWebp && addAssetPrefix(fluidImage.srcSetWebp)
+    srcSetWebp: fluidImage?.srcSetWebp && addAssetPrefix(fluidImage.srcSetWebp),
   };
   return (
     <Container>
       <ImageWrapper>
-        <Img
-          style={{ height: '100%' }}
-          fluid={prefixImage}
-        />
+        <Img style={{ height: '100%' }} fluid={prefixImage} />
       </ImageWrapper>
       <BioList>
         <BioItem>
@@ -115,23 +110,19 @@ const Bio: React.FC<BioProps> = ({
         {data.github && (
           <BioItem>
             <SocialMedia type="Github" />
-            <Link link={`https://github.com/${data.github}`} >
-              Github
-            </Link>
+            <Link link={`https://github.com/${data.github}`}>Github</Link>
           </BioItem>
         )}
         {data.facebook && (
           <BioItem>
             <SocialMedia type="Facebook" />
-            <Link link={`https://facebook.com/${data.facebook}`} >
-              Facebook
-            </Link>
+            <Link link={`https://facebook.com/${data.facebook}`}>Facebook</Link>
           </BioItem>
         )}
         {data.instagram && (
           <BioItem>
             <SocialMedia type="Instagram" />
-            <Link link={`https://instagram.com/${data.instagram}`} >
+            <Link link={`https://instagram.com/${data.instagram}`}>
               Instagram
             </Link>
           </BioItem>
@@ -139,7 +130,7 @@ const Bio: React.FC<BioProps> = ({
         {data.linkedIn && (
           <BioItem>
             <SocialMedia type="LinkedIn" />
-            <Link link={`https://www.linkedin.com/in/${data.linkedIn}`} >
+            <Link link={`https://www.linkedin.com/in/${data.linkedIn}`}>
               LinkedIn
             </Link>
           </BioItem>
@@ -147,7 +138,7 @@ const Bio: React.FC<BioProps> = ({
         {data.youtube && (
           <BioItem>
             <SocialMedia type="Youtube" />
-            <Link link={`https://www.youtube.com/channel/${data.youtube}`} >
+            <Link link={`https://www.youtube.com/channel/${data.youtube}`}>
               Youtube
             </Link>
           </BioItem>
@@ -155,7 +146,7 @@ const Bio: React.FC<BioProps> = ({
       </BioList>
     </Container>
   );
-}
+};
 
 export default Bio;
 

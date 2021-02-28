@@ -3,21 +3,17 @@ import { withAssetPrefix } from 'gatsby';
 import { Global, css } from '@emotion/react';
 import { Helmet } from 'react-helmet-async';
 import { GatsbySeo } from 'gatsby-plugin-next-seo';
-import { ThemeProvider, defaultTheme } from '~/src/components/themeContext';
-import { l10nContext } from '~/src/components/l10nContext';
+import { ThemeProvider, defaultTheme } from '~/src/utils/themeContext';
+import { l10nContext } from '~/src/utils/l10nContext';
 import { useSiteMetadata } from '~/src/utils';
 import NotoSansKrFont from '~/src/components/NotoSansKrFont';
 
 type LayoutProps = {
-  l10n: React.ContextType<typeof l10nContext>,
-  pathname: string,
+  l10n: React.ContextType<typeof l10nContext>;
+  pathname: string;
 };
 
-const Layout: React.FC<LayoutProps> = ({
-  l10n,
-  pathname,
-  children,
-}) => {
+const Layout: React.FC<LayoutProps> = ({ l10n, pathname, children }) => {
   const siteMetadata = useSiteMetadata();
   const currentLanguage = l10n?.language;
   return (
@@ -43,7 +39,7 @@ const Layout: React.FC<LayoutProps> = ({
                     width: 1200,
                     height: 630,
                     alt: 'Gatsby Resume',
-                  }
+                  },
                 ],
                 site_name: 'Gatsby Resume',
               }}
@@ -56,7 +52,7 @@ const Layout: React.FC<LayoutProps> = ({
               fontFamily: 'inherit',
               boxSizing: 'border-box',
             },
-            'body': {
+            body: {
               margin: 0,
               fontWeight: 400,
               textRendering: 'optimizeLegibility',
@@ -74,6 +70,6 @@ const Layout: React.FC<LayoutProps> = ({
       </l10nContext.Provider>
     </ThemeProvider>
   );
-}
+};
 
 export default Layout;

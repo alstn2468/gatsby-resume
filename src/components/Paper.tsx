@@ -12,10 +12,10 @@ import {
   Link,
 } from '~/src/components/common';
 import { FieldError } from '~/src/utils';
-import { styled } from '~/src/components/themeContext';
+import { styled } from '~/src/utils/themeContext';
 
 type PaperProp = {
-  data: GatsbyTypes.PaperDataFragment,
+  data: GatsbyTypes.PaperDataFragment;
 };
 
 const DescriptionItem = styled.li({
@@ -33,20 +33,30 @@ const Paper: React.FC<PaperProp> = ({ data }) => {
       <List>
         {paperData.map((paperValue, valueIdx) => {
           if (!paperValue?.title) {
-            throw new FieldError({ componentName: 'Paper', field: 'paperValue.title' });
+            throw new FieldError({
+              componentName: 'Paper',
+              field: 'paperValue.title',
+            });
           }
           if (!paperValue?.description) {
-            throw new FieldError({ componentName: 'Paper', field: 'paperValue.description' });
+            throw new FieldError({
+              componentName: 'Paper',
+              field: 'paperValue.description',
+            });
           }
           return (
             <ListItem key={`paper-value-${valueIdx}`}>
               <ListItemTitle>{paperValue.title}</ListItemTitle>
               <ListItemData className={css({ paddingLeft: rem(40) })}>
-                {paperValue.description.map((descriptionValue, desciptionIdx) => (
-                  <DescriptionItem key={`paper-value-description-${desciptionIdx}`}>
-                    {descriptionValue}
-                  </DescriptionItem>
-                ))}
+                {paperValue.description.map(
+                  (descriptionValue, desciptionIdx) => (
+                    <DescriptionItem
+                      key={`paper-value-description-${desciptionIdx}`}
+                    >
+                      {descriptionValue}
+                    </DescriptionItem>
+                  ),
+                )}
                 {paperValue?.link && (
                   <DescriptionItem>
                     <Link link={paperValue.link} />
