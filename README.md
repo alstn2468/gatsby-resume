@@ -115,9 +115,7 @@ README 상단의 [뱃지](#badge)의 주소들을 변경해 뱃지도 관리해�
 
 `gatsby-node.ts` 파일의 `sourceNodes` 함수의 `targets` 배열에 언어 값을 추가하면 됩니다.
 
-언어 코드는 [ISO 630-1](https://www.w3schools.com/tags/ref_language_codes.asp)를 따르며 언어를 추가하는 경우 `Fab` 컴포넌트를 커스터마이징 해야할 수 있습니다.
-
-> TODO : 존재하는 모든 언어 페이지로 이동할 수 있도록 Fab 버튼 개선하기
+언어 코드는 [ISO 630-1](https://www.w3schools.com/tags/ref_language_codes.asp)를 따릅니다.
 
 데이터에서 배열 형태로 되어있는 `experience`의 `data`와 같은 항목은 빈 배열일 경우 화면에 그려지지 않습니다.
 
@@ -126,8 +124,6 @@ README 상단의 [뱃지](#badge)의 주소들을 변경해 뱃지도 관리해�
 `translations` 목록의 하위 아이템들은 프로젝트에 사용되는 번역 대상 데이터입니다.
 
 해당 데이터를 다른 텍스트로 변경하시고 싶으실 경우 변경하셔도 무방합니다.
-
-따로 번역데이터를 추가해야할 경우 `components/l10nContext.ts` 파일의 `TranslationData`에 키를 추가해주어야 합니다.
 
 `translations` 목록으로 생성된 번역 텍스트는 `l10nContext.ts`에 있는 `useTranslation` 함수를 이용해 사용할 수 있습니다.
 
