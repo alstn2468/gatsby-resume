@@ -113,9 +113,11 @@ README 상단의 [뱃지](#badge)의 주소들을 변경해 뱃지도 관리해�
 
 기본적으로 한국어(`ko.yml`)과 영어(`en.yml`)를 지원하며 다른 언어를 추가할 수도 있습니다.
 
+언어 코드는 [ISO 630-1](https://www.w3schools.com/tags/ref_language_codes.asp)를 따릅니다.
+
 `gatsby-node.ts` 파일의 `sourceNodes` 함수의 `targets` 배열에 언어 값을 추가하면 됩니다.
 
-언어 코드는 [ISO 630-1](https://www.w3schools.com/tags/ref_language_codes.asp)를 따릅니다.
+또한 `gatsby-config.ts` 파일의 `gatsby-plugin-manifest` 플러그인의 `localize`속성에 데이터를 추가합니다.
 
 데이터에서 배열 형태로 되어있는 `experience`의 `data`와 같은 항목은 빈 배열일 경우 화면에 그려지지 않습니다.
 
