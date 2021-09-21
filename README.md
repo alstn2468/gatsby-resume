@@ -21,6 +21,7 @@
   <p>
     <ul>
       <li>alstn2468: https://alstn2468.github.io/Gatsby_Resume/</li>
+      <li>bugoverdose: https://bugoverdose.github.io/resume/</li>
     </ul>
   </p>
 </details>
