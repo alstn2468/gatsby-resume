@@ -47,6 +47,8 @@ gatsby new <생성되는 프로젝트 이름> https://github.com/alstn2468/Gatsb
 
 이 프로젝트는 의존성 관리를 위하여 패키지 매니저 [pnpm](https://pnpm.js.org/)을 사용합니다.
 
+package-lock.json 파일이 생성된 경우 삭제해야 합니다.
+
 > `npx`를 이용해 프로젝트를 생성했다면 `install` 명령어는 실행하지 않아도 됩니다.
 
 ```bash
@@ -55,7 +57,7 @@ npm install -g pnpm
 pnpm install
 ```
 
-> 프로젝트 폴더 내부에서 `install` 명령어를 실행해야합니다.
+> 프로젝트 폴더 내부에서 `install` 명령어를 실행해야 합니다.
 
 pnpm을 설치하는 다른 방법은 [pnpm 문서](https://pnpm.js.org/en/installation)를 참고해주세요.
 
