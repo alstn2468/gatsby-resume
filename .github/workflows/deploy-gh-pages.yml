@@ -48,7 +48,7 @@ jobs:
       - name: Build website
         env:
           PUBLIC_URL: 'https://alstn2468.github.io/Gatsby_Resume/'
-          GATSBY_PATH_PREFIX: '/Gatsby_Resume'
+          GATSBY_PATH_PREFIX: '/gatsby-resume'
         run: |
           dir
           pnpm build
