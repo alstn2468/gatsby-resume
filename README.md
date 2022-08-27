@@ -20,7 +20,7 @@
   <summary>Use case</summary>
   <p>
     <ul>
-      <li>alstn2468: https://alstn2468.github.io/Gatsby_Resume/</li>
+      <li>alstn2468: https://alstn2468.github.io/gatsby-resume/</li>
       <li>bugoverdose: https://bugoverdose.github.io/resume/</li>
     </ul>
   </p>
@@ -33,14 +33,14 @@
 ### 1. 프로젝트 생성하기
 
 ```bash
-npx gatsby new <생성되는 프로젝트 이름> https://github.com/alstn2468/Gatsby_Resume
+npx gatsby new <생성되는 프로젝트 이름> https://github.com/alstn2468/gatsby-resume
 ```
 
 > `npx`를 사용하지 않으면 [Gatsby Getting Started](https://www.gatsbyjs.org/docs/quick-start)를 따라해주세요.
 
 ```bash
 npm install -g gatsby-cli
-gatsby new <생성되는 프로젝트 이름> https://github.com/alstn2468/Gatsby_Resume
+gatsby new <생성되는 프로젝트 이름> https://github.com/alstn2468/gatsby-resume
 ```
 
 ### 2. 의존성 설치
@@ -138,7 +138,7 @@ README 상단의 [뱃지](#badge)의 주소들을 변경해 뱃지도 관리해�
 
 여러분들의 코드 작성, 오탈자 수정 등 모든 기여는 감사합니다.
 
-1. 기여할 내용에 대한 [이슈를 작성](https://github.com/alstn2468/Gatsby_Resume/issues/new)해주세요.
+1. 기여할 내용에 대한 [이슈를 작성](https://github.com/alstn2468/gatsby-resume/issues/new)해주세요.
 2. 이 프로젝트를 Fork 해주세요.
 3. 작업을 진행할 branch를 만들어주세요. (git checkout -b somefeature)
 4. 작업을 진행한 후 Commit을 해주세요. (git commit -m 'Add some feature')
