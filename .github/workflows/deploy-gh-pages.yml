@@ -60,8 +60,8 @@ jobs:
       - name: Deploy to gh-pages
         uses: enriikke/gatsby-gh-pages-action@v2
         env:
-          PUBLIC_URL: 'https://alstn2468.github.io/Gatsby_Resume/'
-          GATSBY_PATH_PREFIX: '/Gatsby_Resume'
+          PUBLIC_URL: 'https://alstn2468.github.io/gatsby-resume/'
+          GATSBY_PATH_PREFIX: '/gatsby-resume'
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages
